@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="./js/pages.js"></script>
+        <script src="./js/index.js"></script>
+        <link rel="stylesheet" href="./css/index.css">
+        <title>AWS tutorials</title>
+    </head>
+    <body>
+        <div id="header">
+            <h1 class="centerText">AWS Tutorials</h1>
+            <nav>
+                <ul>
+                    <li><a href="javascript:nav.orientation()">OT.Why we should study AWS!</a></li>
+                </ul>
+                <div class="clearB"></div>
+                <ul class="floatL">
+                    <caption>Cloud Practitioner</caption>
+                    <li><a href="javascript:nav.day01()">day01.Intro to Storage Services</a></li>
+                    <li><a href="javascript:nav.day02()">day02.Actual Storage Practice</a></li>
+                    <li><a href="javascript:nav.day03()"></a></li>
+                    <li><a href="javascript:nav.day04()"></a></li>
+                    <li><a href="javascript:nav.day05()"></a></li>
+                    <li><a href="javascript:nav.day06()"></a></li>
+                </ul>
+                <ul class="floatL">
+                    <caption>Solution Artchitect</caption>
+                    <li></li>
+                </ul>
+                <ul class="floatL">
+                    <caption>Associate Developer</caption>
+                    <li></li>
+                </ul>
+                <div class="clearB"></div>
+            </nav>
+        </div>
+        <article id="mainArticle">
+            <h2 class="leftText">day03.Intro to Database</h2>
+            <section>
+                <h3 class="centerText">Types of AWS database</h3>
+                <ul>
+                    <li><span class="emphRed">Relational Database Service(RDB)</span>
+                        <ul>
+                            <li><span class="emphBlue">SQL type</span> database.</li>
+                        </ul>
+                    </li>
+                    <li><span class="emphRed">Dynamo Database</span>
+                        <ul>
+                            <li><span class="emphBlue">No-SQL type</span> database.</li>
+                            <li><span class="emphBlue">Serverless</span>, high speed, low lightency</li>
+                        </ul>
+                    </li>
+                    <li><span class="emphRed">Redshift</span>
+                        <ul>
+                            <li><span class="emphBlue">fast</span> pitabyte scale database.</li>
+                            <li>Perfect for <span class="emphBlue">big data storage</span></li>
+                        </ul>
+                    </li>
+                    <li><span class="emphRed">Elasticache</span>
+                        <ul>
+                            <li><span class="emphBlue">in-memory data store or cache in cloud</span></li>
+                            <li>allows you to <span class="emphBlue">retrieve</span>
+                                 fast well managed <span class="emphBlue">in-memory cache</span></li>
+                        </ul>
+                    </li>
+                    <li><span class="emphRed">Database Migration Service</span>
+                        <ul>
+                            <li>helps you <span class="emphBlue">migration of data securely</span></li>
+                            <li>even <span class="emphBlue">between</span>
+                                 two <span class="emphBlue">completely different</span> databases!</li>
+                        </ul>
+                    </li>
+                    <li><span class="emphRed">Neptune</span>
+                        <ul>
+                            <li>fast reliable fully managed <span class="emphRed">graph</span> database.</li>
+                            <li>perfect building <span class="emphBlue">relationship among data</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3 class="centerText">Database service exampls</h3>
+                <div id="img1"></div>
+                
+            </section>
+        </article>
+
+        <aside>
+            <ul class="circleBulletPt">
+                <h3 class="centerText">Key terms</h3>
+                <li>
+                    <span class="emphRed">AWS cloud</span>
+                    =<span class="emphBlue">a global infrastructure</span>
+                    that provides
+                    <span class="emphBlue">all the essential IT resources and services</span>
+                    to any developers. 
+                </li>
+                <li>
+                    <span class="emphRed">Virtual Private Cloud(VPC)</span>=
+                    <span class="emphBlue">privately owned and protected </span>
+                     space within AWS cloud.
+                     <ul>
+                         <caption>Properties</caption>
+                         <li>Can only access by you or anyother allowed individuals.</li>
+                     </ul>
+                </li>
+                <li>
+                    Cloud Computing Models
+                    <div class="indented">
+                        <div id="computeModel"></div>
+                        <ul>
+                            <li><span class="emphRed">Infrastructure as a Service</span>
+                                (<span class="emphBlue">IaaS</span>)
+                            </li>
+                            <li><span class="emphRed">Platform as a Service</span>(
+                                <span class="emphBlue">PaaS</span>)
+                                <ul>
+                                    <li>It has more control than IaaS</li>
+                                </ul>
+                            </li>
+                            <li><span class="emphRed">Software as a Service</span>(
+                                <span class="emphBlue">SaaS</span>)
+                                <ul>
+                                    <li>It has complete control over services.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="emphRed">Serverless Computing
+                                    or Function as a Service
+                                </span>(
+                                    <span class="emphBlue">FaaS</span>)
+                                <ul>
+                                    <caption>Properties</caption>
+                                    <li>Does not have to worry about server settings.</li>
+                                    <li>Examples
+                                        <ul>
+                                            <li>
+                                                AWS lambda: able to run code within the server.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul class="circleBulletPt">
+                <h3 class="centerText">Tips</h3>
+                <li></li>
+            </ul>
+        </aside>
+    </body>
+</html>
