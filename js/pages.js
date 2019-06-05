@@ -178,7 +178,67 @@ const pages={
             Congratulations! Now you have deleted the bucket completely.\
         </div>',
     day03:
-        '',
+        '<h2 class="leftText">day03.Intro to Database</h2>\
+        <section>\
+            <h3 class="centerText">Types of AWS database</h3>\
+            <ul>\
+                <li><span class="emphRed">Relational Database Service(RDB)</span>\
+                    <ul>\
+                        <li><span class="emphBlue">SQL type</span> database.</li>\
+                    </ul>\
+                </li>\
+                <li><span class="emphRed">Dynamo Database</span>\
+                    <ul>\
+                        <li><span class="emphBlue">No-SQL type</span> database.</li>\
+                        <li><span class="emphBlue">Serverless</span>, high speed, low lightency</li>\
+                    </ul>\
+                </li>\
+                <li><span class="emphRed">Redshift</span>\
+                    <ul>\
+                        <li><span class="emphBlue">fast</span> pitabyte scale database.</li>\
+                        <li>Perfect for <span class="emphBlue">big data storage</span></li>\
+                    </ul>\
+                </li>\
+                <li><span class="emphRed">Elasticache</span>\
+                    <ul>\
+                        <li><span class="emphBlue">in-memory data store or cache in cloud</span></li>\
+                        <li>allows you to <span class="emphBlue">retrieve</span>\
+                             fast well managed <span class="emphBlue">in-memory cache</span></li>\
+                    </ul>\
+                </li>\
+                <li><span class="emphRed">Database Migration Service</span>\
+                    <ul>\
+                        <li>helps you <span class="emphBlue">migration of data securely</span></li>\
+                        <li>even <span class="emphBlue">between</span>\
+                             two <span class="emphBlue">completely different</span> databases!</li>\
+                    </ul>\
+                </li>\
+                <li><span class="emphRed">Neptune</span>\
+                    <ul>\
+                        <li>fast reliable fully managed <span class="emphRed">graph</span> database.</li>\
+                        <li>perfect building <span class="emphBlue">relationship among data</span></li>\
+                    </ul>\
+                </li>\
+            </ul>\
+        </section>\
+        <section>\
+            <h3 class="centerText">Database service example I</h3>\
+            <div id="img1"></div>\
+            <ul>\
+                <caption>How it is done!</caption>\
+                <li>From corporate data base to RDS,\
+                        <span class="emphBlue"> Database Migration Service</span>\
+                     helps <span class="emphBlue">connnected and provide workflow</span>.\
+                </li>\
+                <li><span class="emphBlue">Elastic Cache</span> provides fast,\
+                    <span class="emphBlue">light data retrieval and update</span> to\
+                     RDS\
+                    and significantly <span class="emphBlue">lighten load of RDS</span>.\
+                </li>\
+                <li><span class="emphBlue">VPC</span>\
+                     allows <span class="emphBlue">afe workflow</span>.</li>\
+            </ul>\
+        </section>',
     day04:
         '',
     day05:

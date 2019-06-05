@@ -133,6 +133,13 @@ const nav={
     },
     day03:()=>{
         $("#mainArticle").html(pages.day03);
+        funcs.imageWithSub(
+            "img1",
+            "center",
+            "./image/day03/dataExp.png",
+            500,300,
+            "Example"
+        );
     },
     day04:()=>{
         $("#mainArticle").html(pages.day04);
