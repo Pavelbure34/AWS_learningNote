@@ -21,9 +21,10 @@
                     <li><a href="javascript:nav.day01()">day01.Intro to Storage Services</a></li>
                     <li><a href="javascript:nav.day02()">day02.Actual Storage Practice</a></li>
                     <li><a href="javascript:nav.day03()">day03.Intro to Database services</a></li>
-                    <li><a href="javascript:nav.day04()"></a></li>
+                    <li><a href="javascript:nav.day04()">day04.Actual Database Practice</a></li>
                     <li><a href="javascript:nav.day05()"></a></li>
                     <li><a href="javascript:nav.day06()"></a></li>
+                    <li><a href="javascript:nav.day07()"></a></li>
                 </ul>
                 <ul class="floatL">
                     <caption>Solution Artchitect</caption>
@@ -37,7 +38,57 @@
             </nav>
         </div>
         <article id="mainArticle">
-            
+            <h2 class="centerText">day04.Actual Database Practice</h2>
+            <section>
+                <div id="img1"></div>
+                <ol>
+                    <caption>What we will do here</caption>
+                    <li>we will <span class="emphBlue">create SQL database in VPC</span></li>
+                    <li>And get <span class="emphBlue">access to it remotely</span></li>
+                    <li>Do <span class="emphBlue">all the operations!</span></li>
+                </ol>
+            </section>
+            <section>
+                <h3 class="centerText">1.Create SQL db in VPC</h3>
+                <div id="imgs1"></div>
+                <ol>
+                    <li>If you haven&rsquo;t created one,create it.</li>
+                    <li>Select database type.
+                        <ul>
+                            <li>Since we only practice it, find free tier.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        For now,check Instance class. Choose db.t2.micro.
+                    </li>
+                    <li><span class="emphBlue">Name of the database</span>
+                         has to be <span class="emphRed">unique</span>.</li>
+                    <li>Don&rsquo;t bother changing advanced settings for now!</li>
+                </ol>
+            </section>
+            <section>
+                <h3 class="centerText">2.remote access to SQL db in VPC</h3>
+                <div id="imgs2"></div>
+                <ol>
+                    <li>Now db created,check for <span class="emphRed">end point</span>.
+                        <ul>
+                            <li>it is going to be the
+                                 <span class="emphBlue">access point to this</span>.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Open MySQL workBench for access to your DB.
+                    </li>
+                    <li>
+                        For <span class="emphBlue">creating SQL server</span>,
+                         use <span class="emphBlue">end point of your RDS</span>
+                          as <span class="emphRed">host name</span>.
+                    </li>
+                    <li>For <span class="emphBlue">xmaster user for local MYSQL</span>,
+                        use <span class="emphBlue">the same name of master user for RD and password</span>
+                        for <span class="emphRed">remote connection</span>.</li>
+                </ol>
+            </section>
         </article>
 
         <aside>
