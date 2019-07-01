@@ -3,6 +3,19 @@ body{
     font-size:20px;
 }
 
+emB{
+    content: attr(t);
+    font-weight: bold;
+    color:blue;
+}
+
+emR{
+    content: attr(t);
+    font-weight: bold;
+    font-style: italic;
+    color:red;
+}
+
 ul li{
     margin-bottom:5px;
 }
