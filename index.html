@@ -14,6 +14,7 @@
             <nav>
                 <ul>
                     <li><a href="javascript:nav.orientation()">OT.Why we should study AWS!</a></li>
+                    <li><a href="javascript:nav.orientation_1()">OT.background knowledge!</a></li>
                 </ul>
                 <div class="clearB"></div>
                 <ul class="floatL">
@@ -93,7 +94,7 @@
                 What is Cloud Computing?
                 <blockquote>
                     Computer services using cloud resources.
-                    <div class="indetned">
+                    <div class="indented">
                         Using network,Virtual network,storages,
                         any service can be provided.
                         <ul>
@@ -116,11 +117,216 @@
             </section>
             <section>
                 <h3>Setting up network environment</h3>
-                
+                <section>
+                    <h4>How network communication works</h4>
+                    2 layer equipment-MAC address = they take communication among devices within the same network constantly changing each step.
+                    -> LAN environment. using switch and hub. 
+                    3 layer equipment:Router -> IP address Public vs Private. Class system -> CIDR and subnet masking
+                    Use routing table 
+                        route print -4 -> routing table
+                        arp -a -> show MAC table. //request-reply used to know which one shares the same network.
+
+                    1. Check if the same network?
+                    2. Go to router under routing after checking gateway address.
+                    3. Gateway in Router.
+                    4. From current MAC address to destination MAC address step by step.
+                    5. if wanna using internet, using public IP address. since private IP address is not registered, it cannot be routed from outside.
+                    but from public IP adress, it is impossible to go back to original private address without NAT(Network Address Translation).
+                    NAT allows you change the starting NAT(SNAT) for routing.
+                    To distinguish the starter, Port Number is used when multiple devices request to the same public IP address.
+                    Port number: well known 0~1230 Tellnet 21 SSH 22 ftp 20.. default port number! starting port number is randomly given.
+                    Router remembers the initial setting. Reply is the reverse of the initial setting.->SNAT //also covers your own network from outside.
+
+                    //when outside source uses your private web server, DNAT!
+                    if destination 20.20.20.100 Dport:80, destination IP 20.0.1.100,dport:80. //changing destination IP address.
+
+                    it is good to split networks due to efficienty and security.
+
+                    DMZ network Vs Server farm:
+                        DMZ network:
+                            -Both internal and external traffic area.
+                            -Server that external server has to approach 
+                        Server Farm:
+                            -Server that external server must not approach.
+                            -Isolated Servers.
+                </section>
+                <section>
+                    VM ware network settings.
+                    go for edit->virtual network editor.->click change setting to turn to admin mode.
+                        -Bridged:
+                            programs created in "bridge"ed network are isolated and
+                             laid a bridge with the external source. it uses your network card  
+                        -Host-only: only hosts in VM network can comminicate each other. external approaches are theoretically cut out.
+                        -NAT: network appended with NAT servcice. depending on my setting, DNAT, SNAT are possible.  
+                    AWS make VPC service to create network and similar to Host-only type->just connect to the other device to allow comm with external source.
+                    Use snapshot! AWS already provides AWS snapshot. AWS asks you OS first and the following settings.
+                </section>
             </section>
             <section>
-                <h3>Setting up Web services in Virtual Machine</h3>
-
+                <h3>Fundamentals of Web</h3>
+                One of many services in Internet.<br>
+                Computer Network was born from the need to share informations for efficiency of research.<br>
+                Then, FTP,Buffer...HTTP,HTML were born.<br>
+                WWW = World Wide Web. by using different protocol, you can use different service with web browser.<br>
+                Get:when no parameter vs Post:with parameter to return to<br>
+                Header
+                    <ul>
+                        <li>general: <Br>
+                            -cache-control or pragma->set up time limit.</li>
+                        <li>request:
+                            <ul>
+                                <li>authorization:AWS environment uses this a lot!</li>
+                                <li>Host: used for virtualization.</li>
+                            </ul>
+                        </li>
+                        <li>Entity:<br>
+                                -Expire:time limit!</li>
+                        <li></li>
+                    </ul>
+                Web server is intermitten. Request-response-done! repeat of this. because of millions of users.<br>
+                then how do we track down the user? Session Token(=Cookie) Permanent token vs session token
+                <ul>
+                    <li>session token = information that authorizes the session.</li>
+                    <li>both client and server keep it(=== number list for customers).</li>
+                    <li>when session expired session token is also gone.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Encryption</h3>
+                For security,storage, database, and communication enviroment requires encryption.<Br>
+                It alters the original data unreadable by the 3rd party.<Br>
+                Encryption requires the key which is used for decryption.<br>
+                <ul>
+                    <li>plaintext: original file</li>
+                    <li>ciphertext: encrypted file</li>
+                    <li>encryption: procedure making file secure</li>
+                    <li>decryption:making data back to original one</li>
+                    <li>cryptographic algorithm: how you encrpy</li>
+                </ul>  
+                <ul>
+                    <li>대칭형= encryption and decryption uses the same key.
+                        <ul>
+                            <li>has to be kept secret or securely taught</li>
+                            <li>fast</li>
+                            <li>adaptable</li>
+                        </ul>
+                        <ul>
+                            DES,AES, etc...
+                        </ul>
+                    </li>
+                    <li>비대칭형= encryption and decryption uses the different key.
+                        <ul>
+                            <li>uses key-pair</li>
+                            <li>But it is sooo slow by 1000 times.</li>
+                            <li>If encryped with A,only decryped with B.</li>
+                            <li>Public key algorithm. The other key is secret.</li>
+                            <li>Only the owner can see it! mostly used to hand key from 대칭형 securely.</li>
+                            <li>공인인증서 is the example.
+                                <div class="indented">
+                                    The original file is encrypted with institution&rsquo;s private key.
+                                    Then use public key of the insitution to decrypt it in order to authorize<br>
+                                     whether it was tampered or damaged or integrety.
+                                </div>
+                            </li>
+                            <li>used to check the validity of websites</li>
+                            <li>RSA, DSA.</li>
+                        </ul>
+                    </li>
+                </ul>
+                Vs Hashing: for downloading to check the data is secured.It does not have key and cannot call back.
+            </section>
+            <section>
+                <h2 class="centerText">AWS technical Essentials</h2>
+                <section>
+                    <h3>AWS Services</h3>
+                    Amazon Web Services is a web service that
+                     allows easy maintenance and use of cloud computing resources.<br>
+                    <ul>
+                        <caption>AWS main customers are</caption>
+                        <li>Enterprises for its effectiveness, expendablitiy, low initial investment.</li>
+                        <li>govt. organizations for its security and credence</li>
+                        <li>startups for its low initial investment</li>
+                    </ul>
+                    <ul>
+                        <caption>Advantages</caption>
+                        <li>No need for pre-configuration for expansion.</li>
+                        <li>Easy distribution.</li>
+                        <li>No investment for maintenance for data center</li>
+                        <li>fast and effective services</li>
+                        <li>access to latest hardware</li>
+                        <li>Flexibility for configuration</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>On-premise vs AWS</h3>
+                    <ul>
+                        <li>Security
+                            <div class="indented">
+                                Firewall, ACL, Admin ----> Security Group, Netowork ACL, and AWS lam
+                            </div>
+                        </li>
+                        <li>Networking
+                            <div class="indented">
+                                Router, network pipeline, Switch ----> Elastic Load Balancing, and Amazon VPC.
+                            </div>
+                        </li>
+                        <li>Server
+                            <div class="indented">
+                                on-premise server ----> AMI to Amazon EC2 instances.
+                            </div>
+                        </li>
+                        <li>Storage and database
+                            <div class="indented">
+                                SAN, DAS, NAS ----> EBS(==SAN),EFS(==DAS),S3,RDS(==SQL)
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>AWS Global Infrastructure</h3>
+                    <ul>
+                        <li>Region: geographic location which consist of at least two areas.</li>
+                        <li>Area: a cluster for data center.</li>
+                        <li>Edge Location: designed to provide fast services locally and closest.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Core Services</h3>
+                    <ul>
+                        <li>Amazon Elasitic Computing(EC)
+                            <ul>
+                                <li>Configure the computing power according to demand!</li>
+                                <li>Pay for what you actually used</li>
+                                <li>Avaiable for Linux and Windows</li>
+                                <ol>
+                                    <li>get to choose region.</li>
+                                    <li>init the AEC instance</li>
+                                    <li>set up the initial set up for computing power, changeable at any time.</li>
+                                    <li>Netowrk, IP address, Secuity group..set up.</li>
+                                </ol>
+                                <li>You can use premade images(AMI) or save your setting as AMI.</li>
+                                <li>key pair security.</li>
+                                <li>Payment standards
+                                    <ol>
+                                        <li>on-demand instance: pay by second</li>
+                                        <li>Reservation instance:1 or 3 years usage</li>
+                                        <li>Booked Instance: scheduled usage</li>
+                                        <li>Spot instance:available unused resouces are auctioned.very cheap</li>
+                                        <ul>
+                                            <li>The above instances use the usage time</li>
+                                            <li>The below instances use its monopoly time</li>
+                                        </ul>
+                                        <li>exclusive host:monopoly on hosts.(single tenenat environment)</li>
+                                        <li>exclusive instance:monopoly on instance.</li>
+                                    </ol>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Amazon Virtual Private Cloud(VPC)
+                            
+                        </li>
+                    </ul>
+                </section>
             </section>
         </article>
 
@@ -186,7 +392,18 @@
             </ul>
             <ul class="circleBulletPt">
                 <h3 class="centerText">Tips</h3>
-                <li></li>
+                <li>HAVE to manage cookies in AWS environment well.
+                    <div class="indented">
+                        to prevent irregualar cookie(session token which authorizes session) set ups.<br>
+                        so gotta store it somewhere
+                    </div>
+                </li>
+                <li>AWS VPC is similar to host-only.</li>
+                <li>AWS uses Authorization session cookie a lot to filter the right request.</li>
+                <li>For AWS Database and firewall, you gotta open port 80 </li>
+                <li>AWS RDS is SQL based storage. It does the stand by backup.</li>
+                <li>Snapshot function is literally backup.</li>
+                <li>S3 is the most sturdy storage.</li>
             </ul>
         </aside>
     </body>
