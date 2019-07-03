@@ -235,6 +235,7 @@
                 </ul>
                 Vs Hashing: for downloading to check the data is secured.It does not have key and cannot call back.
             </section>
+
             <section>
                 <h2 class="centerText">AWS technical Essentials</h2>
                 <section>
@@ -323,11 +324,281 @@
                             </ul>
                         </li>
                         <li>Amazon Virtual Private Cloud(VPC)
-                            
+                            <ul>
+                                <li>You can make it multiple numbers.</li>
+                                <li>Based on region.</li>
+                                <li>Its subnet roots in specific area and not expandable.</li>
+                                <li>It is isolated cloud by default so need a gateway to communicate with each other.</li>
+                                <li>required to divide subnets within itself then we can allocate server on subnet.</li>
+                                <ul>
+                                    <li>public subnet:external source can gain access to it.</li>
+                                    <li>private subnet: external source cannot gain access to it.</li>
+                                    <li>When private subnet needs internet connection, connect to public subnet with NAT.</li>
+                                    <li>Each subnet can communicate with each other. if not,use ACL to stop it.</li>
+                                    <li>after making subnet, you set it up either private or public.</li>
+                                </ul>
+                                <li>you need a gateway attached to VPC for internet connection.</li>
+                                <li>you can use VPN(Virtual Private Network)</li>
+                            </ul>
+                        </li>
+                        <li>Amazon Storage Services(S3 and EBS)
+                            <ul>
+                                <li>Simple Storage Service(S3):
+                                    <ul>
+                                        <li>Sturdy, fast, elastic in size.</li>
+                                        <li>Best for
+                                            <ol>
+                                                <li>backup solution</li>
+                                                <li>media file, application file hosting</li>
+                                                <li>software transmission</li>
+                                                <li>AMI and snapshot storage</li>
+                                            </ol>
+                                        </li>
+                                        <li>Internet based storage so accessible by internet</li>
+                                        <li>encryption,REST, SOAP apis supported</li>
+                                        <li>maximum 100 buckets initially allowed.</li>
+                                        <li>files are managed as objects. No file directory actually.</li>
+                                        <li>Support Versioning function:<br>
+                                             when important files are tampered or deleted by mistake,you can roll back</li>
+                                        <li>Life cycle policy is supported
+                                            <ul>
+                                                <li>set up what and when to move when unfrequently moved.</li>
+                                                <li>Even deletion.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Amazon S3 Glacier: S3 for archives
+                                    <ul>
+                                        <li>the most expensive for request.</li>
+                                        <li>Cheapest for storage.</li>
+                                    </ul>
+                                </li>
+                                <li>Elastic Block Service(EBS):consistent and permanent block-scale storage similar to USB(attach and detach).
+                                    <ul>
+                                        <li>snapshots are best saved in S3.</li>
+                                        <li>Not reliable as S3 yet permanent.</li>
+                                        <li>good for huge storage.</li>
+                                        <ul>
+                                            <li>SSD type volume-focus on fast I/O transanction and only for booting</li>
+                                            <li>HDD type volume-focus on high scale of streaming and not for booting.</li>
+                                        </ul>
+                                        <li>Already made volumes cannot be encrypted but initial one can be.</li>
+                                        <ol>
+                                            <li>Operating System Volume(SSD type)</li>
+                                            <li>Database(better for HDD type)</li>
+                                        </ol>
+                                    </ul>
+                                </li>
+                                <li>Amazon EC2 Storage: free local directed connected block storage
+                                    <ul>
+                                        <li>But not continuous.</li>
+                                        <li>sync with EBS storage and work like local backup</li>
+                                        <li>Highly functional</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>Security in AWS model
+                            <ul>
+                                <li>Sharing Responsibilities=Customer + Amazon
+                                    <ul>
+                                        <li>Amazon only has hardware and security and consistency of services.</li>
+                                        <li>Security Group, Access identifiers, firewalls, OS system, encryptions are customer&rsquo;s responsibilities.</li>
+                                    </ul>
+                                </li>
+                                <li>SSL end point,private network,VPC, and IAM ensures complete safety.
+                                    <ul>
+                                        <li>Identity and Access Management(IAM): root manages...
+                                            <ol>
+                                                <li>permission for users</li>
+                                                <li>roles for users with policies
+                                                    <ul>
+                                                        <li>Both custom policies and pre-made policies.</li>
+                                                        <li>Using JSON document.</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Make sure your root account strong!</li>
+                                                <li>link with external certificate</li>
+                                                <li>For root account,delete the access and secret key.</li>
+                                                <li>create each IAM user->using group, assign authority to them</li>
+                                                <li>Only assign minimum authority to IAM users</li>
+                                                <li>Make strong password.</li>
+                                            </ol>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>provides group, CLI(security key and password) or management console access to users
+                                    <ul>
+                                        <li>policies can be used for group, role, user, application, and server.</li>
+                                        <li>Never ever embed policies in application and server pre-set-up</li>
+                                        <li>You can assign them later with roles.</li>
+                                        <li>Role can give policy or authority to other users.</li>
+                                    </ul>
+                                    <ul>
+                                        <li>AWS STS(Secret Token Service):temporary authority transfer til the expiration date</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>AWS CloudTrail:records AWS API.</li>
+                        <li>AWS database
+                            <ul>
+                                <li>SQL or noSQL?
+                                    <ul>
+                                        <li>noSQL
+                                            <ul>
+                                                <li>No schema..</li>
+                                                <li>good for holding various forms of data</li>
+                                                <li>Horizontal expansion so capable of dealing with many queries.</li>
+                                                <li>Very inconsistent in data form.</li>
+                                                <li>Used in business when it is okay to hold relatively inconsistent database.</li>
+                                            </ul>
+                                        </li>
+                                        <li>SQL
+                                            <ul>
+                                                <li>schema..</li>
+                                                <li>good for strictly structured data</li>
+                                                <li>Vertical expanson so limited when many queries.</li>
+                                                <li>Very consistent in data form</li>
+                                                <li>When consistency in data is important, it is used.</li>
+                                            </ul>
+                                        </li>
+                                        <li>It is mixed nowadays.</li>
+                                    </ul>
+                                </li>
+                                <li>My custom database or pre-made database?
+                                    <ul>
+                                        <li>custom database: gain full control and optimization</li>
+                                        <li>pre-made database(RDS,DynamoDB): limited authority and control</li>
+                                        <ul>
+                                            <li>RDS(SQL based)
+                                                <ul>
+                                                    <li>fast and simple distribution</li>
+                                                    <li>simple database management</li>
+                                                    <li>fast and simple expansion</li>
+                                                    <li>cost-effective</li>
+                                                    <li>good security</li>
+                                                    <li>automatic backup or manual snapshot</li>
+                                                    <li>can move it to different region.</li>
+                                                    <li>Using policies and roles,IAM controls the security.</li>
+                                                </ul>
+                                            </li>
+                                            <li>DynamoDB(noSQL based)
+                                                <ul>
+                                                    <li>perfect management by Amazon</li>
+                                                    <li>Limitless storage</li>
+                                                    <li>create table</li>
+                                                    <li>can accommodate shift to on-demand(no limit on request calls) mode.</li>
+                                                    <li>can set up maximum capacity(volume) of holding request per second.</li>
+                                                    <li>provide query and scan functions
+                                                        <ul>
+                                                            <li>query:only shows the data using specific key value</li>
+                                                            <li>scan:find using general options</li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>AWS elasticity and management tool
+                            <ul>
+                                <li>Elastic Load Balancing:lightens the traffic. 
+                                    <ul>
+                                        <caption>Types</caption>
+                                        <li>CLB(Classic Load Balancer):automatic methods(HTTP/HTTPS,TCP,SSL),VPC</li>
+                                        <li>ALB(Application Load Balancer):HTTP/HTTPS protocols are dispersed and routed.,VPC</li>
+                                        <li>NLB(Network Load Balancer):Mostly used by inner strucutre(TCP),VPC</li>
+                                    </ul>
+                                </li>
+                                <li>auto Scaling:executes the policies and controls the number of instances.
+                                    <ul>
+                                        <li>if usage is inconsistent and volatile,it is useful for controlling.</li>
+                                        <ul>
+                                            <caption>Advantages</caption>
+                                            <li>better maintenance cost</li>
+                                            <li>efficient control over instances</li>
+                                        </ul>
+                                        <li>maximum number of instances we can hold is better to be set as maximum<br>
+                                            since defense against d-dos attack increasing instances does not crash the server.
+                                        </li>
+                                        <li>It controls the desired volume in order to trigger deletion or appension of instances.</li>
+                                        <li>Basic life cycle<br>
+                                            check the ups and downs of instances depending on time.
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Amazon cloudwatch:watch over any reasons for any discomfortness and trouble.(CPU usage, buffering time)
+                                    <ul>
+                                        <caption>Monitors</caption>
+                                        <li>User-specified appplication&rsquo;s status</li>
+                                        <li>Usage of resources, management efficiency...</li>
+                                        <li>also supports graphic environment</li>
+                                    </ul>
+                                </li>
+                                <li>Trusted advisor:provides useful guidelines to imrpove current status.</li>
+                            </ul>
                         </li>
                     </ul>
                 </section>
             </section>
+
+            <section>
+                <h2 class="centerText">AWS Solution Architecture</h2>
+                <section>
+                    <h3>AWS === internet management environment</h3>
+                    With well-dcoumented API and desired efficiency of archtect,
+                    Amazon started AWS in 2006.
+                    <ul>
+                        <caption>It is </caption>
+                        <li>Programmable resources</li>
+                        <li>Dynamic functions</li>
+                        <li>On-demand payment</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Well-Architected Framework(WAF)</h3>
+                    <ol>
+                        <li>Security:
+                            <ul>
+                                <li>IAM, roles, and policies management</li>
+                                <li>turn on CloudTrail and problem-analysis.</li>
+                                <li>Security on each layer.</li>
+                                <li>imminent danger evaluation and solution-strategy(Ex. Amazon Inspector).</li>
+                            </ul>
+                        </li>
+                        <li>Cost Optimization:
+                            <ul>
+                                <li>Efficiency evalution</li>
+                                <li>Get rid of Unncessary service</li>
+                                <li>Consider service that not many managers are needed.</li>
+                            </ul>
+                        </li>
+                        <li>Sturdiness:
+                            <ul>
+                                <li>acquire dynamic resources to meet the demand.</li>
+                                <li>build up fast backup,solution for trouble on service.</li>
+                            </ul>
+                        </li>
+                        <li>Management:
+                            <ul>
+                                <li>Before releasing, test everything.</li>
+                                <li>After releasing, monitor everything.</li>
+                            </ul>
+                        </li>
+                        <li>Functional efficiency:
+                            <ul>
+                                <li>Catch up with new features and higher services</li>
+                                <li>Choose efficient resources to meet the change in demand and improve the efficiency.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </section>
+            </section>
+
         </article>
 
         <aside>
@@ -404,6 +675,7 @@
                 <li>AWS RDS is SQL based storage. It does the stand by backup.</li>
                 <li>Snapshot function is literally backup.</li>
                 <li>S3 is the most sturdy storage.</li>
+                <li>AWS only has one root account and allows USERS to gain access to certain degrees.</li>
             </ul>
         </aside>
     </body>
