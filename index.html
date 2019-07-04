@@ -583,7 +583,7 @@
                                 <li>build up fast backup,solution for trouble on service.</li>
                             </ul>
                         </li>
-                        <li>Management:
+                        <li>Management Quality:
                             <ul>
                                 <li>Before releasing, test everything.</li>
                                 <li>After releasing, monitor everything.</li>
@@ -596,6 +596,202 @@
                             </ul>
                         </li>
                     </ol>
+                </section>
+                <section>
+                    <h3>Amazon Simple Storage Service(S3)</h3>
+                    It is object-based storage, 99.999% sturdy, and event-trigger.
+                    <ul>
+                        <li>useful for static web contents hosting or file storage.</li>
+                        <li>Good for large scale analysis for finance transction,media transcoding, and click-stream.</li>
+                        <li>Using cloudfront in edge point, S3 provides Transfer Acceleration.</li>
+                        <li>Using Amazon Snowball, you can transanct petabyte scale of data.Using AWS Snowmobile,Exabyte data can be transact.</li>
+                        <li>Private in access grant by default. but static website should be public.</li>
+                        <li>Using access policies and ACL, we can filter you can gain access.
+                            <ul>
+                                <caption>Policies</caption>
+                                <li>are in JSON form.</li>
+                                <li>&ldquo;Version&rdquo;,&ldquo;Id&rdquo;,&ldquo;Statement&rdquo;</li>
+                            </ul>
+                        </li>
+                        <li>Versioning Feature.</li>
+                        <li>CORS:</li>
+                    </ul>
+                    <ul>
+                        <caption>Best for</caption>
+                        <li>Data that are read multiple times</li>
+                        <li>Access increses extremely infrequenly</li>
+                    </ul>
+                    <ul>
+                        <caption>Its Variation</caption>
+                        <li>S3 Glacier: best for archives. expensive for search.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>What to consider when selecting region for my architecture.</h3>
+                    <ol>
+                        <caption>Ask youself first..</caption>
+                        <li>Does this data in my service have privacy policies and laws?</li>
+                        <li>Can I store my customer&rsquo;s data globally?</li>
+                        <li>Can I observe the governance obligation?</li>
+                    </ol>
+                    <ol>
+                        <caption>Consider!</caption>
+                        <li>Choose the closest region for my users since slight delay makes a huge difference in user experience.</li>
+                        <li>Choose the region that has the desired services since not every region supports all the services.</li>
+                        <li>Consider the const efficiency since every region costs differently.</li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>Module3: How to add computing steps</h3>
+                    <blockquote>
+                        When few users use app frequently.
+                    </blockquote>
+                    EC2(Amazon Elastic Computing Cloud)
+                    <ul>
+                        <caption>can do..</caption>
+                        <li>Web hosting</li>
+                        <li>Database</li>
+                        <li>Authentication</li>
+                        <li>All the things that servers are capable of.</li>
+                    </ul>
+                    <ul>
+                        <caption>It is very elastic...</caption>
+                        <li>you can experiment as much as you want if you save AMI(Amazon Machine Image) before.</li>
+                        <li>Fast duplication.</li>
+                        <li>Data-based decision making.</li>
+                    </ul>
+                    <ul>
+                        <caption>AMI</caption>
+                        <li>Reusability</li>
+                        <li>duplicity</li>
+                        <li>useful for backup solution</li>
+                        <li>User data,which only executed when being created, can be useful when every instance holds different data.</li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <caption>What to consider</caption>
+                        <li>What to do with it. How many I need...</li>
+                        <li></li>
+                    </ul>
+                    <ul>
+                        <caption>Horizontal vs Vertical expansion</caption>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Amazon Elastic Block Storage(EBS)</h3>
+                    <blockquote>
+                        When block level, non-ephmeral,permanent, back-up-able data are needed
+                    </blockquote>
+                    <ul>
+                        <li>SSD based: good for rapid flash I/O transction.</li>
+                        <li>HDD based: good for massive scale of streaming! </li>
+                        <li>Magnetic:cheaper than HDD but worse spec yet good for hard drive mostly using internal memory.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Adding Layers to Databaase</h3>
+                    <blockquote>
+                        When you need separate database for its volume and use.
+                    </blockquote>
+                    <ul>
+                        <caption>What to consider</caption>
+                        <li>Expandablility</li>
+                        <li>Size</li>
+                    </ul>
+                    <ul>
+                        <li>non-managerial database</li>
+                        DynamoDB
+                        <ul>
+                            <li>must allocate the partition(#) key.</li>
+                            <li>Better to sorting key since it sorts the data physically.</li>
+                            <li>Supports Global feature that allows the same name among many databases in different regions.</li>
+                            <li>set up reading and writing capacity manually or automatic option.</li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <caption>Security</caption>
+                        <li>Using ID and Password.</li>
+                        <li>Encryption in reading and writing on database.</li>
+                        <li>Can set up event alarm</li>
+                    </ul>
+                    <ul>
+                        <caption>Amazon Database Migration Service(DMS)</caption>
+                        <li>it helps migrate database into AWS but not perfect.</li>
+                        <li>When data is too big, use Amazon Snowball.</li>
+                        <li></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>AWS based networkiing part.1</h3>
+                    <blockquote>
+                        When we need seprated workload and gotta distribute and manage AWS resources.
+                    </blockquote>
+                    What is VPC? It is Virtual Private Cloud for development and tests which can be separated.<br>
+                    <ul>
+                        <li>It is nested in the region and replacement for network in on-premise environment.</li>
+                        <li>You divide it into subnets and better to have the network as large as possible,</li>
+                        <li>recommended to have two VPCs.
+                            <ul>
+                                <li>one account with many VPCs(max 5)
+                                    <ul>
+                                        <li>Perfect for small and middle size of team</li>
+                                        <li>Managing roles and authority can be hectic due to possible mistake.</li>
+                                    </ul>
+                                </li>
+                                <li>multiple users in many VPC
+                                    <ul>
+                                        <li>Perfect for potentially growable or large scale companies</li>
+                                        <li>Easy for authority and roles management.</li>
+                                        <li>Complicated for management.</li>
+                                    </ul>
+                                </li>
+                                <li>Should give subnets!
+                                    <ul>
+                                        <li>Usually 4(or 8) subnets in one area.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>For internet accesss,internet gateway should be added and routing table should be edited per subnets
+                            (DO NOT USE DEFAULT ONE)
+                        </li>
+                        <li>Subnets are used to hold
+                            <ul>
+                                <li>data storage,batch, backend instance->private</li>
+                                <li>Web application->public or private(with ELB)</li>
+                                <li>Most of the servers are placed in private so private subnets are bigger than public subnets.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <h2>Security in Cloud</h2>
+                <section>
+                    <h3>Security Group</h3>
+                    <blockquote>
+                        Virtual Firewall that controls the traffic(IP address, Port Number).
+                    </blockquote>
+                    <ul>
+                        <li>It creates group of instances under the same firewall.</li>
+                        <li>State Pool inspection:when certain traffic is in, that traffic is allowed to leave.</li>
+                        <li>Used by Tier group such as Web Server, App Server, ...</li>
+                        <li>Chain Diagram:For the source,you can either IP address, Security group!</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>NACL(Network Access Control List)</h3>
+                    <blockquote>
+                        firewall in the subnet level.
+                    </blockquote>
+                    <ul>
+                        <li>in and outbounds are allowed by default.</li>
+                        <li>it needs specific conditions of in and outbound traffic.</li>
+                        <li>USing both NACL and Security Group ensures safety.</li>
+                    </ul>
                 </section>
             </section>
 
@@ -663,6 +859,14 @@
             </ul>
             <ul class="circleBulletPt">
                 <h3 class="centerText">Tips</h3>
+                <li>CIDR
+                    <ul>
+                        <li>0.0.0.0/0 all IPs</li>
+                        <li>~~.~~.</li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </li>
                 <li>HAVE to manage cookies in AWS environment well.
                     <div class="indented">
                         to prevent irregualar cookie(session token which authorizes session) set ups.<br>
@@ -675,6 +879,12 @@
                 <li>AWS RDS is SQL based storage. It does the stand by backup.</li>
                 <li>Snapshot function is literally backup.</li>
                 <li>S3 is the most sturdy storage.</li>
+                <li>Edge location is for remote users to have smooth services.
+                    <ol>
+                        <li>Web firewall</li>
+                        <li></li>
+                    </ol>
+                </li>
                 <li>AWS only has one root account and allows USERS to gain access to certain degrees.</li>
             </ul>
         </aside>
