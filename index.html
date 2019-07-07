@@ -765,6 +765,15 @@
                             </ul>
                         </li>
                     </ul>
+                    <ul>
+                        <caption>MUST!</caption>
+                        <li>append internet gateway to VPC for internet access.</li>
+                        <li>Set up routing table for each subnet!</li>
+                        <li>Set up security group and let other security group get source from the other one!</li>
+                        <li>For NACL set up inbound and outbound traffic filtering options!</li>
+                        <li>Set up NAT gateway for private subnet if internet access is needed.</li>
+                        <li>Open the port in the instance level.</li>
+                    </ul>
                 </section>
             </section>
 
@@ -794,7 +803,150 @@
                     </ul>
                 </section>
             </section>
+            <section>
+                Module 6. Network using AWS.
+                <blockquote>
+                    Gotta be able to deal with bigger traffic disability<br>
+                    because VPC uses Internet...
+                </blockquote>
+                AWS Direct Connect Service(DX) provides exclusive private network connection.
+                <ul>
+                    <caption>Connection and Communication between VPCs</caption>
+                    <li>VPC peering : make VPCs communicate as if they are in the same network.
+                        <ul>
+                            <li>Using priviate IP address</li>
+                            <li>IP address cannot be overlapped.</li>
+                            <li>can set up with different AWS account.</li>
+                            <li>Set up all of these in routing table.</li>
+                            <li>region-to-region connection is supported</li>
+                            <li>Maintained in AWS back-bone so internet is not required.</li>
+                        </ul>
+                    </li>
+                    <li>Transit Gateway:allows you to have one intermediate VPC that works like Router among VPCs.
+                        <ul>
+                            <li>Can hold up to 5000 VPCs.</li>
+                            <li>add Transit gateway in the routing table in each VPCs.</li>
+                            <li>Set up Routing table in Transit Gateway.</li>
+                        </ul>
+                    </li>
+                    <li>VPC endpoint:allows private connection between EC2 instance with VPC external service.
+                        <ul>
+                            <li>Interface type: like new virtual network card into your subnet.
+                                <ul>
+                                    <li>Amazon CloutWatch Logs</li>
+                                    <li>AWS EC2 API</li>
+                                    <li>AWS System Manager</li>
+                                </ul>
+                            </li>
+                            <li>gateway type: like new virtual network card into your subnet.
+                                <ul>
+                                    <li>Amazon S3</li>
+                                    <li>Amazon DynamoDB</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Elastic Load Balancing(ELB):Lightens the heavy traffic.
+                        <ul>
+                            <li>internally or externally positionable</li>
+                            <li>using HTTP,HTTPS,TCP, and SSL protocol</li>
+                            <li>allocated with DNS name</li>
+                            <li>monitors abnormal instances</li>
+                            <li>ALB(for Web request, so exposed, 7 layer)
+                                 and NLB(for TCP request, so not exposed, 4 layer)
+                            </li>
+                        </ul>
+                        <ul>
+                            <caption>why ELB?</caption>
+                            <li>strong security</li>
+                            <li>Monitoring Service</li>
+                            <li>High usability</li>
+                            <li>Abortion of encrypeted transanction in web server</li>
+                        </ul>
+                    </li>
+                    <li>Connection Draining:to prevent users from any influence from deletion of instances
+                        <ul>
+                            <li>Deletion of important back-end has to be notified</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>High Availability</h3>
+                Under the given time period, service has to be provided highly under any time.
+                <ul>
+                    <caption>For that....</caption>
+                    <li>Expandability:dynamically reactable to external requests or calls.</li>
+                    <li>Resistance to flaws(duplicate launching of servers)</li>
+                    <li>Recovery(back-up):being able to recover from damage soon.</li>
+                </ul>
+                <ul>
+                    <caption>Multiple region high availability model</caption>
+                    <li>Using Amazon Route53, claiming to be 100% available.</li>
+                    <li>Nested in Edge Location</li>
+                    <li>DNS domain name is converted into IP address</li>
+                    <li>Provide multiple Routing option, elastic and highly avaiable environment.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Identitiy Access Management(IAM)</h3>
+                It helps you manage authentication and authority and roles.
+                <blockquote>
+                    When one of the your teammates have certain expertise.
+                </blockquote>
+                <ul>Amazon Cognito
+                    <li>helps authenticate in the mobile application</li>
+                </ul>
+            </section>
+            <section>
+                <h3>How many accounts do you need?</h3>
+                <ul>
+                    <caption>two separate VPC's with peer connection.</caption>
+                    <li>Manager Account:
+                        <ul>
+                            <li>only given with authority to reading resources from managee account</li>
+                            <li>security department.</li>
+                            <li>Get to see the log</li>
+                        </ul>
+                    </li>
+                    <li>Managee and producing Account
+                        <ul>
+                            <li>Sends log for action</li>
+                            <li>ONly given wth authority to use resources given.</li>
+                        </ul>
+                    </li>
+                </ul>
+                AWS ORganizations:allows central account management.
+                <ul>
+                    <li>Tree structure.Root -> ou -> ou or AWS account</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Elasticity,High availability, and monitoring</h3>
+                <blockquote>
+                    Organization experienced surge of users! What should I do?
+                </blockquote>
+                you need monitoring for flexible adjustment with Auto Scaling!<br>
+                CloudWatch helps monitor the application.
+            </section>
 
+            <section>
+                <h3>AWS Quick Start</h3>
+                <ul>
+                    <li>Distributes AWS cloud template.</li>
+                </ul>
+                <h3>Elastic Beanstalk</h3>
+                <blockquote>
+                    For user, Application stacks are managed.(For developers)
+                </blockquote>
+            </section>
+            <sectio>
+                <h3>Caching!</h3>
+                <blockquote>
+                    DB takes the same requests and sends the same respose over and over.
+                </blockquote>
+                store frequently asked data which is not changed.
+            </sectio>
         </article>
 
         <aside>
@@ -859,6 +1011,63 @@
             </ul>
             <ul class="circleBulletPt">
                 <h3 class="centerText">Tips</h3>
+                <li>For high availability, use two available areas</li>
+                <li>AWS root account has omnipotent authority!
+                    <ul>
+                        <li>So use IAM admin account.</li>
+                        <li>Set up group for authority management since people can move among departments.</li>
+                        <li>IAM policies only control access to AWS services.</li>
+                        <li>IAM does not have visibility over Hyperviser.</li>
+                        <li>Secret key pair for admin should be deleted!</li>
+                        <li>Polcies: JSON format.
+                            <li>Resource based authority: S3 policies. or setting on resources.
+                                <ul>
+                                    <li>Target:S3,S3 glacier,KMS</li>
+                                    <li>Controls required conditions, always inline authority,
+                                         tasks given by specific security object.</li>
+                                </ul>
+                            </li>
+                            <li>Authority Authentication based:
+                                <ul>
+                                    <li>Target:user,group,role</li>
+                                    <li>types:pre-made,customized, and inline(=only to this guy type) policies</li>
+                                    <li>controls task, resources, and required conditions.</li>
+                                </ul>
+                            </li>
+                        </li>
+                        <li>Role:to give access to resources and services to IAM users.
+                            <ul>
+                                <li>better at security</li>
+                                <li>give access to resources and services</li>
+                                <li>give authority to external user, or different company</li>
+                                <li>changeable! not incrementing. only one by one.</li>
+                                <li>allocate roles by AWS magemet console, AWS cli,
+                                     AssumeRole API, AWS Security Token Service</li>
+                            </ul>
+                        </li>
+                        <li>How to evaluate IAM authority
+                            <ul>
+                                <li>refuse? if yes->allowed? yes -> Allow</li>
+                                <li>refuse? if no->NO or allowed? NO -> NO</li>
+                            </ul>
+                        </li>
+                        <li>Manage your roles and authority!
+                            <ul>
+                                <li>Separate each key role.</li>
+                                <li>IAM security: IAM user, IAM roles, IdP(certification authorization provider)
+                                    <ul>
+                                        <li>IAM user: not a AWS account.No authority by default.
+                                            <ul>
+                                                <li>allow one work on eitherCLI or management console.</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Availability, Confidentiality, and Data integrity = Security</li>
                 <li>CIDR
                     <ul>
                         <li>0.0.0.0/0 all IPs</li>
@@ -886,6 +1095,7 @@
                     </ol>
                 </li>
                 <li>AWS only has one root account and allows USERS to gain access to certain degrees.</li>
+                <li>Use NAT gateway(SNAT only) instead of NAT instance(DNAT possible).</li>
             </ul>
         </aside>
     </body>
