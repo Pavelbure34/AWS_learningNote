@@ -17,7 +17,7 @@
                 <ul class="floatL">
                     <caption>Technical Essential</caption>
                     <li><a href="javascript:lesson.day01()">day01.AWS?</a></li>
-                   
+                    <li><a href="javascript:lesson.day02()">day02.EC2, VPC, and Storage Services</a></li>
                 </ul>
                 <ul class="floatL">
                     <caption>Solution Artchitect</caption>
@@ -32,7 +32,73 @@
         </div>
 
         <article id="mainArticle">
-            
+            <h2>EC2, VPC, and Storage Services</h2>
+            <ul>
+                <caption>Brief Overview...</caption>
+                <li>EC2 = Elastic Compute Cloud</li>
+                <li>VPC = Virtual Private Cloud</li>
+            </ul>
+            <section>
+                <h3 class="centerText">Elastic Compute Cloud(EC2)</h3>
+                <blockquote>
+                    a virtual server that completely controls the computing power
+                    elastically.
+                </blockquote>
+                It is good for..
+                <ul>
+                    <li>You only pay for what you actually use</li>
+                    <li>It controls the instances.</li>
+                    <li>You get full control over the instances.</li>
+                </ul>
+                <section>
+                    <h4>How to use?</h4>
+                    <ol>
+                        <li>Choose the region where you want to allocate your EC2 instance.</li>
+                        <li>Choose AMI(Amazon Machine Image) for your EC2.Premade or new or stored snapshots
+                            <ul>
+                                <caption>Things to consider when choosing AMI</caption>
+                                <li>region, OS, architecture(32 or 64 bit),
+                                     initial authority, root device storage.</li>
+                            </ul>
+                        </li>
+                        <li>Set up Network, IP address, security group, storage volume, tag, key pair</li>
+                    </ol>
+                    <ul>
+                        <caption>EC2 instances</caption>
+                        <li>supports many types of instances from the single AMI</li>
+                        <li>Choose your instances based on your need.
+                            <ul>
+                                <caption>Things to consider</caption>
+                                <li>number of cores</li>
+                                <li>Size of memory</li>
+                                <li>Size of storage and type.</li>
+                                <li>Network capacity</li>
+                                <li>CPU technology</li>
+                            </ul>
+                            <ul>
+                                <caption>Types of instances</caption>
+                                <li>Average(T2,M4,M3):good for low traffic web application,
+                                    and small to mid sized database
+                                </li>
+                                <li>Computing Optimized(C4,C3):good for high functional web server and
+                                    video encoding
+                                </li>
+                                <li>Memory Optimized(X1e,X1,R4):
+                                    high functional database and distributive memory caching
+                                </li>
+                                <li>Storage Optimized(H1,I3,D2):
+                                    good for data-warehousing and data dealing application
+                                </li>
+                                <li>Accelerated Computing(P3,P@,G3,F1):
+                                    good for 3D virtualization and machine learning.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                
+
+            </section>
         </article>
 
         <aside>
