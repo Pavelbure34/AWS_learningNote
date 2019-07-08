@@ -20,7 +20,7 @@ const lesson={
     },
     day03:()=>{
         $("#mainArticle").html(pages.day03);
-    },
+    }
 };
 
 const quizes = {

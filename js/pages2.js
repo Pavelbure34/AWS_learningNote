@@ -25,26 +25,6 @@ const pages = {
             </ul>\
         </section>',
     day02:
-        '',
-    day03:
-        ''
-}
-
-const quiz = {
-    day01:
-        '<section>\
-            <ol>\
-                <caption><button id="check">Check</button><button id="clear">Clear</button></caption>\
-                <li>What is the area physically seprated within the area as the cluster for data center group?<br>\
-                    <input type="text" id="qq1">\
-                </li>\
-                <li>There are more regions than edge location.<br>\
-                    <input type="radio" name="answer" id="true">True\
-                    <input type="radio" name="answer" id="false">False\
-                </li>\
-            </ol>\
-        </section>',
-    day02:
         '<h2>EC2, VPC, and Storage Services</h2>'+
         '<ul>\
             <caption>Brief Overview...</caption>\
@@ -71,7 +51,7 @@ const quiz = {
                         <ul>\
                             <caption>Things to consider when choosing AMI</caption>\
                             <li>region, OS, architecture(32 or 64 bit),\
-                                 initial authority, root device storage.</li>\
+                                    initial authority, root device storage.</li>\
                         </ul>\
                     </li>\
                     <li>Set up Network, IP address, security group, storage volume, tag, key pair</li>\
@@ -111,13 +91,13 @@ const quiz = {
                         http://169.254.169.254.latest/meta-data/\
                     </li>\
                     <li>Set up user specific data for writing codes\
-                         when AMI instance boots up.</li>\
+                            when AMI instance boots up.</li>\
                     <ul>'+
                         '<caption>Purchase Option</caption>\
                         <li>On-demand instance: you pay for what you use</li>\
                         <li>Reserve instance:pay for year based contract\
-                             and use it whenever you want.<br>\
-                             good for efficient use of consistent amount of data.'+ 
+                                and use it whenever you want.<br>\
+                                good for efficient use of consistent amount of data.'+ 
                         '</li>\
                         <li>spot instance:auction for unused instances</li>\
                         <li>exclusive instance:it can be in different region</li>\
@@ -183,7 +163,7 @@ const quiz = {
                         <li>allows versioning features.</li>\
                         <li>dynamically growing</li>\
                         <li>based on the file types, you can\
-                             use different kinds of S3 for efficient storaging.</li>\
+                                use different kinds of S3 for efficient storaging.</li>\
                         <li>S3 stores the data as objects. and only 100 buckets per user allowed by default.</li>\
                         <ul>\
                             <caption>good for...</caption>\
@@ -307,4 +287,20 @@ const quiz = {
         </section>',
     day04:
         ''
+}
+
+const quiz = {
+    day01:
+        '<section>\
+            <ol>\
+                <caption><button id="check">Check</button><button id="clear">Clear</button></caption>\
+                <li>What is the area physically seprated within the area as the cluster for data center group?<br>\
+                    <input type="text" id="qq1">\
+                </li>\
+                <li>There are more regions than edge location.<br>\
+                    <input type="radio" name="answer" id="true">True\
+                    <input type="radio" name="answer" id="false">False\
+                </li>\
+            </ol>\
+        </section>'
 }
