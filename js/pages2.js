@@ -240,7 +240,71 @@ const quiz = {
             </section>'+
         '</section>',
     day03:
-        '',
+        '<h2>AWS security, and IAM</h2>'+
+        '<section>\
+            <h3 class="centerText">AWS philosophy over security</h3>\
+            <blockqoute>\
+                User and Amazon joint security.\
+            </blockqoute>\
+            User takes charge of internal security within the cloud while<br>\
+            Amazon takes charge of availability and security of cloud itself.\
+            <ul>\
+                <li>you can use perfect-managment model which AWS takes care of important securities</li>\
+                <li>However you stil have to set up roles and policies.</li>\
+            </ul>\
+        </section>'+
+        '<section>\
+            <ul>\
+                <li>SSL end point:with HTTPS protocol,it secures safe transanctions.</li>\
+                <li>security Group(=== firewall): it controls the access to instance level.</li>\
+                <li>VPC control:using private and public subnets, it controls the access.</li>\
+            </ul>\
+        </section>'+
+        '<section>\
+            <h3 class="centerText">Identity Acess Management(IAM)</h3>\
+            <blockquote>\
+                IAM creates users or user groups and help manage access to resources.\
+            </blockquote>\
+            It is always better to set up group in large organization.\
+            <ul>\
+                <caption>Because...</caption>\
+                <li>people move from deparment to department.</li>\
+                <li>So just moving people from group to group</li>\
+            </ul>\
+            IAM manages policies\
+            <ul>\
+                <li>in JSON format</li>\
+                <li>assigned to user, group, or role.</li>\
+                <li>it has no authentication.</li>\
+                <li>Version, ID, Statement, Effect, Principal, Actions, Resources\
+                    <ul>\
+                        <li>statement:details of the policies</li>\
+                        <li>effect:allow or deny</li>\
+                        <li>principal: who?</li>\
+                        <li>actions:what to allow or deny?</li>\
+                        <li>resources: target resources</li>\
+                    </ul>\
+                </li>\
+            </ul>\
+            and roles\
+            <ul>\
+                <li>it uses policies</li>\
+                <li>IAM user, application, and service gets the role.</li>\
+                <li>can be given to another AWS account.</li>\
+            </ul>\
+            when you give security pass to trusty users temporarily,\
+            AWS Security Token Service(STS)\
+            <ul>\
+                <li>temporary access for trusted user.</li>\
+            </ul>\
+            Good examples.\
+            <ul>\
+                <li>DELETE ROOT KEY PAIR</li>\
+                <li>Manage access to service of users by role in groups.</li>\
+                <li>get rid of unncessary authentication.</li>\
+                <li>monitor the infrastucture with cloud trail.</li>\
+            </ul>\
+        </section>',
     day04:
         ''
 }
