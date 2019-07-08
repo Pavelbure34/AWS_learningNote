@@ -94,10 +94,103 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>Take metadata of your instance for better controls.<br>
+                            http://169.254.169.254.latest/meta-data/
+                        </li>
+                        <li>Set up user specific data for writing codes
+                             when AMI instance boots up.</li>
+                        <ul>
+                            <caption>Purchase Option</caption>
+                            <li>On-demand instance: you pay for what you use</li>
+                            <li>Reserve instance:pay for year based contract
+                                 and use it whenever you want.<br>
+                                 good for efficient use of consistent amount of data. 
+                            </li>
+                            <li>spot instance:auction for unused instances</li>
+                            <li>exclusive instance:it can be in different region</li>
+                            <li>tenant host:only you use that host.</li>
+                        </ul>
+                        <li>You can use Amazon Market Place for your AMI.</li>
                     </ul>
                 </section>
-                
-
+                <section>
+                    <h3 class="centerText">Virtual Private Cloud(networking)</h3>
+                    <blockquote>
+                        Very similar to on-premise network environment!<br>
+                        Completely excluded private network with full control.
+                    </blockquote>
+                    <ul>
+                        <li>subnets within the same VPC communicate to each other by default.</li>
+                        <li>You must devide available areas into subnets.
+                            <ul>
+                                <li>private subnet:subnet not accessible from outside<br>
+                                    Requires NAT gateway or instance for internet access.<br>
+                                    Usually for database and backend server.
+                                </li>
+                                <li>public subnet: subnet accessible from outside.<br>
+                                    Requires internet gateway for being public.<br>
+                                    Usually for web server.
+                                </li>
+                                <li>At least two private and two public subnets within the VPC.<br>
+                                    but more networks for private ones.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>You must set up security in VPC.
+                            <ul>
+                                <li>Security Group(=== firewall in older times)
+                                    <ul>
+                                        <li>by default,it blocks all the access.</li>
+                                        <li>we can set up to only accept what we want to gain access to.</li>
+                                        <li>Its property is that the access got through gets out with no problem.</li>
+                                    </ul>
+                                </li>
+                                <li>NACL(Network Access Control List)
+                                    <ul>
+                                        <li>inbound and outbound rule have to be specific.</li>
+                                        <li>Its property is the opposite from security group.</li>
+                                    </ul>
+                                </li>
+                                <li>key pair group(if root one, delete it) for access to CLI environment</li>
+                                <li>instance arb. (basically 3 layers of security)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3 class="centerText">Storage Services</h3>
+                    <article>
+                        <h4>Amazon Simple Storage Service(S3)</h4>
+                        <blockquote>
+                            Thd sturdiest, simplest, and oldest service in AWS.
+                        </blockquote>
+                        <ul>
+                            <li>Based on bucket system</li>
+                            <li>S3 glaciers are for archives.</li>
+                            <li>allows versioning features.</li>
+                            <li>dynamically growing</li>
+                            <li>based on the file types, you can
+                                 use different kinds of S3 for efficient storaging.</li>
+                            <li>S3 stores the data as objects. and only 100 buckets per user allowed by default.</li>
+                            <ul>
+                                <caption>good for...</caption>
+                                <li>back-up solutions</li>
+                                <li>application file hosting</li>
+                                <li>Media hosting(Vidoes)</li>
+                                <li>Software transanction</li>
+                                <li>AMI and snapshots storage</li>
+                                <li>static web hosting.</li>
+                            </ul>
+                            <ul>
+                                <caption>security for bucket...</caption>
+                                <li>ACL,IAM(roles and policies)</li>
+                            </ul>
+                        </ul>
+                    </article>
+                    <article>
+                        <h4>Elastic Block Storage(EBS)</h4>
+                    </article>
+                </section>
             </section>
         </article>
 
