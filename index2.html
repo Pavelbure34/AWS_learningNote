@@ -20,6 +20,7 @@
                     <li><a href="javascript:lesson.day02()">day02.EC2, VPC, and Storage Services</a></li>
                     <li><a href="javascript:lesson.day03()">day03.AWS security, and IAM</a></li>
                     <li><a href="javascript:lesson.day04()">day04.AWS database service</a></li>
+                    <li><a href="javascript:lesson.day05()">day05.Elasticity and Managment tools</a></li>
                 </ul>
                 <ul class="floatL">
                     <caption>Solution Artchitect</caption>
@@ -34,87 +35,62 @@
         </div>
 
         <article id="mainArticle">
-            <h2>AWS database service</h2>
-            In AWS, you have to decide before choosing the database.
-            size of data, volume of data, frequency of query, and access to data, and
-            life cycle of database, and...
+            <h2>Elasticity and Managment tools</h2>
             <ul>
-                <li>go for SQL based db?
-                    <ul>
-                        <caption>if so...</caption>
-                        <li>strongly built schema, and query statements</li>
-                        <li>row and column structure</li>
-                        <li>vertical expansion and limited in number of calls it can take.</li>
-                    </ul>
-                </li>
-                <li>go for noSQL based db?
-                    <ul>
-                        <caption>if so...</caption>
-                        <li>No schema</li>
-                        <li>key-pair structure.</li>
-                        <li>Horizontal expansion and unlimited number of calls it can take</li>
-                    </ul>
-                </li>
+                <caption>Preview</caption>
+                <li>auto-scaling</li>
+                <li>Elastic Load Balancing</li>
+                <li>Amazon CloudWatch</li>
             </ul>
             <section>
-                <h3 class="centerText">1.Amazon Relational Database Service(RDS)</h3>
-                <blockquote>
-                    SQL based database.
-                </blockquote>
-                <ul>
-                    <caption>Why RDS?</caption>
-                    <li>Simple and fast distribution</li>
-                    <li>Normal database management</li>
-                    <li>compatible with Application</li>
-                    <li>Cost-effective and strong security</li>
-                    <li>can migrate to Amazon aurora.</li>
-                </ul>
-                <ul>
-                    <caption>RDS back-up</caption>
-                    <li>manual snapshot to S3</li>
-                    <li>automatic backup which lasts for 35 days.</li>
-                    <li>duplication in different region for disaster recoery solution</li>
-                </ul>
-                <ul>
-                    <caption>security</caption>
-                    <li>make id and password for RDS</li>
-                    <li>Include with security group</li>
-                    <li>Make Data Encryption on DB transanction.</li>
-                </ul>
-                <ul>
-                    <caption>multiple AZ standby</caption>
-                    <li>Make standby database sync with master database.</li>
-                    <li>When master database is out of service, standby step in</li>
-                    <li>New one created to replace master one and sync with standby.</li>
-                </ul>
-                <ul>
-                    <caption>Good Practices</caption>
-                    <li>
-                        <ul>
-                            <li>monitors memory and CPU usages.</li>
-                            <li>enable AZ distribution and automatic back-up.</li>
-                            <li>limit up to 30 seconds when client requests query.</li>
-                        </ul>
-                    </li>
-                </ul>
+                <h3 class="centerText"></h3>
             </section>
             <section>
-                <h3 class="centerText">2.Amazon DynamoDB Service</h3>
-                <blockquote>
-                    noSQL based database service.
-                </blockquote>
-                <ul>
-                    <li>unlimited amount of datas can be stored and used</li>
-                    <li>Perfectly managed service.</li>
-                    <li>accommodate on-demand payment</li>
-                    <li>easily increase the requested volume</li>
-                    <li>choose partition key and sorting key for indexing.</li>
-                    <li>available commands:query and scan</li>
-                </ul>
+                <h3 class="centerText">auto-scaling</h3>
+
             </section>
             <section>
-                <h4>Database instance.</h4>
-                You can dispatch your database instance into the private subnet.
+                <h3 class="centerText">Elastic Load Balancing</h3>
+                <blockquote>
+                    <ul>
+                        <caption>Similar to Router in older times</caption>
+                        <li>distributes the traffic to multiple instances.</li>
+                        <li>Monitors abmornal EC2 instances.</li>
+                        <li>Supports HTTP,HTTPS,SSL,TCP protocols.</li>
+                    </ul>
+                </blockquote>
+                <div>
+                    <h4>How does it work?</h4>
+                    <ol>
+                        <li>Register instances to ELB</li>
+                        <li>for HTTP/HTTPS, Application Load Balancer(ALB)
+                            <ol>
+                                <caption>Based on 7 layer protocol,</caption>
+                                <li>Make sure to activate multiple available areas.</li>
+                                <li>register instances within the subject group.</li>
+                                <li>route traffic to the subject group with HTTP/HTTPS protocols.</li>
+                            </ol>
+                            <ul>
+                                <li>use it when required elastic managment.</li>
+                            </ul>
+                        </li>
+                        <li>for TCP, Network Load Balancer(NLB)
+                            <ol>
+                                <caption>Based on 4 layer protocol</caption>
+                                <li>register instances into the subject group.</li>
+                                <li>Route from TCP layer.</li>
+                            </ol>
+                            <ul>
+                                <li>use it when required static IP and good functionality</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+
+            </section>
+            <section>
+                <h3 class="centerText">Amazon CloudWatch</h3>
 
             </section>
         </article>

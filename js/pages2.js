@@ -286,6 +286,92 @@ const pages = {
             </ul>\
         </section>',
     day04:
+        '<h2>AWS database service</h2>\
+        In AWS, you have to decide before choosing the database.\
+        size of data, volume of data, frequency of query, and access to data, and\
+        life cycle of database, and...\
+        <ul>'+
+            '<li>go for SQL based db?\
+                <ul>\
+                    <caption>if so...</caption>\
+                    <li>strongly built schema, and query statements</li>\
+                    <li>row and column structure</li>\
+                    <li>vertical expansion and limited in number of calls it can take.</li>\
+                </ul>\
+            </li>\
+            <li>go for noSQL based db?\
+                <ul>\
+                    <caption>if so...</caption>\
+                    <li>No schema</li>\
+                    <li>key-pair structure.</li>\
+                    <li>Horizontal expansion and unlimited number of calls it can take</li>\
+                </ul>\
+            </li>\
+        </ul>'+
+        '<section>\
+            <h3 class="centerText">1.Amazon Relational Database Service(RDS)</h3>\
+            <blockquote>\
+                SQL based database.\
+            </blockquote>\
+            <ul>\
+                <caption>Why RDS?</caption>\
+                <li>Simple and fast distribution</li>\
+                <li>Normal database management</li>\
+                <li>compatible with Application</li>\
+                <li>Cost-effective and strong security</li>\
+                <li>can migrate to Amazon aurora.</li>\
+            </ul>\
+            <ul>\
+                <caption>RDS back-up</caption>\
+                <li>manual snapshot to S3</li>\
+                <li>automatic backup which lasts for 35 days.</li>\
+                <li>duplication in different region for disaster recoery solution</li>\
+            </ul>\
+            <ul>\
+                <caption>security</caption>\
+                <li>make id and password for RDS</li>\
+                <li>Include with security group</li>\
+                <li>Make Data Encryption on DB transanction.</li>\
+            </ul>\
+            <ul>\
+                <caption>multiple AZ standby</caption>\
+                <li>Make standby database sync with master database.</li>\
+                <li>When master database is out of service, standby step in</li>\
+                <li>New one created to replace master one and sync with standby.</li>\
+            </ul>\
+            <ul>\
+                <caption>Good Practices</caption>\
+                <li>'+
+                    '<ul>\
+                        <li>monitors memory and CPU usages.</li>\
+                        <li>enable AZ distribution and automatic back-up.</li>\
+                        <li>limit up to 30 seconds when client requests query.</li>\
+                    </ul>\
+                </li>\
+            </ul>\
+        </section>'+
+        '<section>\
+            <h3 class="centerText">2.Amazon DynamoDB Service</h3>\
+            <blockquote>\
+                noSQL based database service.\
+            </blockquote>\
+            <ul>\
+                <li>unlimited amount of datas can be stored and used</li>\
+                <li>Perfectly managed service.</li>\
+                <li>accommodate on-demand payment</li>\
+                <li>easily increase the requested volume</li>\
+                <li>choose partition key and sorting key for indexing.</li>\
+                <li>available commands:query and scan</li>\
+            </ul>\
+        </section>\
+        <section>\
+            <h4>Database instance.</h4>\
+            You can dispatch your database instance into the private subnet.<br>\
+            It is the basic buildingb block of database in AWS.\
+        </section>',
+    day05:
+        '',
+    day06:
         ''
 }
 
