@@ -370,8 +370,201 @@ const pages = {
             It is the basic buildingb block of database in AWS.\
         </section>',
     day05:
-        '',
+        '<h2>Elasticity and Managment tools</h2>'+
+        '<ul>\
+            <caption>Preview</caption>\
+            <li>auto-scaling</li>\
+            <li>Elastic Load Balancing</li>\
+            <li>Amazon CloudWatch</li>\
+        </ul>'+
+        '<section>\
+            <h3 class="centerText">auto-scaling</h3>\
+            <blockquote>\
+                It helps control EC2 volume automatically.\
+            </blockquote>\
+            <ul>\
+                <li>It controls the number of target instances according to\
+                    number of requests and access.\
+                </li>\
+                <li>Perfect for application with fluctuating access.</li>\
+                <li>can use it without extra payment.</li>\
+                <li>rwquires some set-ups'+
+                    '<ul>\
+                        <li>initial setting:minumum and starting number of instances</li>\
+                        <li>auto scaling group:target group\
+                            <ul>\
+                                <li>minimum number of instances:<br>\
+                                    number of instances within the group never\
+                                    goes below this level.\
+                                </li>\
+                                <li>desired number of instances:<br>\
+                                    number of instances within the group\
+                                    stays this level normally.\
+                                </li>\
+                                <li>maximum number of instances:<br>\
+                                    number of instances within the group never\
+                                    goes beyond this level.\
+                                </li>\
+                            </ul>'+
+                        '</li>\
+                        <li>expansion/ plan:how instances are going to fluctuate.\
+                            <ul>\
+                                <caption>launch configuration</caption>\
+                                <li>it is a template for auto-scaling</li>\
+                                <li>used when launching Instances.</li>\
+                                <li>set up the basic EC2 set-ups.</li>\
+                            </ul>\
+                        </li>\
+                        <li>life cycle of auto scaling.</li>\
+                        <li>limitation on auto scaling:maximum number of instances.</li>\
+                    </ul>\
+                </li>\
+            </ul>'+
+            '<ul>\
+                <caption>Why auto-scaling</caption>\
+                <li>improved resistance against flaws and errors:<br>\
+                    deletes the disfunctional instances and finds the substitute.\
+                </li>\
+                <li>improved availability:<br>\
+                    service fluctuates to adapt to different range of traffic.</li>\
+                <li>improved efficiency on maintenance cost:<br>\
+                    using appropriate number of instances depending on traffic,\
+                    you can efficiently manage the cost. \
+                </li>\
+            </ul>\
+        </section>'+
+        '<section>\
+            <h3 class="centerText">Elastic Load Balancing</h3>\
+            <blockquote>\
+                <ul>\
+                    <caption>Similar to Router in older times</caption>\
+                    <li>distributes the traffic to multiple instances.</li>\
+                    <li>Monitors abmornal EC2 instances.</li>\
+                    <li>Supports HTTP,HTTPS,SSL,TCP protocols.</li>\
+                </ul>\
+            </blockquote>\
+            <div>\
+                <h4>How does it work?</h4>'+
+                '<ol>\
+                    <li>Register instances to ELB</li>\
+                    <li>for HTTP/HTTPS, Application Load Balancer(ALB)\
+                        <ol>\
+                            <caption>Based on 7 layer protocol,</caption>\
+                            <li>Make sure to activate multiple available areas.</li>\
+                            <li>register instances within the subject group.</li>\
+                            <li>route traffic to the subject group with HTTP/HTTPS protocols.</li>\
+                        </ol>\
+                        <ul>\
+                            <li>use it when required elastic managment.</li>\
+                        </ul>\
+                    </li>\
+                    <li>for TCP, Network Load Balancer(NLB)\
+                        <ol>\
+                            <caption>Based on 4 layer protocol</caption>\
+                            <li>register instances into the subject group.</li>\
+                            <li>Route from TCP layer.</li>\
+                        </ol>\
+                        <ul>\
+                            <li>use it when required static IP and good functionality</li>\
+                        </ul>\
+                    </li>\
+                </ol>'+
+            '</div>\
+        </section>'+
+        '<section>\
+            <h3 class="centerText">Amazon CloudWatch</h3>\
+            <blockquote>\
+                monitors management efficiency, visibility of overall patterns of request.\
+            </blockquote>\
+            It helps you...\
+            <ul>\
+                <li>see statistically analyzed graphical data\
+                    <ul>\
+                        <li>using CPU Percentage</li>\
+                        <li>etc..</li>\
+                    </ul>\
+                </li>\
+                <li>set up solution settings</li>\
+                <li>catch up with the current status</li>\
+                <li>set up automated solution under certain conditions</li>\
+                <li>Can set up alarm notification services.\
+                    <ul>\
+                        <caption>with this,dynamic expansion and reduction is do-able.</caption>\
+                        <li>you can set up policies\
+                            when auto-scaling changes the number of instances\
+                        </li>\
+                    </ul>\
+                </li>\
+            </ul>\
+        </section>'+
+        '<section>\
+            <h3 class="centerText">AWS Trusted Advisor</h3>\
+            <blockquote>\
+                engine for recommendation from best example case.\
+            </blockquote>\
+            <ul>\
+                <caption>it gives advice on </caption>\
+                <li>cost optimization\
+                    <ul>\
+                        <caption>how?</caption>\
+                        <li>optimize the reserved instances</li>\
+                        <li>check for infrequently used EC2 instances</li>\
+                        <li>check for infrequently used EBS storage.</li>\
+                        <li>check for unConnected elastic IP address</li>\
+                        <li>check for set-ups for infrequently used RDS and ELB</li>\
+                    </ul>\
+                </li>\
+                <li>Security\
+                    <ul>\
+                        <caption>how?</caption>\
+                        <li>check security group</li>\
+                        <li>see usage of IAM service(for free)</li>\
+                        <li>do MFA(multi-factor authorization) of Root account</li>\
+                        <li>authority of S3 buckets</li>\
+                        <li>secure access to Amazon RDS</li>\
+                    </ul>\
+                </li>\
+                <li>error-resistance\
+                    <ul>\
+                        <caption>how?</caption>\
+                        <li>do regular EBS snapshots</li>\
+                        <li>optimize ELB</li>\
+                        <li>manage resources in auto scaling group</li>\
+                        <li>multiple AZ to Amazon RDS db</li>\
+                        <li>register server name on Amazon Route53</li>\
+                        <li>check for load balancer who is active on connection draining.</li>\
+                    </ul>\
+                </li>\
+                <li>functional improvement\
+                    <ul>\
+                        <caption>how?</caption>\
+                        <li>if certain instance used more frequently than others,\
+                            you can notification\
+                        </li>\
+                        <li>\
+                            Check for instances whose used perfentage is beyond 80% limit.\
+                        </li>\
+                        <li>\
+                            Check for EBS magnetic volume for efficient use.\
+                        </li>\
+                        <li>\
+                            optimize data flow from EC2 instance to EBS.\
+                        </li>\
+                        <li>\
+                            check Amazon cloudFront which uses legitimate domain for DNS setting.\
+                        </li>\
+                    </ul>\
+                </li>\
+            </ul>'+
+            '<ul>\
+                <li>Red: you must do something</li>\
+                <li>Yellow: recommed to do something</li>\
+                <li>green: fine</li>\
+            </ul>\
+        </section>',
     day06:
+        '',
+    day07:
         ''
 }
 
