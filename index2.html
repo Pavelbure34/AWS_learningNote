@@ -43,11 +43,60 @@
                 <li>Amazon CloudWatch</li>
             </ul>
             <section>
-                <h3 class="centerText"></h3>
-            </section>
-            <section>
                 <h3 class="centerText">auto-scaling</h3>
-
+                <blockquote>
+                    It helps control EC2 volume automatically.
+                </blockquote>
+                <ul>
+                    <li>It controls the number of target instances according to
+                        number of requests and access.
+                    </li>
+                    <li>Perfect for application with fluctuating access.</li>
+                    <li>can use it without extra payment.</li>
+                    <li>rquires some set-ups
+                        <ul>
+                            <li>initial setting:minumum and starting number of instances</li>
+                            <li>auto scaling group:target group
+                                <ul>
+                                    <li>minimum number of instances:<br>
+                                        number of instances within the group never
+                                        goes below this level.
+                                    </li>
+                                    <li>desired number of instances:<br>
+                                        number of instances within the group
+                                         stays this level normally.
+                                    </li>
+                                    <li>maximum number of instances:<br>
+                                        number of instances within the group never
+                                        goes beyond this level.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>expansion/ plan:how instances are going to fluctuate.
+                                <ul>
+                                    <caption>launch configuration</caption>
+                                    <li>it is a template for auto-scaling</li>
+                                    <li>used when launching Instances.</li>
+                                    <li>set up the basic EC2 set-ups.</li>
+                                </ul>
+                            </li>
+                            <li>life cycle of auto scaling.</li>
+                            <li>limitation on auto scaling:maximum number of instances.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <caption>Why auto-scaling</caption>
+                    <li>improved resistance against flaws and errors:<br>
+                        deletes the disfunctional instances and finds the substitute.
+                    </li>
+                    <li>improved availability:<br>
+                        service fluctuates to adapt to different range of traffic.</li>
+                    <li>improved efficiency on maintenance cost:<br>
+                        using appropriate number of instances depending on traffic,
+                        you can efficiently manage the cost. 
+                    </li>
+                </ul>
             </section>
             <section>
                 <h3 class="centerText">Elastic Load Balancing</h3>
@@ -86,12 +135,38 @@
                         </li>
                     </ol>
                 </div>
-                
-
             </section>
             <section>
                 <h3 class="centerText">Amazon CloudWatch</h3>
-
+                <blockquote>
+                    monitors management efficiency, visibility of overall patterns of request.
+                </blockquote>
+                It helps you...
+                <ul>
+                    <li>see statistically analyzed graphical data
+                        <ul>
+                            <li>using CPU Percentage</li>
+                            <li>etc..</li>
+                        </ul>
+                    </li>
+                    <li>set up solution settings</li>
+                    <li>catch up with the current status</li>
+                    <li>set up automated solution under certain conditions</li>
+                    <li>Can set up alarm notification services.
+                        <ul>
+                            <caption>with this,dynamic expansion and reduction is do-able.</caption>
+                            <li>you can set up policies
+                                 when auto-scaling changes the number of instances
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3 class="centerText">AWS Trusted Advisor</h3>
+                <blockquote>
+                    engine for recommendation from best example case.
+                </blockquote>
             </section>
         </article>
 
