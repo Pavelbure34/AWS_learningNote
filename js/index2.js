@@ -26,6 +26,9 @@ const lesson={
     },
     day05:()=>{
         $("#mainArticle").html(pages.day05);
+    },
+    day06:()=>{
+        $("#mainArticle").html(pages.day06);
     }
 };
 
