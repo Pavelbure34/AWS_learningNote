@@ -657,10 +657,18 @@ const pages = {
             You can set up automated policies that transfer infrequently used data to IA, ONA, glacier, then delete.\
         </section>',
     day08:
-        '',
+        '<h2>what to consider when choosing region</h2>\
+        <ol>\
+            <li>How close to my client</li>\
+            <li>Any laws considering the information and governance obligation?</li>\
+            <li>does that region support the service I seek?</li>\
+            <li>different costs depending on the region.</li>\
+        </ol>',
     day09:
         '',
     day10:
+        '',
+    day11:
         ''
 }
 
