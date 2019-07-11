@@ -581,8 +581,86 @@ const pages = {
             <li>sturdiness</li>\
         </ul>',
     day07:
-        '',
+        '<h2>amazon S3 recap</h2>'+
+        'We will start from the very beginning but,by the end of the course,<br>\
+        you will be able to recognize and build a complicated architecture.'+
+        '<section>\
+            <h3 class="centerText">Amazon Simple Storage Service(S3)</h3>\
+            As we have learned in the technical essentials,\
+            <ul>\
+                <caption>We can use it for</caption>\
+                <li>Hosting a static websites:like my own blog</li>\
+                <li>store and distribute a media:MP4 or JPG</li>\
+                <li>storage for massive scale of data analysis: due to its horizontal expansion<br>\
+                    ex)click-stream, financial transanction,media transcoding analysis.\
+                </li>\
+                <li>back-up solution:the most common usage.<br>\
+                    ex)storage for snapshots of EC2 or DB instances.\
+                </li>\
+                <li>data frequently read, updated, requested by many users, and with fluctuating users.</li>\
+            </ul>\
+            <ul>\
+                <caption>Access Control</caption>\
+                <li>public or private bucket</li>\
+                <li>selectively open bucket.\
+                    <ul>\
+                        <li>possible with S3 access policies</li>\
+                    </ul>\
+                </li>\
+            </ul>\
+            <ul>'+
+                '<caption>ETC...</caption>\
+                <li>it helps you recover from data reset from Versioning features.</li>\
+                <li>With CORS,you can define how your S3 interact with other sources:access, actions</li>\
+                <li>you can use S3 Transfer Acceleration for better uploading.\
+                    <ul>\
+                        <caption>By using Amazon Cloudfront</caption>\
+                        <li>you can have secure uploading.</li>\
+                        <li>you use it when\
+                            <ol>\
+                                <li>you have customers from everywhere uploading to central buckets</li>\
+                                <li>you have regular gigabyte or terabyte size of uploading</li>\
+                                <li>you cannot make advantage of bandwidth when uploading via intenret.</li>\
+                            </ol>\
+                        </li>\
+                    </ul>\
+                </li>\
+                <li>You can transfer your large scale of data with\
+                    <ul>\
+                        <li>S3 snowball:petabyte scale of data transfer</li>\
+                        <li>S3 mobile-snowball:exabyte scale of data. Actual trailer truck gets to you.</li>\
+                    </ul>\
+                </li>\
+                <li>You only pay for...\
+                    <ul>\
+                        <li>by gigabyte unit</li>\
+                        <li>by requests, get, post</li>\
+                    </ul>\
+                </li>\
+            </ul>\
+        </section>'+
+        '<section>\
+            <h3 class="centerText">Amazon S3 Glacier</h3>\
+            It is designed for\
+            <ul>\
+                <li>archives</li>\
+                <li>data you don&rsquo;t really find frequently</li>\
+            </ul>\
+            It is characterized by\
+            <ul>\
+                <li>Very Very Cheap storage price</li>\
+                <li>yet expensive query price</li>\
+            </ul>\
+        </section>\
+        <section>\
+            <h4>Amazon S3 can have life cycle method.</h4>\
+            You can set up automated policies that transfer infrequently used data to IA, ONA, glacier, then delete.\
+        </section>',
     day08:
+        '',
+    day09:
+        '',
+    day10:
         ''
 }
 

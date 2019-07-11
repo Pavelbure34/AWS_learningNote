@@ -29,6 +29,18 @@ const lesson={
     },
     day06:()=>{
         $("#mainArticle").html(pages.day06);
+    },
+    day07:()=>{
+        $("#mainArticle").html(pages.day07);
+    },
+    day08:()=>{
+        $("#mainArticle").html(pages.day08);
+    },
+    day09:()=>{
+        $("#mainArticle").html(pages.day09);
+    },
+    day10:()=>{
+        $("#mainArticle").html(pages.day10);
     }
 };
 
