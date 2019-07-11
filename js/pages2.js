@@ -563,8 +563,26 @@ const pages = {
             </ul>\
         </section>',
     day06:
-        '',
+        '<h2>what is good AWS architecting?</h2>\
+        AWS architecting is a construction of environment that\
+        functions based on the purpose of application using AWS resources.<br>\
+        Amazon had a problem securing availability and efficiency in web services.\
+        <ul>\
+            <caption>What makes a good architecting?</caption>\
+            <li>security:IAM,CloudTrail,security group,threat evalution and solution plan</li>\
+            <li>cost optimization:\
+                cutting unnecessary cost,efficiency evaluation,perfect-management service\
+            </li>\
+            <li>functional efficiency:\
+                dynamic resource allocation,fast recovery and appeasement\
+                from temporary break downs or errors.\
+            </li>\
+            <li>easy management</li>\
+            <li>sturdiness</li>\
+        </ul>',
     day07:
+        '',
+    day08:
         ''
 }
 
