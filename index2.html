@@ -31,6 +31,7 @@
                     <li><a href="javascript:lesson.day10()">day10.Database recap</a></li>
                     <li><a href="javascript:lesson.day11()">day11.</a></li>
                     <li><a href="javascript:lesson.day12()">day12.</a></li>
+                    <li><a href="javascript:lesson.day13()">day13.</a></li>
                 </ul>
                 <div class="clearB"></div>
                 <ul>
@@ -41,81 +42,7 @@
         </div>
 
         <article id="mainArticle">
-           <h2>Database recap</h2>
-           You need highly available, expandable, separate database for better architecture.
-           <section>
-               <ul>
-                   <caption>Things to consider before archtecting</caption>
-                   <li>expandability</li>
-                   <li>total storage requirement</li>
-                   <li>instance type and volume</li>
-                   <li>sturdiness and resistance</li>
-                   <li>SQL or noSQL?</li>
-                   <li>non-managerial type or perfect-managerial type?</li>
-               </ul>
-           </section>
-           <section>
-                <h3 class="centerText">SQL type db</h3>
-                <blockquote>
-                    Amazon RDS, Redshift, Amazon Aurora
-                </blockquote>
-                <ul>
-                    <caption>appropriate for</caption>
-                    <li>complicated database</li>
-                    <li>database table joint</li>
-                    <li>server based db</li>
-                </ul>
-                <ul>
-                    <caption>its security</caption>
-                    <li>who got the access? db security group and master-password pair.</li>
-                    <li>encryption in data transacntions(SSL), and instance, snapshots.</li>
-                    <li>Event Alarm</li>
-                </ul>
-           </section>
-           <section>
-                <h3 class="centerText">non-SQL type db</h3>
-                <blockquote>
-                    Amazon DynamoDB, ElastiCache, Amazon Neptune
-                </blockquote>
-                <ul>
-                    <caption>appropriate for</caption>
-                    <li>serverless architecture</li>
-                    <li>perfect-managerial model</li>
-                    <li>simple and vast pool of data</li>
-                    <li>no need for complicated data joint.</li>
-                </ul>
-                It makes you duplicate its db instance into three regions for backup.<br>
-                Game server uses Dynamo DB widely.Originally made for managing cart system in Amazon.
-                <ul>
-                    <li>Eventually consistent read
-                        <ul>
-                            <li>repeat the call so return the latest data.</li>
-                        </ul>
-                    </li>
-                    <li>Strongly consistent read
-                        <ul>
-                            <li>always return the latest data.</li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul>
-                    <caption>its security</caption>
-                    <li>very detailed access to table and subject</li>
-                    <li>encrypion in data transactions(SSL/TLS/HTTPS)</li>
-                </ul>
-           </section>
-           <section>
-                <h3 class="centerText">database migration into AWS</h3>
-                <section>
-                    <h4>AWS Data Migration Service</h4>
-                    <ul>
-                        <li>helps migration from EC2, RDS, and on-premise database.</li>
-                        <li>continuous and instant migration.</li>
-                        <li>when migration is difficult due to slow connection and large database, use Snowball Edge.</li>
-                        <li>use Schema Conversion Tool for better migration of schema based database.</li>
-                    </ul>
-                </section>
-           </section>
+           
         </article>
 
         <aside>
