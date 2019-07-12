@@ -665,7 +665,73 @@ const pages = {
             <li>different costs depending on the region.</li>\
         </ol>',
     day09:
-        '',
+        '<h2>EC2, EBS, and EFS recap</h2>'+
+        'Well you need an application for users to use.\
+        <section>'+
+            '<h3 class="centerText">Amazon Elastic Computing Cloud(EC2)</h3>\
+            This helps you ...\
+            <ul>\
+                <li>Hosting Web Server</li>\
+                <li>Hosting database</li>\
+                <li>authentication</li>\
+                <li>everything that server can deal with</li>\
+            </ul>\
+            It is useful because...\
+            <ul>\
+                <li>you can make mistake and recover fast</li>\
+                <li>fast duplication</li>\
+                <li>so experiment it!</li>\
+            </ul>\
+            it needs Amazon Machine Image(AMI) for essential information like OS.'+
+            '<ul>\
+                <li>premade AMI</li>\
+                <li>markets(proven!)</li>\
+                <li>customzied AMI(not proven)</li>\
+                <li>stored AMI(snapshots)</li>\
+            </ul>\
+            you can run EC2 instance with user data.\
+            <ul>\
+                <caption>types of instances</caption>\
+                <li>T series: effetive for web servers which user access and requests fluctuate.</li>\
+                <li>M series: effective for average use(ex. server, computing...)</li>\
+                <li>C series: computing intensive. effecfive for machine learning, high functional web server, and scientific\ modeling</li>\
+                <li>X series: effective for database</li>\
+                <li>R series: optimized for memory intensive application such as large scale database</li>\
+                <li>P series: highly functional in GPU. effective for deep learning and machine learning</li>\
+                <li>F series: good for genome research</li>\
+            </ul>\
+            time for payment for EC2 service...\
+            <ul>\
+                <li>on-demand instance: you pay for what you actually use</li>\
+                <li>reserved instance: you pay for year based fee.</li>\
+                <li>spot instance: auctioned from unused EC2 instances. Notified two minutes before it is sent away. can be very\ cheap</li>\
+            </ul>\
+            <ul>\
+                <caption>Exclusive option</caption>\
+                <li>exlusive instance:physically separate from other user&rsquo;s instances.</li>\
+                <li>exlusive host:you reserve for the entire host in the amazon infrastructur.</li>\
+            </ul>\
+        </section>'+
+        '<section>\
+            <h3 class="centerText">Elastic Block Storage(EBS)</h3>\
+            <blockquote>\
+                <ul>\
+                    <caption>EBS helps</caption>\
+                    <li>EC2 instance data is ephemeral.</li>\
+                    <li>you have data even after EC2 instance is turned off or terminated</li>\
+                    <li>application server needs block storage.</li>\
+                    <li>data storage has to have back-ups</li>\
+                </ul>\
+            </blockquote>\
+        </section>\
+        <section>\
+            <h3 class="centerText">Elastic File system(EFS)</h3>\
+            When multiple instances share the same storage...<br>\
+            and it has to locate in the same region.\
+            <ul>\
+                <li>expandable</li>\
+            </ul>\
+        </section>',
     day10:
         '',
     day11:
