@@ -735,6 +735,8 @@ const pages = {
     day10:
         '',
     day11:
+        '',
+    day12:
         ''
 }
 

@@ -44,6 +44,9 @@ const lesson={
     },
     day11:()=>{
         $("#mainArticle").html(pages.day11);
+    },
+    day12:()=>{
+        $("#mainArticle").html(pages.day12);
     }
 };
 
