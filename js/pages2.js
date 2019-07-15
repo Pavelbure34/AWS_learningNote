@@ -809,7 +809,115 @@ const pages = {
             </section>\
         </section>',
     day11:
-        '',
+        '<h2>VPC recap1</h2>\
+        VPC provides\
+        <ul>\
+        <li>separate Logical spaces for workload separations</li>\
+        <li>private cloud network</li>\
+        </ul>'+
+        '<section>\
+            <ul>\
+                <li>by standard, it is always better to use at least two or more VPCs.</li>\
+                <li>Multiple VPCs Pattern\
+                    <ul>\
+                        <li>good for single team or organization</li>\
+                        <li>good for limited team which has authority over access\
+                            for maintenance for standard state.</li>\
+                    </ul>\
+                </li>\
+                <li>Multiple User Pattern\
+                    <ul>\
+                        <li>good for large organization with multiple IT teams\
+                            and potential start-ups\
+                        </li>\
+                        <li>can only hold for 5 VPCs in one region by default.</li>\
+                        <li>divide available region into subnets</li>\
+                        <li>R</li>\
+                    </ul>\
+                </li>\
+            </ul>\
+        </section>'+
+        '<section>\
+        <h4>Networking in VPC</h4>\
+            <div>\
+                <h3>Routing Table</h3>\
+                <blockquote>\
+                    routing table for VPC resources.\
+                </blockquote>\
+                <ul>\
+                    <li>don&rsquo;t use the default routing table.</li>\
+                    <li>Make routing tables for all subnets</li>\
+                </ul>\
+            </div>\
+            <div>\
+                <h3>Internet Gateway</h3>\
+                <blockquote>\
+                    internet access for the VPC.\
+                </blockquote>\
+                <ul>\
+                    <li>connect to public subnet for making it public.</li>\
+                </ul>\
+            </div>'+
+            '<div>\
+                <h3>NAT Gateway</h3>\
+                <blockquote>\
+                    internet access for the private subnets.\
+                </blockquote>\
+                <ul>\
+                    <li>connect to private subnet for granting it internet access.</li>\
+                </ul>\
+            </div>\
+            <div>\
+                <h3>Elastic Network Interface</h3>\
+                <blockquote>\
+                    virtual network interface.\
+                </blockquote>\
+                <ul>\
+                    <li>.</li>\
+                </ul>\
+            </div>\
+            <div>\
+                <h3>Elastic IP address</h3>\
+                <blockquote>\
+                    static publc IP address within IPv4 for dynamic cloud computing.\
+                </blockquote>\
+                <ul>\
+                    <li>can be attached to instance or network interface.</li>\
+                    <li>only 5s are allowed per region by default</li>\
+                    <li>allows retransmission and reconnection from changed traffic</li>\
+                </ul>\
+            </div>\
+        </section>'+
+        '<section>\
+        <h4>Security in VPC</h4>\
+        <div>\
+                <h3>Security Group</h3>\
+                <blockquote>\
+                    firewall for instances.\
+                </blockquote>\
+                <ul>\
+                    <li>by default nobody gets in.</li>\
+                    <li>you can set up the allowed access</li>\
+                    <li>allowed request and following response automatically pass through it.</li>\
+                    <li>better to create separate security group for app,web,db instances.</li>\
+                </ul>\
+                <ul>\
+                    <caption>Recommended Practice</caption>\
+                    <li>chain diagram:web tier -> app tier -> db tier chain of securty acceptance</li>\
+                </ul>\
+        </div>\
+        <div>\
+                <h3>Network Access Control List(NACL)</h3>\
+                <blockquote>\
+                    subnet level of firewall\
+                </blockquote>\
+                <ul>\
+                    <li>By defaut nobody gets in nobody gets out</li>\
+                    <li>inbound and outbound traffic has to be specific</li>\
+                    <li>allows retransmission and reconnection from changed traffic</li>\
+                </ul>\
+            </div>\
+        </section>',
     day12:
         '',
     day13:
