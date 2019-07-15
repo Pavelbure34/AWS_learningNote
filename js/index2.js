@@ -50,6 +50,9 @@ const lesson={
     },
     day13:()=>{
         $("#mainArticle").html(pages.day13);
+    },
+    day14:()=>{
+        $("#mainArticle").html(pages.day14);
     }
 };
 

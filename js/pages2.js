@@ -921,6 +921,8 @@ const pages = {
     day12:
         '',
     day13:
+        '',
+    day14:
         ''
 }
 
