@@ -31,8 +31,9 @@
                     <li><a href="javascript:lesson.day10()">day10.Database recap</a></li>
                     <li><a href="javascript:lesson.day11()">day11.VPC recap1</a></li>
                     <li><a href="javascript:lesson.day12()">day12.VPC recap for availability</a></li>
-                    <li><a href="javascript:lesson.day13()">day13.</a></li>
+                    <li><a href="javascript:lesson.day13()">day13.Identity Access Management(IAM) Recap</a></li>
                     <li><a href="javascript:lesson.day14()">day14.</a></li>
+                    <li><a href="javascript:lesson.day15()">day15.</a></li>
                 </ul>
                 <div class="clearB"></div>
                 <ul>
@@ -43,70 +44,8 @@
         </div>
 
         <article id="mainArticle">
-           <h2>VPC recap for availability</h2>
-           <section>
-                <div>
-                    <h3>Amazon Direct Connect(DX)</h3>
-                    <blockquote>
-                        allows effective internetless connection.
-                    </blockquote>
-                    <ul>
-                        <li>good for hybrid cloud environment</li>
-                        <li>good for regular streaming of large data between on-premise environment</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>Virtual Private Network(VPN)</h3>
-                    <blockquote>
-                        allows connection with other private network.
-                    </blockquote>
-                    <ul>
-                        <li>allows connection with other private network.</li>
-                        <li>does not require internet</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>VPC Peering</h3>
-                    <blockquote>
-                        allows connection with other VPCs.
-                    </blockquote>
-                    <ul>
-                        <li>good for separate work spaces with each own VPCs</li>
-                        <li>available with VPC from other account</li>
-                        <li>Same IP address cannot be used with peering.</li>
-                        <li>maintained within the Amazon backbone. Super effective connection</li>
-                        <li>only connect essential VPCs</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3>VPC End Point</h3>
-                    <blockquote>
-                        Without exiting AWS,it allows EC2 instances to outer services privately.
-                    </blockquote>
-                    <ul>
-                        <li>No nned for VPN,NAT,internet</li>
-                        <li>has to be in the same region</li>
-                        <li>highly available, repeatable, and horizontally expandable</li>
-                    </ul>
-                    <div>
-                        <div class="clearB"></div>
-                        <ul class="floatL">
-                            <caption>Interface type</caption>
-                            <li>Amazon CloudWatch Logs</li>
-                            <li>Amazon Code Builder</li>
-                            <li>Amazon EC2 API</li>
-                            <li>ELB API</li>
-                            <li>...</li>
-                        </ul>
-                        <ul class="floatL">
-                            <caption>gateway type</caption>
-                            <li>Amazon S3</li>
-                            <li>Amazon DynamoDB</li>
-                        </ul>
-                        <div class="clearB"></div>
-                    </div>
-                </div>
-           </section>
+           <h2>Identity Access Management(IAM) Recap</h2>
+           
         </article>
 
         <aside>
@@ -171,6 +110,7 @@
             </ul>
             <ul class="circleBulletPt">
                 <h3 class="centerText">Tips</h3>
+                <li>You can position ELB inside and outside of available region.</li>
                 <li>Always good to separate work loads either in instance level,VPC level,..</li>
                 <li>Always make your subnet largest as possible.</li>
                 <li>Always allocate more for private subnets.</li>

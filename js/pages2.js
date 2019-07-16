@@ -889,24 +889,24 @@ const pages = {
             </div>\
         </section>'+
         '<section>\
-        <h4>Security in VPC</h4>\
-        <div>\
-                <h3>Security Group</h3>\
-                <blockquote>\
-                    firewall for instances.\
-                </blockquote>\
-                <ul>\
-                    <li>by default nobody gets in.</li>\
-                    <li>you can set up the allowed access</li>\
-                    <li>allowed request and following response automatically pass through it.</li>\
-                    <li>better to create separate security group for app,web,db instances.</li>\
-                </ul>\
-                <ul>\
-                    <caption>Recommended Practice</caption>\
-                    <li>chain diagram:web tier -> app tier -> db tier chain of securty acceptance</li>\
-                </ul>\
-        </div>\
-        <div>\
+            <h4>Security in VPC</h4>\
+            <div>\
+                    <h3>Security Group</h3>\
+                    <blockquote>\
+                        firewall for instances.\
+                    </blockquote>\
+                    <ul>\
+                        <li>by default nobody gets in.</li>\
+                        <li>you can set up the allowed access</li>\
+                        <li>allowed request and following response automatically pass through it.</li>\
+                        <li>better to create separate security group for app,web,db instances.</li>\
+                    </ul>\
+                    <ul>\
+                        <caption>Recommended Practice</caption>\
+                        <li>chain diagram:web tier -> app tier -> db tier chain of securty acceptance</li>\
+                    </ul>\
+            </div>\
+            <div>\
                 <h3>Network Access Control List(NACL)</h3>\
                 <blockquote>\
                     subnet level of firewall\
@@ -919,10 +919,107 @@ const pages = {
             </div>\
         </section>',
     day12:
-        '',
+        '<h2>VPC recap for availability</h2>'+
+        '<section>\
+            <div>\
+                <h3>Amazon Direct Connect(DX)</h3>\
+                <blockquote>\
+                    allows effective internetless connection.\
+                </blockquote>\
+                <ul>\
+                    <li>good for hybrid cloud environment</li>\
+                    <li>good for regular streaming of large data between on-premise environment</li>\
+                </ul>\
+            </div>\
+            <div>\
+                <h3>Virtual Private Network(VPN)</h3>\
+                <blockquote>\
+                    allows connection with other private network.\
+                </blockquote>\
+                <ul>\
+                    <li>allows connection with other private network.</li>\
+                    <li>does not require internet</li>\
+                </ul>\
+            </div>\
+            <div>\
+                <h3>VPC Peering</h3>\
+                <blockquote>\
+                    allows connection with other VPCs.\
+                </blockquote>\
+                <ul>\
+                    <li>good for separate work spaces with each own VPCs</li>\
+                    <li>available with VPC from other account</li>\
+                    <li>Same IP address cannot be used with peering.</li>\
+                    <li>maintained within the Amazon backbone. Super effective connection</li>\
+                    <li>only connect essential VPCs</li>\
+                </ul>\
+            </div>\
+            <div>\
+                <h3>VPC End Point</h3>\
+                <blockquote>\
+                    Without exiting AWS,it allows EC2 instances to outer services privately.\
+                </blockquote>\
+                <ul>\
+                    <li>No need for VPN,NAT,internet</li>\
+                    <li>has to be in the same region</li>\
+                    <li>highly available, repeatable, and horizontally expandable</li>\
+                </ul>\
+                <div>\
+                    <div class="clearB"></div>\
+                    <ul class="floatL">\
+                        <caption>Interface type</caption>\
+                        <li>Amazon CloudWatch Logs</li>\
+                        <li>Amazon Code Builder</li>\
+                        <li>Amazon EC2 API</li>\
+                        <li>ELB API</li>\
+                        <li>...</li>\
+                    </ul>'+
+                    '<ul class="floatL">\
+                        <caption>gateway type</caption>\
+                        <li>Amazon S3</li>\
+                        <li>Amazon DynamoDB</li>\
+                    </ul>\
+                    <div class="clearB"></div>\
+                </div>\
+            </div>\
+        </section>'+
+        '<section>\
+            <div>\
+                <h3>Elastic Load Balancing</h3>\
+                <ul>\
+                    <caption>Why should we use ELB?</caption>\
+                    <li>supports high availability by distributing traffic</li>\
+                    <li>monitors the abnormal instances</li>\
+                    <li>Works as security</li>\
+                </ul>\
+            </div>\
+            <div>\
+                <h3>Connection Draining</h3>\
+                <blockquote>\
+                    a method not to let users experience any changes in service\
+                    while deleting the instances.\
+                </blockquote>\
+            </div>\
+        </section>'+
+        '<section>\
+            <div>\
+                <h3>Amazon Route 53</h3>\
+                <blockquote>\
+                    A DNS(Domain Name Service).\
+                </blockquote>\
+                <ul>\
+                    <li>you can buy Domain name</li>\
+                    <li>supports multiple routing options.</li>\
+                    <li>manage your Domains</li>\
+                    <li>It monitors DNS status.</li>\
+                </ul>\
+            </div>\
+        </section>',
     day13:
         '',
     day14:
+        '',
+    day15:
         ''
 }
 
