@@ -1016,10 +1016,118 @@ const pages = {
             </div>\
         </section>',
     day13:
-        '',
+        '<h2>Identity Access Management(IAM) Recap</h2>\
+        <blockquote>\
+        When your teammates have expertise and need specific'+
+        'authority over certain tasks and your organization\
+        is big enough to control the access control over\
+        the resources and services in its architecture.\
+        </blockquote>'+
+        '<section>\
+        <ul>\
+            <caption>Type of Users</caption>\
+            <li>root user: has omnipotent authority over the resources.</li>\
+            <li>IAM admin user: root generates this.</li>\
+            <li>IAM user: users with specific role and access</li>\
+        </ul>\
+        <ul>\
+            <caption>Do&rsquo;s</caption>\
+            <li>permanently disable\
+                    root user authentication when using IAM admin and IAM users.\
+                </li>\
+                <li>\
+                    specify access and authority as minimal as possible.\
+                </li>\
+        </ul>'+
+        '<ul>\
+            <caption>IAM security entity</caption>\
+            <blockquote>\
+                entity who can carry out works on the resources\
+                    which he or she has access to.\
+            </blockquote>\
+            <ul>\
+                <li>IAM users:not a permanent AWS account, rather a temporary account user.\
+                    <ul>\
+                        <li>has access and authority over specific resources only.</li>\
+                        <li>access is given with imperative from IAM admin.</li>\
+                        <li>by default, no authority and access to any resources</li>\
+                    </ul>\
+                </li>\
+                <li>IAM user group: a group of IAM users with certain access\
+                        to resources and servies\
+                        <ul>\
+                            <li>better manage users with group.</li>\
+                            <li>for easy managment by just changing group.</li>\
+                        </ul>\
+                    </li>\
+                <li>IAM role:user or service can gain access to certain resources or services.\
+                    <ul>\
+                        <li>based on policies</li>\
+                        <li>you don&rsquo;t allocate policies to IAM users or group.</li>\
+                        <li>you instead grant service or users or user group role\
+                            which is connected with policies and authority.\
+                            </li>\
+                            <li>can be given to other companies</li>\
+                    </ul>\
+                    <ul>\
+                        <caption>How to allocate IAM role</caption>\
+                        <li>AWS Management console, CLI</li>\
+                        <li>AssumeRole API</li>\
+                        <li>AWS Security Token Service(AWS STS)</li>\
+                    </ul>\
+                </li>\
+                <li>IdP</li>\
+            </ul>\
+        </ul>'+
+        '<div>\
+            <h3>Authority allocation</h3>\
+            <ul>\
+                <li>a statement for single or plural authority(ies).</li>\
+                <li>it is evaluated when requested</li>\
+                <li>IAM policies only control access to AWS services.</li>\
+                <li>IAM does not have access to hyperViser(CPU...)</li>\
+            </ul>\
+        </div>\
+        <div>\
+                <h3>Amazon Cognito</h3>\
+                <blockquote>\
+                    a service that manages authentication, authority allocation\
+                    in web or mobile application.\
+                </blockquote>\
+                <ul>\
+                    <li>User Pool:provides login or sign in options for users as directories.\
+                        <ul>\
+                            <li>Sign in or Login service</li>\
+                            <li>embedded web UI for user login.</li>\
+                            <li>login through other Social media such as Facebook</li>\
+                            <li>management for user directories and profiles.</li>\
+                            <li>Multi-factor authentication(MFA), account security,\
+                                encrypted call or email check\
+                            </li>\
+                            <li>user workflow or migration triggered by AWS Lambda</li>\
+                        </ul>\
+                    </li>\
+                    <li>Authentication Pool:allocates access to AWS services to users.</li>\
+                </ul>\
+        </div>'+
+        '<div>\
+                <h3>Amazon Organization</h3>\
+                <blockquote>\
+                    a service that manages multiple users, roles and policies,\
+                    and access to services and resources.\
+                </blockquote>\
+                <ul>\
+                    <li>supports automated user management.</li>\
+                    <li>pays for every connected account all at once</li>\
+                    <li>control AWS in API level.</li>\
+                </ul>\
+        </div>\
+        </section>',
     day14:
         '',
     day15:
+        '',
+    day16:
         ''
 }
 
