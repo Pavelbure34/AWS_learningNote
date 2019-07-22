@@ -24,8 +24,9 @@
                     <li><a href="javascript:nav.day03()">day03.Intro to Database services</a></li>
                     <li><a href="javascript:nav.day04()">day04.Actual Database Practice</a></li>
                     <li><a href="javascript:nav.day05()">day05.Intro to Computing and Network Services</a></li>
-                    <li><a href="javascript:nav.day06()"></a></li>
+                    <li><a href="javascript:nav.day06()">day06.Intro to Management System</a></li>
                     <li><a href="javascript:nav.day07()"></a></li>
+                    <li><a href="javascript:nav.day08()"></a></li>
                 </ul>
                 <ul class="floatL">
                     <caption>Solution Artchitect</caption>
@@ -39,7 +40,78 @@
             </nav>
         </div>
         <article id="mainArticle">
-            
+            <h2>Intro to Management System</h2>
+            <section>
+                <h3 class="centerText">Management Services</h3>
+                <ul>
+                    <li><emR>Amazon CloudFormation</emR>
+                        <div class="indented">
+                            text files to define my infrastructure.
+                            as code and manage with the same version control tool.
+                        </div>
+                    </li>
+                    <li><emR>Amazon Service Catalog</emR>
+                        <div class="indented">
+                            It allows enterprise catalog resources deployable in the cloud.
+                            It helps define what is allowed clearly.
+                        </div>
+                    </li>
+                    <li><emR>Amazon CloudWatch</emR>
+                        <div class="indented">
+                            It monitors services on cloud resources and applications.
+                            and can Trigger scaling operations with auto-scaling and elastic balancer.
+                        </div>
+                    </li>
+                    <li><emR>Amazon System Manager</emR>
+                        <div class="indented">
+                            It provides unified user interface.
+                            and shows operational data in multiple AWS services
+                            for automating tasks in cloud resources.
+                        </div>
+                    </li>
+                    <li><emR>Amazon CloudTrail</emR>
+                        <div class="indented">
+                            It Monitors and logs AWS activities.
+                            good for simplified analysis and security of activity.
+                        </div>
+                    </li>
+                    <li><emR>Amazon Config</emR>
+                        <div class="indented">
+                            It assists, orders, evaluates AWS resources.
+                            It is good for security analysis, operation trouble shooting.
+                        </div>
+                    </li>
+                    <li><emR>Amazon Opswork</emR>
+                        <div class="indented">
+                            Managed instances of "shift n puppet".
+                            It automates deployment of AWS resources.
+                        </div>
+                    </li>
+                    <li><emR>Amazon Trusted Advisor</emR>
+                        <div class="indented">
+                            It advises you how to achieve opitmization
+                            including cost, availability, and security.
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h4>Example</h4>
+                <blockquote>
+                    Let's make an simple architecture that telling us when billing exceeds
+                    the limit.
+                    <ul>
+                        <caption>we will be using</caption>
+                        <li>SNS topic</li>
+                        <li>AWS cloudWatch Alarm</li>
+                        <li>Billing and Cost Management</li>
+                    </ul>
+                </blockquote>
+                <div id="img1"></div>
+                <ol>
+                    <li></li>
+                </ol>
+            </section>
         </article>
 
         <aside>

@@ -146,6 +146,12 @@ const nav={
     },
     day05:()=>{
         $("#mainArticle").html(pages.day05);
+        funcs.imageWithSub(
+            "img1","center",
+            './image/day06/practice1.png',
+            600,400,
+            "Sample Practice!"
+        );
     },
     day06:()=>{
         $("#mainArticle").html(pages.day06);
