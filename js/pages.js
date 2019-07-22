@@ -240,9 +240,198 @@ const pages={
             </ul>\
         </section>',
     day04:
-        '',
+        `<h2 class="centerText">day04.Actual Database Practice</h2>
+        <section>
+            <div id="img1"></div>
+            <ol>
+                <caption>What we will do here</caption>
+                <li>we will <span class="emphBlue">create SQL database in VPC</span></li>
+                <li>And get <span class="emphBlue">access to it remotely</span></li>
+                <li>Do <span class="emphBlue">all the operations!</span></li>
+            </ol>
+        </section>
+        <section>
+            <h3 class="centerText">1.Create SQL db in VPC</h3>
+            <div id="imgs1"></div>
+            <ol>
+                <li>If you haven&rsquo;t created one,create it.</li>
+                <li>Select database type.
+                    <ul>
+                        <li>Since we only practice it, find free tier.</li>
+                    </ul>
+                </li>
+                <li>
+                    For now,check Instance class. Choose db.t2.micro.
+                </li>
+                <li><span class="emphBlue">Name of the database</span>
+                    has to be <span class="emphRed">unique</span>.</li>
+                <li>Don&rsquo;t bother changing advanced settings for now!</li>
+            </ol>
+        </section>
+        <section>
+            <h3 class="centerText">2.remote access to SQL db in VPC</h3>
+            <div id="imgs2"></div>
+            <ol>
+                <li>Now db created,check for <span class="emphRed">end point</span>.
+                    <ul>
+                        <li>it is going to be the
+                            <span class="emphBlue">access point to this</span>.</li>
+                    </ul>
+                </li>
+                <li>
+                    Open MySQL workBench for access to your DB.
+                </li>
+                <li>
+                    For <span class="emphBlue">creating SQL server</span>,
+                    use <span class="emphBlue">end point of your RDS</span>
+                    as <span class="emphRed">host name</span>.
+                </li>
+                <li>For <span class="emphBlue">master user for local MYSQL</span>,
+                    use <span class="emphBlue">the same name of master user for RD and password</span>
+                    for <span class="emphRed">remote connection</span>.</li>
+            </ol>
+        </section>`,
     day05:
-        '',
+        `<h2>Intro to Computing and Network Services</h2>
+        <section>
+            <h3 class="cetnerText">AWS Compute Services</h3>
+            <ul>
+                <li><emR>Elastic Compute Cloud</emR>
+                    <div class="indented">
+                        This is a virtual computer that is elastic and
+                        perfectly customizable.
+                    </div>
+                </li>
+                <li><emR>EC2 Auto Scaling</emR>
+                    <div class="indented">
+                        This automatically auto-scales capacity of EC2 instances.<br>
+                        up or down.
+                    </div>
+                </li>
+                <li><emR>Amazon Lightsail</emR>
+                    <div class="indented">
+                        Perfect for launching a virtual web server application<br>
+                        for AWS will get you everything.
+                    </div>
+                </li>
+                <li><emR>Elastic Container Service(ECS)</emR>
+                    <div class="indented">
+                        Highly effective container service(like docker containers).
+                    </div>
+                    <li><emR>AWS Lambda</emR>
+                        <div class="indented">
+                            Serverless computing service.
+                            It lets you run code with ease<br>
+                            for you don't have to manage server and application<br>
+                            while testing your code.Upload the code and AWS will
+                            do everything.
+                        </div>
+                    </li>
+                </li>
+            </ul>
+            <section>
+                <h4>Examples of Web Server</h4>
+                <img
+                    src="./image/day05/webServerExample.png"
+                    witdh="700"
+                    height="400"
+                    alt="MultiAZ"
+                >
+                <ul>
+                    <li><emR>EC2 auto-scaling and its group</emR>
+                        will increase or decrease the EC2 instances according
+                        to the demand dynamically.
+                    </li>
+                    <li>
+                        <emR>Elastic Load Balancer</emR>(<emB>ELB</emB>) will
+                        distribute the traffice and check health of each instances.
+                    </li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <h3 class="cetnerText">AWS Network and Content Delivery Services</h3>
+            <ul>
+                <li><emR>Amazon CloudFront</emR>
+                    <div class="indented">
+                        global content delivery network among
+                        edge location. effective for its low lightency.
+                    </div>
+                </li>
+                <li><emR>Virtual Private Cloud(VPC)</emR>
+                    <div class="indented">
+                        logical private space for launching your server or application.<br>
+                        it can  fight d-dos attack.
+                    </div>
+                </li>
+                <li><emR>Amazon Direct Connect(DX)</emR>
+                    <div class="indented">
+                        high speed and effective private connect
+                        that does not internet connection.
+                    </div>
+                </li>
+                <li><emR>Elastic Load Balancer(ELB)</emR>
+                    <div class="indented">
+                        distributing incoming traffic among other instances.
+                    </div>
+                </li>
+                <li><emR>Amazon Route53</emR>
+                    <div class="indented">
+                        handle traffic, domain name service.
+                    </div>
+                </li>
+                <li><emR>Amazon API gateway</emR>
+                    <div class="indented">
+                        provides secure application programming interfaces<br>
+                        serverless servers.Perfect management service.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h4>Examples</h4>
+            <div>
+                <img
+                    src="./image/day05/MultiAZ.png"
+                    witdh="700"
+                    height="400"
+                    alt="WebServerExample"
+                >
+                <ul>
+                    <li>Using <emB>two separate availability zone</emB>(default for one VPC)
+                        ensures high
+                        <emR>availability</emR> even when one of them is out of service.
+                    </li>
+                    <li>
+                        Using Auto-scaling and ELB ensures high availability.
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <img
+                    src="./image/day05/directConnect_cloudFront.png"
+                    witdh="700"
+                    height="400"
+                    alt="directConnect_cloudFrontExample"
+                >
+                <ul>
+                    <li>cloudFront ensures distribution of large images and vidoes
+                        across the edge locations.
+                    </li>
+                    <li>
+                        When requested, CloudFront will deliver it fast.
+                        When changing, CloudFront will accept the request from client.
+                    </li>
+                    <li>
+                        Route53 will give its DNS name so making web forwarding easy.
+                    </li>
+                    <li>
+                        Corporate Data center will need Direct Connet(DX) for fast
+                        internetles private connection.
+                    </li>
+                </ul>
+            </div>
+        </section>`,
     day06:
         ''           
 }
