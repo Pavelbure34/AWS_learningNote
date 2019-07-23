@@ -433,5 +433,97 @@ const pages={
             </div>
         </section>`,
     day06:
-        ''           
+        `<h2>Intro to Management System</h2>
+        <section>
+            <h3 class="centerText">Management Services</h3>
+            <ul>
+                <li><emR>Amazon CloudFormation</emR>
+                    <div class="indented">
+                        text files to define my infrastructure.
+                        as code and manage with the same version control tool.
+                    </div>
+                </li>
+                <li><emR>Amazon Service Catalog</emR>
+                    <div class="indented">
+                        It allows enterprise catalog resources deployable in the cloud.
+                        It helps define what is allowed clearly.
+                    </div>
+                </li>
+                <li><emR>Amazon CloudWatch</emR>
+                    <div class="indented">
+                        It monitors services on cloud resources and applications.
+                        and can Trigger scaling operations with auto-scaling and elastic balancer.
+                    </div>
+                </li>
+                <li><emR>Amazon System Manager</emR>
+                    <div class="indented">
+                        It provides unified user interface.
+                        and shows operational data in multiple AWS services
+                        for automating tasks in cloud resources.
+                    </div>
+                </li>
+                <li><emR>Amazon CloudTrail</emR>
+                    <div class="indented">
+                        It Monitors and logs AWS activities.
+                        good for simplified analysis and security of activity.
+                    </div>
+                </li>
+                <li><emR>Amazon Config</emR>
+                    <div class="indented">
+                        It assists, orders, evaluates AWS resources.
+                        It is good for security analysis, operation trouble shooting.
+                    </div>
+                </li>
+                <li><emR>Amazon Opswork</emR>
+                    <div class="indented">
+                        Managed instances of "shift n puppet".
+                        It automates deployment of AWS resources.
+                    </div>
+                </li>
+                <li><emR>Amazon Trusted Advisor</emR>
+                    <div class="indented">
+                        It advises you how to achieve opitmization
+                        including cost, availability, and security.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h4>Example</h4>
+            <blockquote>
+                Let's make an simple architecture that telling us when billing exceeds
+                the limit.
+                <ul>
+                    <caption>we will be using</caption>
+                    <li>SNS topic</li>
+                    <li>AWS cloudWatch Alarm</li>
+                    <li>Billing and Cost Management</li>
+                </ul>
+            </blockquote>
+            <ol>
+                <li>click dashboard</li>
+                <li>click preference</li>
+                <li>check billing alerts</li>
+                <li>enable billing alarm</li>
+                <li>go to cloudwatch in service</li>
+                <li>create an alarm
+                    <ul>
+                        <li>name the alarm</li>
+                        <li>Choose the metric.
+                            <ul>
+                                <li>For billing, choose the region US.EAST(N.Virginia)</li>
+                            </ul>
+                        </li>
+                        <li>Do the rest of them.</li>
+                    </ul>
+                </li>
+                <li>go to Simple Notification Service</li>
+                <li>Check the topic you have created during alarm creation</li>
+                <li>You are all set. Keep it since it is always good to set up billing alarm.</li>
+            </ol>
+        </section>`,
+    day07:
+        ``,
+    day08:
+        ``   
 }

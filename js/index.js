@@ -155,5 +155,11 @@ const nav={
     },
     day06:()=>{
         $("#mainArticle").html(pages.day06);
-    }
+    },
+    day07:()=>{
+        $("#mainArticle").html(pages.day07);
+    },
+    day08:()=>{
+        $("#mainArticle").html(pages.day08);
+    },
 }
