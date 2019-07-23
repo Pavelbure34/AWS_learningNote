@@ -523,7 +523,86 @@ const pages={
             </ol>
         </section>`,
     day07:
-        ``,
+        `<h2>Intro to Application Service</h2>
+        <section>
+            <h3 class="centerText">Application Integration Services</h3>
+            <ul>
+                <li><emR>Step Functions</emR>
+                    <div class="indented">
+                        It helps coordinate
+                        components of distrubuted resources of micro-services
+                        using visual work-flow. best for new businesses<br>
+                        -define step by step of application deployment.<br>
+                        -then make it automate it.
+                    </div>
+                </li>
+                <li><emR>Amazon Simple WorkFlow Service</emR>
+                    <div class="indented">
+                        It works similar to Step functions.
+                    </div>
+                </li>
+                <li><emR>Amazon Simple Notification Service</emR><emB>(SNS)</emB>
+                    <div class="indented">
+                        creating topic, subscribing to that topic to receive the message.<br>
+                        It also supports push notifiation for mobile devices.
+                    </div>
+                </li>
+                <li><emR>Amazon Simple Queue Service</emR><emB>(SQS)</emB>
+                    <div class="indented">
+                        It builds up messages
+                        in the queue in the processing server
+                        so that it meets the demand.
+                    </div>
+                </li>
+            </ul>
+            <div>
+                <h4>Example</h4>
+                <img
+                    src="./image/day07/example1.png"
+                    width="600"
+                    height="400"
+                    alt="example"
+                >
+                <ul>
+                    <li>Messages keep incoming to SQS instance</li>
+                    <li>EC2 application for message handling under the auto scaling group will change its volume
+                        according to size of incoming messages.
+                    </li>
+                    <li>handled message will be deleted from the Queue.</li>
+                    <li>When too many messages enter the queue</li>
+                    <li>CloudWatch connected to SQS will notify the auto scaling to expand more EC2 instances.</li>
+                    <li>so that EC2 instances can handle messages in demand and keep deleting handled ones.</li>
+                    <li>and you get notification messages from SNS</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Customer Engagement Services</h3>
+            <ul>
+                <li><emR>Amazon Connect</emR>
+                    <div class="indented">
+                        As self-service contact service,
+                        it provides drag and drop graphical interface for
+                        users
+                        making customer experience smooth and better.
+                    </div>
+                </li>
+                <li><emR>Amazon Pinpoint</emR>
+                    <div class="indented">
+                        It allows push messages, emails, notificaiton 
+                        to the targeted marketing campaigns as well as
+                        direct messages such as confirm order messages.
+                    </div>
+                </li>
+                <li><emR>Amazon Simple Email Service</emR>(SES)
+                    <div class="indented">
+                        cloud based service sending emails.
+                    </div>
+                </li>
+            </ul>
+        </section>`,
     day08:
-        ``   
+        ``,
+    day09:
+        ``
 }
