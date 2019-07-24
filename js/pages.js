@@ -602,7 +602,98 @@ const pages={
             </ul>
         </section>`,
     day08:
-        ``,
+        `<h2>Intro to Analytics and Machine Learning</h2>
+        <section>
+            <h3 class="centerText">Analytics Services</h3>
+            <ul>
+                <li><emR>Amazon EMR</emR>
+                    <div class="indented">
+                        Hadoop Framework that is integrable with Apache,
+                        Spark, etc.Data can be analyzed into S3, DynamoDB.
+                    </div>
+                </li>
+                <li><emR>Amazon Athena</emR>
+                    <div class="indented">
+                        It allows you to Data store in S3 bucket with standard SQL statment.
+                    </div>
+                </li>
+                <li><emR>Amazon Elastic Search</emR>
+                    <div class="indented">
+                        fully managed services. Elastic dot cuase for elastic framework.<br>
+                        high speed query among AWS resources.
+                    </div>  
+                </li>
+                <li><emR>Amazon Kinesis</emR>
+                    <div class="indented">
+                        collect process and analyze real time streaming data.
+                    </div>
+                </li>
+                <li><emR>Amazon QuickSight</emR>
+                    <div class="indented">
+                        fully managed business intelligent reporting tool.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Machine Learning Service</h3>
+            <ul>
+                <li><emR>DeepLens</emR>
+                    <div class="indented">
+                        deep learning video camera. Advanced Vision system application.
+                    </div>
+                </li>
+                <li><emR>SageMaker</emR>
+                    <div class="indented">
+                        build and launnch my own Machine learning model 
+                    </div>
+                </li>
+                <li><emR>Amazon Rekognition</emR>
+                    <div class="indented">
+                        deep learning based analysis of video and images
+                    </div>
+                </li>
+                <li><emR>Amazon Lex</emR>
+                    <div class="indented">
+                        machine learning for conversational chatbot.
+                    </div>
+                </li>
+                <li><emR>Amazon Polly</emR>
+                    <div class="indented">
+                        takes natural sound for speech
+                    </div>
+                </li>
+                <li><emR>Amazon Comprehend</emR>
+                    <div class="indented">
+                        used for analysis of text for inside relationships.<br>
+                        customer analysis and advanced searhcing documents.
+                    </div>
+                </li>
+                <li><emR>Amazon Translate</emR>
+                    <div class="indented">
+                        It accurately translate texts into different languages.
+                    </div>
+                </li>
+                <li><emR>Amazon Transcribe</emR>
+                    <div class="indented">
+                        It is voice recognition and store text in the S3 and
+                        return the transcribed texts.
+                    </div>
+                </li>
+            </ul>
+            <div>
+                <h4>Let&rsquo;s try Amazon Rekognition</h4>
+                <ol>
+                    <li>go to Rekognition Service</li>
+                    <li>Try Demo</li>
+                    <li>and see what it can do.</li>
+                </ol>
+            </div>
+        </section>`,
     day09:
+        ``,
+    day10:
+        ``,
+    day11:
         ``
 }

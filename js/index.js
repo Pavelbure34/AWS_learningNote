@@ -164,5 +164,11 @@ const nav={
     },
     day09:()=>{
         $("#mainArticle").html(pages.day09);
+    },
+    day10:()=>{
+        $("#mainArticle").html(pages.day10);
+    },
+    day11:()=>{
+        $("#mainArticle").html(pages.day11);
     }
 }
