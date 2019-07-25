@@ -691,9 +691,323 @@ const pages={
             </div>
         </section>`,
     day09:
-        ``,
+        `<h2>Intro to Security, Identity, and Compliance.</h2>
+        <section>  
+            <h3 class="centerText">Related Services</h3>
+            <ul>
+                <li><emR>AWS Artifact</emR>
+                    <div class="indented">
+                        It gives online access to AWS security,Compliance, and access documents.
+                    </div>
+                </li>
+                <li><emR>AWS Certificate Manager</emR>
+                    <div class="indented">
+                        It issues SSL certificate for HTTP comunication within my website.<br>
+                        It is integrable with Route53 and CloudFront.<br>
+                        Certificates given with this is free.
+                    </div>
+                </li>
+                <li><emR>Amazon Cloud Directory</emR>
+                    <div class="indented">
+                        cloud-based directory service providing hierachies of datas
+                    </div>
+                </li>
+                <li><emR>AWS Directory Service</emR>
+                    <div class="indented">
+                        fully management microsoft active directory service in AWS cloud.
+                    </div>
+                </li>
+                <li><emR>AWS Cloud HSM</emR>
+                    <div class="indented">
+                        dedicated hardware security module in AWS cloud.<br>
+                        It allows to have corporate and regular
+                        tree compliances as well as lower cost with own HMS.
+                    </div>
+                </li>
+                <li><emR>Amazon Cognito</emR>
+                    <div class="indented">
+                        It provides sign-in and sign-out functions to
+                        mobile or web applications.<br>
+                        It can be used with Facebook or Google login.
+                    </div>  
+                </li>
+                <li><emR>AWS Identity Access Management(IAM)</emR>
+                    <div class="indented">
+                        Manage user or group of users access and accesses.
+                    </div>
+                </li>
+                <li><emR>AWS Organizations</emR>
+                    <div class="indented">  
+                        policy based management over large number of resources.
+                        best for large scale of organization.
+                    </div>
+                </li>
+                <li><emR>Amazon Inspector</emR>
+                    <div class="indented">
+                        It is automated security assessment service
+                        that detects vulnerability and spots for improvement.
+                    </div>
+                </li>
+                <li><emR>AWS Key Management Service(KMS)</emR>
+                    <div class="indented">
+                        It provide easy services of keys management for
+                        encryped data.<br>
+                        It also provides Hardware security module and  integrable well with  
+                        S3 Redshift and ABS
+                    </div>
+                </li>
+                <li><emR>AWS Shield</emR>
+                    <div class="indented">
+                        It provide protection against D-dos attack.<br>
+                        standard version is implemented automatically.
+                    </div>
+                </li>
+                <li><emR>Web Application Firewall(WAF)</emR>
+                    <div class="indented">
+                        Additional firewall against SQL injection, cross site conflicting.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h4>Let&rsquo;s try Identity Access Management(IAM)!</h4>
+            <ul>
+                <caption><emR>Warning</emR></caption>
+                <li>DON&rsquo;T USE ROOT ACCOUNT WHEN WORKING WITH MANY PEOPLE
+                    WITH DIFFERENT ROLE.
+                </li>
+                <li>
+                    DELETE ROOT USER KEY PAIR!
+                </li>
+            </ul>
+            <ol>
+                <li>Go to IAM service.</li>
+                <li>click for users</li>
+                <li>click for create user</li>
+                <li>write the user name and allow AWS management console access</li>
+                <li>get the sign in url and log in.</li>
+                <li>in order to set up the root user credential, log out and 
+                    log in as root.
+                </li>
+                <li>
+                    go to security credential and do it!
+                </li>
+            </ol>
+        </section>`,
     day10:
-        ``,
+        `<h2>Intro to Developer,Media, Mobile, Migration, Business, IoT</h2>
+        <section>
+            <h3 class="centerText">AWS Developers Tool</h3>
+            <ul>
+                <li><emR>AWS Cloud9</emR>
+                    <div class="indented">
+                        Integrated running environment that 
+                        are used extensively for developer associate pathway
+                    </div>
+                </li>
+                <li><emR>AWS CodeStar</emR>
+                    <div class="indented">
+                        It makes easy to develop and deploy application
+                        by managing entire CICD pipeline for developers.
+                    </div>
+                </li>
+                <li><emR>X-Ray</emR>
+                    <div class="indented">
+                        It analyzes, debugs the application.
+                    </div>
+                </li>
+                <li><emR>AWS CodeCommit</emR>
+                    <div class="indented">
+                        Like Git repostory in AWS environment
+                    </div>
+                </li>
+                <li><emR>AWS PipeLine</emR>
+                    <div class="indented">
+                        Continuous integeration and continuous Delivery(CICD)
+                        service
+                        that builds, tests, deploys my code everytime change occurs.
+                    </div>
+                </li>
+                <li><emR>AWS CodeBuild</emR>
+                    <div class="indented">  
+                        It compiles my source code and runs, produces software packages
+                        ready to be deployed.
+                    </div>
+                </li>
+                <li><emR>AWS CodeDeploy</emR>
+                    <div class="indented">
+                        It automates software deployment in variety computing system in AWS.<br>
+                        It cane be applied to EC2, Lambda, and on premises.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">AWS Media Services</h3>
+            <ul>
+                <li><emR>Elemental MediaConvert</emR>
+                    <div class="indented">
+                        File based vidoe coding service
+                        converting vidoe format. 
+                    </div>
+                </li>
+                <li><emR>Elemental MediaPackage</emR>
+                    <div class="indented">
+                        video content delivery over internet
+                        while protecting from piracy.
+                    </div>
+                </li>
+                <li><emR>Elemental MediaTailor</emR>
+                    <div class="indented">
+                        It inserts individual targeted advertisement into video streams.
+                    </div>
+                </li>
+                <li><emR>Elemental MediaLive</emR>
+                    <div class="indented">
+                        Broadcast grade live video streaming service
+                        for TV and internet connected device.
+                    </div>
+                </li>
+                <li><emR>Elemental MediaStore</emR>
+                    <div class="indented">
+                        Storage service in AWS cloud optimized for media.
+                    </div>
+                </li>
+                <li><emR>Kinesis Video Streams</emR>
+                    <div class="indented">
+                        streams video to the connected devices through AWS cloud<br>
+                        for analytics, machine learning , and other processing applications.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Mobile Services</h3>
+            <ul>
+                <li><emR>AWS Mobile Hub</emR>
+                    <div class="indented">
+                        It configures AWS services for mobile application.
+                    </div>
+                </li>
+                <li><emR>AWS device Farm</emR>
+                    <div class="indented">
+                        App testing service for Android, iOS and web application
+                        allowing tests on various devices in AWS cloud.
+                    </div>
+                </li>
+                <li><emR>AWS appSync</emR>
+                    <div class="indented">
+                        graphQL backend for web and mobile applications
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Migration Service</h3>
+            <ul>
+                <li><emR>AWS Application Discovery Service</emR>
+                    <div class="indented">
+                        gathers info about enterprise's on-premises environment.
+                    </div>
+                </li>
+                <li><emR>AWS Database Migration Service</emR>
+                    <div class="indented">
+                        orhcestrates database migration from one to other type also.
+                    </div>
+                </li>
+                <li><emR>AWS Server Migration Service.</emR>
+                    <div class="indented">
+                        can automate migration thousands workload to AWS clouds.
+                    </div>
+                </li>
+                <li><emR>AWS SnowBall</emR>
+                    <div class="indented">
+                        portable pitabyte scale data storage. 
+                    </div>  
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Business Productivity and Desktop streaming Application</h3>
+            <ul>
+                <li><emR>Amazon Chime</emR>
+                    <div class="indented">
+                        ONline meeting service in AWS cloud.
+                        video chat, conference, sharing contetns...
+                        inside and outside the organization
+                    </div>
+                </li>
+                <li><emR>Amazon WorkDocs</emR>
+                    <div class="indented">
+                        secured fully managed file collaboration, managment service
+                        supporting 35 types of document including wordDoc and pdf. 
+                    </div>
+                </li>
+                <li><emR>Amazon Work Mail</emR>
+                    <div class="indented">
+                        secured managed business email and calendar service.
+                    </div>
+                </li>
+                <li><emR>Amazon Workspaces</emR>
+                    <div class="indented">
+                        fully managed, secure cloud based desktop service.
+                        provision, streaming Microsoft desktop Windows.
+                    </div>
+                </li>
+                <li><emR>Amazon AppStream 2.0</emR>
+                    <div class="indented">
+                        fully managed, secured streaming service streaming
+                        desktop Application from AWS to HTML5 web browser<br>
+                        good for users who want access from anywhere.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Internet of Things(IoT)</h3>
+            <ul>
+                <li><emR>AWS IoT</emR>
+                    <div class="indented">
+                        Managed Cloud platform for embedded devices such as Raspberry Pie
+                        allowing those devices securely intereact with AWS cloud. 
+                    </div>
+                </li>
+                <li><emR>Amazon FreeRTOS</emR>
+                    <div class="indented">
+                        Operational System for micro controllers
+                        allowing low cost, low powered devices for connetion to AWS IoT
+                    </div>
+                </li>
+                <li><emR>AWS Greengrass</emR>
+                    <div class="indented">
+                        software allowing you to run local AWS lambda functions,
+                        messaging, database sync, mahcine learning application to<br>
+                        AWS IoT devices.
+                        It extends AWS services to the devices.
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">AWS Game Development</h3>
+            <ul>
+                <li><emR>Amazon Gamelift</emR>
+                    <div class="indented">
+                        It deploys, scales, manages game server in AWS cloud.
+                    </div>  
+                </li>
+                <li><emR>Amazon Lumberyard</emR>
+                    <div class="indented">
+                        Game development environment and platform for AAA games
+                        in AWS cloud. 
+                    </div>
+                </li>
+            </ul>
+        </section>`,
     day11:
+        ``,
+    day12:
+        ``,
+    day13:
         ``
 }

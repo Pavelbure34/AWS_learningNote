@@ -170,5 +170,11 @@ const nav={
     },
     day11:()=>{
         $("#mainArticle").html(pages.day11);
+    },
+    day12:()=>{
+        $("#mainArticle").html(pages.day12);
+    },
+    day13:()=>{
+        $("#mainArticle").html(pages.day13);
     }
 }
