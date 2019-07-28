@@ -1005,7 +1005,63 @@ const pages={
             </ul>
         </section>`,
     day11:
-        ``,
+        `<h2>Intro to AWS CLI</h2>
+        <section>
+        In order to use AWS CLI,
+        you need security key pairs.
+        </section>
+        <section>
+            <h3 class="centerText">Let&rsquo;s make AWS resources with CLI in cloud9!</h3>      
+            <blockquote>
+                <h4>We will do</h4>
+                <ol>
+                    <li>Create Clout9 environment</li>
+                    <li>Create S3 bucket with CLI</li>
+                    <li>Delete/upload an object</li>
+                    <li>Delete the bucket</li>
+                </ol>
+            </blockquote>
+            <ol>
+                <li>search Cloud9 in the service.
+                    <ol>
+                        <li>create a new namespace</li>
+                        <li>go for default settings for now.</li>
+                        <li>Wait for it til it is done.</li>
+                    </ol>
+                </li>
+                <div class="indented">
+                    <img
+                        src="./image/day11/cloud9.png"
+                        width="700"
+                        height="400"
+                        alt="cloud9"
+                    >
+                    <ol class="indented">
+                        <caption>Interfaces</caption>
+                        <li>file system: shows the file structures. provide drag and drop features.</li>
+                        <li>tab: shows the details for tiles.</li>
+                        <li>bash: linux CLI</li>
+                        <li>top navigation: self-explanatory</li>
+                    </ol>
+                </div>
+                <li>check for versions of installed APIs with <emB>aws --version</emB>
+                    in the bash</li>
+                <li>write <emB>aws s3 mb s3://<emR>bucketname</emR></emB> for making s3 bucket
+                    in the bash</li>
+                <li>upload a local file in <emB>file -> Upload Local file</emB></li>
+                <li>upload file with <emB>aws s3 cp <emR>fileName</emR>
+                    s3://<emR>bucketName</emR></emB></li>
+                <li>delete file in the bucket with
+                    <emB>aws s3 rm s3://<emR>bucketname</emR>/<emR>fileName</emR></emB></li>
+                <li>delete the bucket with
+                    <emB>aws s3 rb s3://<emR>bucketname</emR></emB>
+                </li>
+                <li>see more command for https://aws.amazon.com/cli</li>
+                <li>for S3, it is better to use s3api then s3
+                    since the former has extensive features.</li>
+                <li>and make sure you delete cloud9 namespace for not gettng bill</li>
+            </ol>
+        </section>`,
     day12:
         ``,
     day13:
