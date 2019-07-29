@@ -1063,7 +1063,87 @@ const pages={
             </ol>
         </section>`,
     day12:
-        ``,
+        `<h2>Intro to Elastic BeanStalk</h2>
+        <section>
+            <h3 class="centerText">What is Elastic BeanStalk?</h3>
+            <blockquote>
+                As one of the deployment service.
+                <ul>
+                    <li>It provides easy deployment of your application in AWS cloud.
+                        <ul>
+                            <caption>various platforms supported</caption>
+                            <li>docker containers</li>
+                            <li>node.js, Java, .net, PHP, Ruby, PYthon, Go</li>
+                            <li>Apache, etc...</li>
+                        </ul>
+                    </li>
+                    <li>It Perfecly manages service(just write your own code)
+                        <ul>
+                            <caption>automating</caption>
+                            <li>Elastic Load Balancing(EBL)</li>
+                            <li>Auto Scaling</li>
+                            <li>CloudWatch(Health Monitoring)</li>
+                        </ul>
+                    </li>
+                    <li>It provides highly available fault-tolerant architecture.</li>
+                    <li>It provides different deployment options.
+                    <ul>
+                        <li>all at once</li>
+                        <li>Rolling(a batch at a time):for example,two instances at a time</li>
+                        <li>rolling with additional batch:for example,two instances at a time</li>
+                        <li>immutable(two envrionments temp):double up the capacity for no down time.</li>
+                        <li>blue-green(two envrionments):using two environments such as dev and test ones.</li>
+                    </ul>
+                    </li>
+                </ul>
+            </blockquote>
+        </section>
+        <section>
+            <h4>How it is processed</h4>
+            <img
+                src="./image/day12/beanStalkProcess.png"
+                width="600"
+                height="300"
+                alt="procedures"
+            >
+            <ol>
+                <li>you first code and create the application</li>
+                <li>upload the version</li>
+                <li>launch and manage the application</li>
+                <li>within the loop, any update will be applied easily.</li>
+            </ol>
+        </section>
+        <section>
+            <h4>What is highly-available fault-tolerant architecture?</h4>
+            <img
+                src="./image/day12/fault_tolerant.png"
+                width="700"
+                height="400"
+                alt="architecture"
+            >
+            <ul>
+                <li>auto-scaling, load balancer ensures the maximized availability.</li>
+                <li>it does it all for you.</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Let&rsquo;s deploy an example Node.Js server with BeansStalk!</h3>
+            <ol>
+                <li>go to Elastic BeanStalk in services.</li>
+                <li>choose Node.js for now as application type.</li>
+                <li>click for more configuration in order to set up highly available environment.</li>
+                <li>click high availability(change the set up if you want)</li>
+                <li>create the app.</li>
+                <li>wait for the app to be created.</li>
+                <li>check for Load Balancer and EC2 instance created by BeanStalk.</li>
+                <li>If there is good job!</li>
+                <li>delete Beanstalk one to not to get billing notice.</li>
+            </ol>
+        </section>`,
     day13:
+        ``,
+    day14:
+        ``,
+    day15:
         ``
 }
