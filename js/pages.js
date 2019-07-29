@@ -1141,9 +1141,56 @@ const pages={
             </ol>
         </section>`,
     day13:
-        ``,
+        `<h2>Business Case of AWS</h2>
+        <section>
+            <h4>Why cloud infrastructure?</h4>
+            <ol>
+                <li>saving infrastructures for on-premise environment.</li>
+                <li>benefit from scalable economies of AWS</li>
+                <li>agile and flexible for meeting customer requests</li>
+                <li>easy deployment and global distribution in a second.</li>
+            </ol>
+        </section>
+        <section>
+            <h4>How to estimate the cost?</h4>
+            Go for AWS simple monthly cost and see!
+        </section>
+        <section>
+            <h4>Total cost of Ownership(TCO)</h4>
+            go https://www.awscocalculator.com
+            when we say about server cost, we include both hardware and software costs.
+        </section>
+        <section>
+            <h4>Amazon Inspector</h4>
+            It is very cheap and available service
+            helpig you to see how to maximize security while lowering the costs.
+        </section>
+        <section>
+            <h4>AWS Compliance Program</h4>
+            It helps you comply to different and various compliant regulations and services.
+            so that you can be certified.
+            <div>
+                <h5 class="centerText">Compliant</h5>
+                <ul>
+                    <li>SOC1</li>
+                    <li>etc...</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="centerText">Compliance-Enabling</h5>
+                <ul>
+                    <li>CJIS</li>
+                    <li>Cloud Security Alliance(CSA)</li>
+                    <li>FERPA</li>
+                    <li>HIPAA</li>
+                    <li>etc..</li>
+                </ul>
+            </div>
+        </section>`,
     day14:
         ``,
     day15:
+        ``,
+    day16:
         ``
 }

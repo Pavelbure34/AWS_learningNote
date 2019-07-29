@@ -182,5 +182,8 @@ const nav={
     },
     day15:()=>{
         $("#mainArticle").html(pages.day15);
+    },
+    day16:()=>{
+        $("#mainArticle").html(pages.day16);
     }
 }
