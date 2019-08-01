@@ -34,7 +34,9 @@
                     <li><a href="javascript:nav.day13()">day13.Business Case of AWS</a></li>
                     <li><a href="javascript:nav.day14()">day14.AWS architecture and compliance</a></li>
                     <li><a href="javascript:nav.day15()">day15.IAM, Organisations, CloudTrails, shared responsbility model</a></li>
-                    <li><a href="javascript:nav.day16()">day16.</a></li>
+                    <li><a href="javascript:nav.day16()">day16.More on IAM</a></li>
+                    <li><a href="javascript:nav.day17()">day17.</a></li>
+                    <li><a href="javascript:nav.day18()">day18.</a></li>
                 </ul>
                 <ul class="floatL">
                     <caption>Solution Artchitect</caption>
@@ -62,82 +64,17 @@
             </nav>
         </div>
         <article id="mainArticle">
-           
-            <h2>AWS architecture and compliance</h2>
+           <h2>More on IAM</h2>
             <section>
-                <h3 class="centerText">What is being an arhcitect using AWS services?</h3>
-                It means you make use of available AWS services for your architecture<br>
-                in order to carry out the intented functions such as running a web application servers
-                or running a service. 
+                
             </section>
-            <section>
-                <h3 class="centerText">What is a good architecture?</h3>
-                Three factors in general make so called good architecture.
-                <blockquote>
-                    <ol>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ol>
-                </blockquote>
-            </section>
-
-            <h2>IAM, Organisations, CloudTrail, shared responsbility model</h2>
-            <section>
-                AWS has the shared responsibility model with customers.
-                <img
-                    src="image/day15/sharedRespon.png"
-                    width="700"
-                    height="400"
-                    alt="responbility"
-                >
-                <ul>
-                    <li>customer is responsible for the contents.</li>
-                    <li>SSL, clientSide encryptions, or anything outside the hardware security.</li>
-                    <li>Access and authoirty of other users.</li>
-                    <li>it varies depending on services.
-                        <ul>
-                            <li>In perfectly managed services, AWS takes more responbility.</li>
-                            <li>Abstract service, AWS takes more also like S3.<br>
-                                Ex)S3, Glacier,DynamoDB,Lambda,SQS,SES
-                            </li>
-                            <li>for infrastructure service, customer takes more such OS, update of OS.<br>
-                                EX)EC2
-                            </li>
-                            <li>For container Service,it takes for more than infrascture.<br>
-                                You are responsible for security here.<br>
-                                Ex)Elastic Beanstalk, RDR, EMR
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-            <section>
-                <h3 class="centerText">IAM</h3>
-                <blockquote>
-                    It helps manage users, groups, policies and roles and control
-                    accesses, authorities over AWS services and resources.
-                </blockquote>   
-            </section>
-            <section>
-                <h3 class="centerText">AWS Organisations</h3>
-                <blockquote>
-                    It helps manage users, groups, policies, roles
-                    in the large organisations.
-                </blockquote>
-            </section>
-            <section>
-                <h3 class="centerText">AWS CloudTrail</h3>
-                <blockquote>
-                    It tracks all the activities in AWS cloud.
-                </blockquote>
-            </section>
-
         </article>
 
         <aside>
             <ul class="circleBulletPt">
                 <h3 class="centerText">Key terms</h3>
+                <li><emR>ARN</emR>(Amazon Resource Names):
+                    arn::aws:iam::account:resource(note region missing)</li>
                 <li>
                     <span class="emphRed">AWS cloud</span>
                     =<span class="emphBlue">a global infrastructure</span>

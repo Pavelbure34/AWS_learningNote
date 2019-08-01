@@ -1188,9 +1188,138 @@ const pages={
             </div>
         </section>`,
     day14:
-        ``,
+        `<h2>AWS architecture and compliance</h2>
+        <section>
+            <h3 class="centerText">What is being an arhcitect using AWS services?</h3>
+            It means you make use of available AWS services for your architecture<br>
+            in order to carry out the intented functions such as running a web application servers
+            or running a service. 
+        </section>
+        <section>
+            <h3 class="centerText">What is a good architecture?</h3>
+            Three factors in general make so called good architecture.
+            <blockquote>
+                <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </blockquote>
+        </section>`,
     day15:
-        ``,
+        `<h2>IAM, Organisations, CloudTrail, shared responsbility model</h2>
+        <section>
+            AWS has the shared responsibility model with customers.<br>
+            <img
+                src="image/day15/sharedRespon.png"
+                width="700"
+                height="400"
+                alt="responbility"
+            >
+            <ul>
+                <li>customer is responsible for the contents.</li>
+                <li>SSL, clientSide encryptions, or anything outside the hardware security.</li>
+                <li>Access and authoirty of other users.</li>
+                <li>it varies depending on services.
+                    <ul>
+                        <li>In perfectly managed services, AWS takes more responbility.</li>
+                        <li>Abstract service, AWS takes more also like S3.<br>
+                            Ex)S3, Glacier,DynamoDB,Lambda,SQS,SES
+                        </li>
+                        <li>for infrastructure service, customer takes more such OS, update of OS.<br>
+                            EX)EC2
+                        </li>
+                        <li>For container Service,it takes for more than infrascture.<br>
+                            You are responsible for security here.<br>
+                            Ex)Elastic Beanstalk, RDR, EMR
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">IAM</h3>
+            <blockquote>
+                It helps manage users or groups, policies and roles and control
+                accesses, authorities over AWS services and resources.
+            </blockquote>   
+            Most importantly, it is FREEE and global.
+            <ul>
+                <caption>Users</caption>
+                <li>non-AWS account user who has access resources in your account.</li>
+                <li>name, credentials</li>
+                <li>has access keys for maximum 2 for each</li>
+                <li>password policies:
+                    minimum length, specific characters, customization by IAM users
+                </li>
+                <li>When signing as IAM user, you are given with URL.</li>
+                <li>Users can be organized into groups with specific policies or roles.<br>
+                    and they cannot be nested.
+                </li>
+            </ul>
+            <ul>
+                <caption>Roles</caption>
+                <li>based policies, define permissions</li>
+                <li>can be given to roles, applications, services and even other companies.</li>
+                <li>or another account</li>
+                <li>can be used to give permission temporarily using<br>
+                    Cognito, OAUTH(Facebook, Google),LADP
+                </li>
+            </ul>
+            <ul>
+                <caption>Policies</caption>
+                <li>a JSON type statement telling WHO gets access</li>
+                <li>on WHICH resources about WHICH action possible.</li>
+                <li>basis for Roles.</li>
+                <li>User-based
+                    -attachable to user, group, role.                        
+                </li>
+                <li>Resource-based
+                    -can only be given to S3, Glacier, SNS, SQS, Key management.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">AWS Organisations</h3>
+            <blockquote>
+                It helps manage users, groups, policies, roles
+                among multiple accounts
+                in the large organisations.
+            </blockquote>
+            
+        </section>
+        <section>
+            <h3 class="centerText">AWS CloudTrail</h3>
+            <blockquote>
+                It tracks all the activities in AWS cloud.
+            </blockquote>
+            It is very important for number of reasons.
+            <ul>
+                <li>AWS management console, CLI, SDK all use AWS APIs.</li>
+                <li>AWS can log calls to AWS services from APIs</li>
+                <li>Logs are stored in S3 bucket and can be used for alert security in SNS.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Useful tips</h4>
+            <ul>
+                <li>LOCK your freakin root account with MFA and freaking long password and delete root key pair. </li>
+                <li>Use admin IAM user unless you have to change credit card information then root.</li>
+                <li>Use groups for managing IAM users controlling access and authority of services and resources. </li>
+                <li>Never give big authorities to any IAM users except admin. </li>
+                <li>Use Roles when giving permissions. </li>
+                <li>Always monitor the activtities with CloudTrails. </li>
+                <li>Always turn on MFA(Multi Factor Authentication) </li>
+                <li>Configure good and strong password for IAM users. </li>
+                <li>Rotate the credentials.</li>
+                <li>Remove unnecessary credentials(remove IAM users when gone)! </li>
+                <li>Use AWS defined policies for MFA! </li>
+            </ul>
+        </section>`,
     day16:
+        ``,
+    day17:
+        ``,
+    day18:
         ``
 }
