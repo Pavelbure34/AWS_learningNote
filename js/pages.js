@@ -1317,9 +1317,250 @@ const pages={
             </ul>
         </section>`,
     day16:
-        ``,
+        ` <h4>MFA</h4>
+        If your root account is compromised, it is the most dangerous problem.<br>
+        So it is always good to activate MFA for your root account and only
+        use it for necessities. A good application for that is Authy.`,
     day17:
-        ``,
+        `<h2>Elastic Compute Cloud(EC2) Recap</h2>
+        <section>
+            <ul>
+                <caption>Navigation</caption>
+                <li><a href="#1">EC2 Purchasing Options</a></li>
+                <li><a href="#2">EC2 Instance Types</a></li>
+                <li><a href="#3">EC2 Fleet</a></li>
+                <li><a href="#4">Amazon Machine Image(AMI)</a></li>
+                <li><a href="#5">EC2 instance states</a></li>
+                <li><a href="#6">EC2 Life Cycle</a></li>
+                <li><a href="#7">EC2 Cluster Networking</a></li>
+                <li><a href="#8">EC2 Storage Options</a></li>
+                <li><a href="#9">EC2 Remote Access</a></li>
+            </ul>
+        </section>
+         <section id="1">
+            <h3 class="centerText">EC2 Purchasing Options</h3>
+            <ul>
+                <li>on-demand Instances
+                     :You pay only for what you actually used.
+                </li>
+                <li>Spot Instances
+                     :Request for unused instances which is best for batch type process in big data.
+                </li>
+                <li>Reserved Instances
+                     :purchase instances always available from one to three year term with discount.
+                </li>
+                <li>Scheduled Instances
+                     :you pay for instances always available for specific recurring schedule
+                     for yearly term.
+                 </li>
+                 <li>Dedicated(tenant) Instances
+                     :you pay for the tenant instances by hour 
+                </li>
+                <li>Dedicated Hosts
+                     :You pay for the physical host fully available for you.
+                 </li>
+            </ul>
+         </section>
+         <section id="2">
+             <h3 class="centerText">EC2 Instance Types</h3>
+             Linux or Windows server available!
+             <ul>
+                 <li>General Purposes
+                     <div class="indented">
+                         Ex)T2, M3, M4.<br>
+                         It is good for backend servers.
+                     </div>
+                 </li>
+                 <li>Compute Oriented
+                     <div class="indented">
+                         Ex)C3, C4.<br>
+                         It is good for web servers, batch process.
+                     </div>
+                 </li>
+                 <li>Memory Optimized
+                     <div class="indented">
+                         Ex)X1, R3, R4.<br>
+                         It is good for fast data processing.
+                     </div>
+                 </li>
+                 <li>GPU/Accelerated Computing
+                     <div class="indented">
+                         Ex)G2, G3.<br>
+                         It is great for AI, Machine Learning, graphic video encoding.
+                     </div>
+                 </li>
+                 <li>Storage Optimized
+                     <div class="indented">
+                         Ex)I3,I1, D2.<br>
+                         It is great for anything that requires a large data set.
+                     </div>
+                 </li>
+                 <li>
+                     Bare Metal Instances
+                     <div class="indented">
+                         ex)i3,m5.metal, r5.metal, z1d.metal<br>
+                         instances which OS is directly running on and non-virtualized.<br>
+                         They are good for specialize workloads requiring
+                          direct access to metal structure.
+                     </div>
+                 </li>
+                 <li>
+                     Burstabe Performance Instances
+                     <div class="indented">
+                         ex)T2,T3<br>
+                         
+                     </div>
+                 </li>
+             </ul>
+         </section>
+         <section id="3">
+             <h3 class="centerText">EC2 Fleet</h3>
+             <blockquote>
+                 It helps you launch a group(fleet) of instances.
+                 good for mix of on-demand and spot instances or whatever.
+             </blockquote>
+             <ul>
+                 <li>unlimited number of instances type per fleet</li>
+                 <li>on-demand and spot purchasing options.</li>
+                 <li>only available through API/SDK or AWS CLI</li>
+                 <li>multiple availability zones</li>
+                 <li>separate EC2 fleet for each region</li>
+                 <li>No additional chage for using EC2</li>
+             </ul>
+         </section>
+         <section id="4">
+             <h3 class="centerText">Amazon Machine Image(AMI)</h3>
+             <blockquote>
+                 It provides essential information for EC2 instances to be launched.
+             </blockquote>
+             <ul>
+                 <li>AWS marketplace for trial versions and give-aways.</li>
+                 <li>Launch permissions for launching instances</li>
+             </ul>
+         </section>
+         <section id="5">
+             <h3 class="centerText">EC2 instance states</h3>
+             <img
+                 src="image/day17/instaceState.png"
+                 width="600"
+                 height="300"
+                 alt="states"
+             >
+             <ul>
+                 <li>Start:self-explantory</li>
+                 <li>Stop(EBS backed only):
+                     <ul>
+                         <li>instances shut down for no charges</li>
+                         <li>charge for EBS storage</li>
+                     </ul>
+                 </li>
+                 <li>Stop-Hibernate(EBS backed only):
+                     <ul>
+                         <li>Suspend-to-disk</li>
+                         <li>Saves RAM to EBS</li>
+                     </ul>
+                 </li>
+                 <li>Reboot:self-explantory</li>
+                 <li>Terminate:self-explantory</li>
+             </ul>
+         </section>
+         <section id="6">
+             <h3 class="centerText">EC2 Life Cycle</h3>
+             <img
+                 src="image/day17/lifecycle.png"
+                 width="500"
+                 height="300"
+                 alt="another states"
+             >
+             <ul>
+                 <li>Start:self-explantory</li>
+                 <li>Stop(EBS backed only):
+                     <ul>
+                         <li>instances shut down for no charges</li>
+                         <li>charge for EBS storage</li>
+                     </ul>
+                 </li>
+                 <li>Stop-Hibernate(EBS backed only):
+                     <ul>
+                         <li>Suspend-to-disk</li>
+                         <li>Saves RAM to EBS</li>
+                     </ul>
+                 </li>
+                 <li>Reboot:self-explantory</li>
+                 <li>Terminate:self-explantory</li>
+             </ul>
+         </section>
+         <section id="7">
+             <h3 class="centerText">EC2 Cluster Networking</h3>
+             If I need a cluster of EC2 instances connected to each other
+             with high speed networking,
+             <div class="indented">
+                 <h4>Enhanced networking</h4>
+                 <ul>
+                     <li>single root I/O virtualozation</li>
+                     <li>provide higher performance with no extra changes</li>
+                     <li>supported in R4, X1, M4, C4, C3, I2, G3, and D2.</li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>EBS Optimized instances</h4>
+                 <ul>
+                     <li>designed to deliver provisioned IOPS.</li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>Placement groups</h4>
+                 <ul>
+                     <li>low network latency</li>
+                     <li>Available for instances supporting enhanced networking.</li>
+                     <li>can&rsquo;t span multple AZ.</li>
+                     <li>can span peered VPC but won&rsquo;t get full bandwidth.</li>
+                     <li>can&rsquo;t merge placement groups.</li>
+                 </ul>
+             </div>    
+         </section>
+         <section id="8">
+             <h3 class="centerText">EC2 Storage Options</h3>
+             <div class="indented">
+                 <h4>Elastic Block Storage(EBS)</h4>
+                 <ul>
+                     <li>data not lost when instances deleted</li>
+                     <li>replicated within AZ</li>
+                     <li>billed for its storage.</li>
+                 </ul>
+                 <ul>
+                     <caption>Storage Options</caption>
+                     <li>General Purpose SSD(gp2): default choice</li>
+                     <li>Provisioned IOPS SSD(io1):IO intensive SQL database.</li>
+                     <li>Cold HDD:lowest cost.</li>
+                     <li>Optimised HDD:lost cost and
+                          frequently accessed workload with large data.</li>
+                     <li>Snapshots:back-ups to S3</li>
+                     <li>Encryptions:AWS Key Management Service(KMS), or my own.</li>
+                 </ul>
+             </div>  
+             <div class="indented">
+                 <h4>EC2 instance storage</h4>
+                 <ul>
+                     <li>phsiscally attached to the instances</li>
+                     <li>data lost when instances deleted.</li>
+                     <li>data not lost when instances rebooted</li>
+                     <li>cannot detach</li>
+                 </ul>
+             </div>    
+         </section>
+         <section id="9">
+             <h3 class="centerText">EC2 Remote Access</h3>
+             <ul>
+                 <li>it requires AWS access keys.</li>
+                 <li>requires Access in Security group inbound.</li>
+                 <li>Linux SSH.</li>
+             </ul>
+         </section>`,
     day18:
-        ``
+        ``,
+    day19:
+        ``,
+    day20:
+        ``,
 }

@@ -191,5 +191,11 @@ const nav={
     },
     day18:()=>{
         $("#mainArticle").html(pages.day18);
+    },
+    day19:()=>{
+        $("#mainArticle").html(pages.day19);
+    },
+    day20:()=>{
+        $("#mainArticle").html(pages.day20);
     }
 }
