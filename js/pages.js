@@ -1560,11 +1560,250 @@ const pages={
              </ul>
          </section>`,
     day18:
-        ``,
+        ` <h2>Elastic Container Service</h2>
+        <section>
+             <h4>What is container?</h4>
+             <blockquote>
+                 Container wraps up your code and everything required so that
+                 your application is runnable in any environment.
+             </blockquote>
+             Docker is the famous for container service but AWS also have container service.<br>
+             <img
+                 src="image/day18/AWSdocker.png"
+                 width="800"
+                 height="150"
+                 alt="docker"
+             >
+             <ol>
+                 <li>write your code in Code Commit similar to GIT.</li>
+                 <li>make use of Docker CLI for container framework</li>
+                 <li>Register your container with ECS Container Registry</li>
+                 <li>Upload your container with ECS</li>
+                 <li>Upload to EC2 instances if you want!</li>
+             </ol>
+        </section>
+        <section>
+             <h3 class="centerText">Amazon ECS Container Registry</h3>
+             <ul>
+                 <li>Fully managed Service with encryption at rest in in transit</li>
+                 <li>Simply integration with Elastic Container Service(ECS)</li>
+                 <li>Access controlled by IAM</li>
+             </ul>
+        </section>
+        <section>
+         <h3 class="centerText">Amazon Elastic Container Service(ECS)</h3>
+             <img
+                 src="image/day18/ECS.png"
+                 width="900"
+                 height="300"
+                 alt="ECS"
+             >
+             <div class="clearB"></div>
+             <img
+                 src="image/day18/taskDef.png"
+                 width="250"
+                 height="450"
+                 style="float:left"
+                 alt="example"
+             >
+             <div class="floatL">
+                 <ul>
+                     <caption>Task Definition: define your application</caption>
+                     <li>it is in JSON file</li>
+                     <li>it contains essential information for your application<br>
+                         such as launch type, AMI or Docker images, ports, IAM roles, security.
+                     </li>
+                     <li>multiple containers possible.</li>
+                     <li>also how much RAM and memory<br>
+                             to use when running the container application</li>
+                 </ul>
+                 <ul>
+                     <caption>Properties</caption>
+                     <li>family:task def name.</li>
+                     <li>networkMode:
+                         <ul>
+                             <li>none:no external connection</li>
+                             <li>bridge:Docker&rsquo;s built in vritual network</li>
+                             <li>awsvpc:networking with VPC(required for Fargate)</li>
+                             <li>host: bypassing Docker&rsquo;s virtual network
+                                 and directly to EC2 instance.
+                             </li>
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+             <div class="clearB"></div>
+         </section>
+         <section>
+             <ul>
+                 <li><emR>Task</emR>
+                     <div class="indented">
+                         instantiation of a task definition within the cluster.
+                     </div>
+                 </li>
+                 <li><emR>Task Scheduler</emR>
+                     <div class="indented">
+                         places task on the instances with various options.
+                     </div>
+                 </li>
+                 <li><emR>Cluster</emR>
+                     <div class="indented">
+                         a logial group of resources running tasks
+                         and AWS Fargate is a serverless serice doing it for you.
+                     </div>
+                 </li>
+                 <li><emR>Container Agent</emR>
+                     <div class="indented">
+                         It runs on each instances and respond to the request(start-stop).
+                     </div>
+                 </li>
+             </ul>
+             <ul>
+                 <caption>Deployment Options</caption>
+                 <li>EC2 instance</li>
+                 <li>Elastic BeanStalk(Faultless available server-based service)</li>
+                 <li>AWS Fargate(Serverless faultless service)</li>
+             </ul>
+         </section>`,
     day19:
-        ``,
+        `<h2>Elastic File Service(EFS)</h2>
+        <section>
+            <h4>Why and What is EFS?</h4>
+            <blockquote>
+                It is a simple scalable file storage for EC2 instances.
+            </blockquote>
+            <img
+                src="image/day19/EFS.png"
+                width="500"
+                height="450"
+                alt="EFS"
+            >
+            <ul>
+                <li>multiple instances access</li>
+                <li>Network attached Stroage(NAS)</li>
+                <li>fully Managed and dynamic growth</li>
+                <li>pay for storage</li>
+                <li>amazing recovery solution for multple region replication</li>
+            </ul>
+            <ul>
+                <caption>However....</caption>
+                <li>Not available for all regions.</li>
+                <li>Cross region incompatible.</li>
+                <li>Complicated to provision.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Security Features</h4>
+            <ul>
+                <li>IAM for user permission and access controls.</li>
+                <li>EC2 and EFSsecurity group for inbound rules.</li>
+                <li>NACL for traffic flow</li>
+                <li>Linux read-only permissions(chown, chmod)</li>
+            </ul>
+        </section>
+        <section>   
+            <h3 class="centerText">How to connect!</h3>
+            <div class="indented">
+                <h4>Mount Targets</h4>
+                <ul>
+                    <li>VPC NFS(Network File System) end-point</li>
+                    <li>has IP address and its DNS names(use DNS).</li>
+                    <li>mountable for multiple EC2 instances.</li>
+                    <li>can be in different subnet but different AZ.</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Access from EC2 to EFS</h4>
+                <ul>
+                    <li>NFS client, standard for Linux distribution, required.</li>
+                    <li>Use DNS anme for File System.</li>
+                    <li>Mount EFS for linux mount command similar to EBS or instance store.</li>
+                </ul>
+            </div>
+        </section>
+        `,
     day20:
-        ``,
+        `<h2>Amazon Simple Storage Service(S3) Recap</h2>
+        <blockquote>
+            very secure object based bucket storage with unlimited volume.
+        </blockquote>
+        <emR>IT IS A WEB STORE NOT A FILE SYSTEM!</emR>
+        <section>
+          <h4>Security Features</h4>
+          <ul>
+              <li>IAM for permission over resourcess and access control.</li>
+              <li>Access Control List(ACL)</li>
+              <li>Bucket Policies</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="centerText">Storage Class</h3>
+          <div class="clearB"></div>
+          <img
+              src="image/day20/storageClass.png"
+              width="400"
+              height="750"
+              class="floatL"
+              alt="storageClass"
+          >
+          <div class="floatL">
+              <div class="indented">
+                  <h4>standard</h4>
+                  <ul>
+                      <li>high durability</li>
+                      <li>SSL encryption and in transit and rest</li>
+                      <li>Life cycle management.</li>
+                  </ul>
+              </div>
+              <div class="indented">
+                  <h4>standard-one zone IA</h4>
+                  <ul>
+                      <li>high durability(Single AZ)</li>
+                      <li>Per GB retrieval fee</li>
+                      <li>Cheaper storage price than Standard IA.</li>
+                  </ul>
+              </div>
+              <div class="indented">
+                  <h4>standard Infrequent Access(IA)</h4>
+                  <ul>
+                      <li>Lower storage price per GB.</li>
+                      <li>GB per storage fee.</li>
+                  </ul>
+              </div>
+              <div class="indented">
+                  <h4>Reduced Redunduncy Storage(RRS)</h4>
+                  <ul>
+                      <li>Retired an dreplaced with IA</li>
+                  </ul>
+              </div>
+              <div class="indented">
+                  <h4>Glacier</h4>
+                  <ul>
+                      <li>for even more infrequent access</li>
+                      <li>perfect fo archive data</li>
+                      <li>expensive query service</li>
+                      <li>cheap storage price.</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="clearB"></div>
+        </section>
+        <section>
+          <h3 class="centerText">Life cycle Method Management</h3>
+          <ul>
+              <li>Objects after expiration time can move to different class.<br>
+                  Ex)standard->IA->Glacier->delete
+              </li>
+              <li>Objects after expiration time can be deleted!.</li>
+          </ul>
+        </section>
+        <section>
+          <h3 class="centerText">Versioning Feature</h3>
+          <ul>
+              <li>you can recover objects when it is deleted.</li>
+          </ul>
+        </section>
+        `,
     day21:
         ``,
     day22:
@@ -1572,5 +1811,13 @@ const pages={
     day23:
         ``,
     day24:
+        ``,
+    day25:
+        ``,
+    day26:
+        ``,
+    day27:
+        ``,
+    day28:
         ``,
 }

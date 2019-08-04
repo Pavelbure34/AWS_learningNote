@@ -210,4 +210,16 @@ const nav={
     day24:()=>{
         $("#mainArticle").html(pages.day24);
     },
+    day25:()=>{
+        $("#mainArticle").html(pages.day25);
+    },
+    day26:()=>{
+        $("#mainArticle").html(pages.day26);
+    },
+    day27:()=>{
+        $("#mainArticle").html(pages.day27);
+    },
+    day28:()=>{
+        $("#mainArticle").html(pages.day28);
+    }
 }
