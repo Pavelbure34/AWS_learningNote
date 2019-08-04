@@ -39,9 +39,13 @@
                     <li><a href="javascript:nav.day15()">day15.IAM recap, Organisations, CloudTrails, shared responsbility model</a></li>
                     <li><a href="javascript:nav.day16()">day16.MFA</a></li>
                     <li><a href="javascript:nav.day17()">day17.Elastic Computing Cloud(EC2) Recap</a></li>
-                    <li><a href="javascript:nav.day18()">day18.</a></li>
+                    <li><a href="javascript:nav.day18()">day18.Elastic Container Service(ECS)</a></li>
                     <li><a href="javascript:nav.day19()">day19.</a></li>
-                    <li><a href="javascript:nav.day20()">day20.</a></li>
+                    <li><a href="javascript:nav.day20()">day20.Caching-manual</a></li>
+                    <li><a href="javascript:nav.day21()">day21.Serverless Architecture-manual</a></li>
+                    <li><a href="javascript:nav.day22()">day22.Micro Architecture-manual</a></li>
+                    <li><a href="javascript:nav.day23()">day23.RTO/RTP and Recovery Solution-manual</a></li>
+                    <li><a href="javascript:nav.day24()">day24.Automation of Infrastructure-manual</a></li>
                 </ul>
                 <div class="clearB"></div>
                 <ul class="floatL">
@@ -65,7 +69,80 @@
             </nav>
         </div>
         <article id="mainArticle">
-           
+           <h2>Elastic Container Service</h2>
+           <section>
+                <h4>What is container?</h4>
+                <blockquote>
+                    Container wraps up your code and everything required so that
+                    your application is runnable in any environment.
+                </blockquote>
+                Docker is the famous for container service but AWS also have container service.<br>
+                <img
+                    src="image/day18/AWSdocker.png"
+                    width="800"
+                    height="150"
+                    alt="docker"
+                >
+                <ol>
+                    <li>write your code in Code Commit similar to GIT.</li>
+                    <li>make use of Docker CLI for container framework</li>
+                    <li>Register your container with ECS Container Registry</li>
+                    <li>Upload your container with ECS</li>
+                    <li>Upload to EC2 instances if you want!</li>
+                </ol>
+           </section>
+           <section>
+                <h3 class="centerText">Amazon ECS Container Registry</h3>
+                <ul>
+                    <li>Fully managed Service with encryption at rest in in transit</li>
+                    <li>Simply integration with Elastic Container Service(ECS)</li>
+                    <li>Access controlled by IAM</li>
+                </ul>
+           </section>
+           <section>
+            <h3 class="centerText">Amazon Elastic Container Service(ECS)</h3>
+                <img
+                    src="image/day18/ECS.png"
+                    width="900"
+                    height="300"
+                    alt="ECS"
+                >
+                <div class="clearB"></div>
+                <img
+                    src="image/day18/taskDef.png"
+                    width="250"
+                    height="450"
+                    style="float:left"
+                    alt="example"
+                >
+                <div class="floatL">
+                    <ul>
+                        <caption>Task Definition: define your application</caption>
+                        <li>it is in JSON file</li>
+                        <li>it contains essential information for your application<br>
+                            such as launch type, AMI or Docker images, ports, IAM roles, security.
+                        </li>
+                        <li>multiple containers possible.</li>
+                        <li>also how much RAM and memory<br>
+                                to use when running the container application</li>
+                    </ul>
+                    <ul>
+                        <caption>Properties</caption>
+                        <li>family:task def name.</li>
+                        <li>networkMode:
+                            <ul>
+                                <li>none:no external connection</li>
+                                <li>bridge:Docker&rsquo;s built in vritual network</li>
+                                <li>awsvpc:networking with VPC(required for Fargate)</li>
+                                <li>host: bypassing Docker&rsquo;s virtual network
+                                    and directly to EC2 instance.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="clearB"></div>
+            </section>
         </article>
 
         <aside>

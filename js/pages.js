@@ -1200,9 +1200,11 @@ const pages={
             Three factors in general make so called good architecture.
             <blockquote>
                 <ol>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>security:IAM,CloudTrail,security group,threat evalution and solution plan</li>
+                    <li>cost optimization: cutting unnecessary cost,efficiency evaluation,perfect-management service</li>
+                    <li>functional efficiency: dynamic resource allocation,fast recovery and appeasement from temporary break downs or errors.</li>
+                    <li>easy management</li>
+                    <li> sturdiness</li>
                 </ol>
             </blockquote>
         </section>`,
@@ -1562,5 +1564,13 @@ const pages={
     day19:
         ``,
     day20:
+        ``,
+    day21:
+        ``,
+    day22:
+        ``,
+    day23:
+        ``,
+    day24:
         ``,
 }

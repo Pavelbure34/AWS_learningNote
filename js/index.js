@@ -197,5 +197,17 @@ const nav={
     },
     day20:()=>{
         $("#mainArticle").html(pages.day20);
-    }
+    },
+    day21:()=>{
+        $("#mainArticle").html(pages.day21);
+    },
+    day22:()=>{
+        $("#mainArticle").html(pages.day22);
+    },
+    day23:()=>{
+        $("#mainArticle").html(pages.day23);
+    },
+    day24:()=>{
+        $("#mainArticle").html(pages.day24);
+    },
 }
