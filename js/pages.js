@@ -2095,7 +2095,93 @@ const pages={
              <div class="clearB"></div>
          </section>`,
     day23:
-        ``,
+        ` <h2>AWS WAF,Shield, Firewall Service Recap</h2>
+        How do we protect our infrastructure against common cyber attacks?<br>
+        <img
+            src="image/day23/example.png"
+            width="750"
+            height="280"
+            alt="usage example"
+        >
+        <section>
+            <h3 class="centerText">AWS WAF</h3>
+            <blockquote>
+                Web Application Firewall
+            </blockquote>
+            <ul>
+                <li>targeted and customizable web security rules(body, headers.etc).</li>
+                <li>also provide AWS managed rules aginst common threats</li>
+                <li>deployable on EC2, App Load Balancer, CloudFront, API gateway</li>
+            </ul>
+            <div class="indented">
+                <h4>interaction with AWS Lambda for automation</h4>
+                <img
+                    src="image/day23/example1.png"
+                    width="800"
+                    height="500"
+                    alt="example2"
+                >
+                <ul>
+                    <li>AWS Lambda allows automated alert and response to attacks.</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">AWS Shield</h3>
+            <div class="indented">
+                <h4>Standard</h4>
+                <ul>
+                    <li>defense against DDoS</li>
+                    <li>free and defualt</li>
+                    <li>included in CloudFront and Route53</li>
+                    <li>active network monitoring</li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>Advanced</h4>
+                <ul>
+                    <li>defense against more attacks</li>
+                    <li>not free.</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">AWS Firewall Service</h3>
+            <blockquote>
+                central fireware service managing WAF rules across multiple accounts or resource.
+            </blockquote>
+        </section>
+        <section>
+            <h3 class="centerText">Defense Against DDoS and penetrating test</h3>
+            <div class="indented">
+                <h4>Defense Against DDoS</h4>
+                <blockquote>
+                    DDoS attack is Distributed Denial of Service.
+                </blockquote>
+                <ul>
+                    <li>flooding requests to your service</li>
+                    <li>and making your resources unavilable.</li>
+                </ul>
+                <ul>
+                    <caption>How to fight</caption>
+                    <li>reduce the attackable surface using NACLs</li>
+                    <li>detect abnormal or normal traffics.</li>
+                    <li>deploy WAF.</li>
+                    <li>plan for scale.</li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>Penetrating Test</h4>
+                <blockquote>
+                    It helps you find vulnerable spots on your infrastructure.
+                </blockquote>
+                <ul>
+                    <li>permission required to do this</li>
+                    <li>takes up to 2 business days</li>
+                    <li>only available for certain services.</li>
+                </ul>
+            </div>  
+        </section>`,
     day24:
         ``,
     day25:
