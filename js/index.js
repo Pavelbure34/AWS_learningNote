@@ -221,5 +221,14 @@ const nav={
     },
     day28:()=>{
         $("#mainArticle").html(pages.day28);
+    },
+    day29:()=>{
+        $("#mainArticle").html(pages.day29);
+    },
+    day30:()=>{
+        $("#mainArticle").html(pages.day30);
+    },
+    day31:()=>{
+        $("#mainArticle").html(pages.day31);
     }
 }

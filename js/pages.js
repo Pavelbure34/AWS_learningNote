@@ -1805,9 +1805,295 @@ const pages={
         </section>
         `,
     day21:
-        ``,
+        ` <h2>AWS Database Recap</h2>
+        <section>
+            <h3 class="centerText">RDS</h3>
+            <ul>
+                <li>SQL type DB</li>
+                <li>support security and backup solutions.
+                    <ul>
+                        <li>Multiple Availabiltiy Zones(AZ)</li>
+                        <li>automated or user-initiated snapshots</li>
+                        <li>automated Backup to S3</li>
+                        <li>Encryption of DB and snaphots, user-password for access.</li>
+                    </ul>
+                </li>
+                <li>When having too many requests, have read-only replica and sync with master.</li>
+                <li>support number of different SQL engines</li>
+                <li>Vertical expansion and cannot accommodate sudden volatile requests.</li>
+                <li>Does database tasks for you.</li>
+            </ul>
+        </section>  
+        <section>
+            <h3 class="centerText">AWS Aurora</h3>
+            <blockquote>
+                Amazon-made Enterprise version of RDS.
+            </blockquote>
+            <ul>
+                <li>Fully commercial db services</li>
+                <li>highly faster than mySQL and etc</li>
+                <li>Provide a cluster of instances with single end point</li>
+                <li>Vertically scalable better than RDS</li>
+                <li>provide serverless version
+                    <ul>
+                        <li>payed by seconds and shut down when not needed</li>
+                        <li>perfect for intermitten, infrequently used datas</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">DynamoDB</h3>
+            <ul>
+                <li>NoSQL based database</li>
+                <li>Perfectly managed service</li>
+                <li>Serverless DB</li>
+                <li>Properties<br>
+                    <img
+                        src="image/day21/dynamo.png"
+                        width="900"
+                        height="100"
+                        alt="dynamo"
+                    >
+                    <ul>
+                        <li>Tables:ex) Game</li>
+                        <li>Attributes:ex) PlayerName Level Class</li>
+                        <li>Items:Game table consisting of players</li>
+                        <li>Partition Keys or Sort Key:defined for fast access to items</li>
+                    </ul>
+                </li>
+                <li>Needs to set up
+                    <ul>
+                        <li>Provisioned:specify the number of read-write demands, capacity
+                            <ul>
+                                <li>can autoscale this</li>
+                                <li>good for predictable, consistent traffic and demands</li>
+                            </ul>
+                        </li>
+                        <li>on-demand:unlimited number of demands and pay for what you use.
+                            <ul>
+                                <li>good for unpredictable and unstable demands and requests.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Amazon Neptune</h3>
+            <blockquote>
+                database designed for navigation in the relationships(mind map)<br>
+                ex) relationship between departments in the big companies.
+            </blockquote>
+            <ul>
+                <li>in graph structures
+                    <ul>
+                        <li>nodes:data entities</li>
+                        <li>edges:relationships</li>
+                        <li>properties:represent and store data</li>
+                    </ul>
+                </li>
+                <li>uses graph Query Languages(SPARQL, Gremlin)</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Amazon RedShift</h3>
+            <blockquote>
+                perfectly managed Pitabyte unit of database
+            </blockquote>
+            <ul>
+                <li>based on POSTgreSQL</li>
+                <li>designed for OLAP and BI(business intelligence) applications</li>
+                <li>cluster of nodes, which leader node and one or more compute nodes</li>
+                <li>need to set up size and type of nodes.</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Amazon ElastiCache</h3>
+            <blockquote>
+                fully managed, in-memory data store service.
+            </blockquote>
+            <ul>
+                <li>low latency(fast) data access for popular contents</li>
+                <li>Redis or MemCached Engine</li>
+            </ul>
+            <ul>
+                <img
+                    src="image/day21/ElasticCache.png"
+                    width="350"
+                    height="250"
+                    alt="example"
+                >
+                <li>EC2 instances will run queries in ElasticCache first</li>
+                <li>if not, go to the master DynamoDB instance.</li>
+                <li>AWS Lambda will sync between ElasticCache and DynamoDB for the popular contents</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Amazon DocumentDB</h3>
+            <blockquote>
+                NOSQL based datababase compatible with MongoDB
+            </blockquote>
+            <ul>
+                <li>launch the instances in clusters of 16(1 main and 15 replicas)</li>
+                <li>Great availabilities</li>
+                <li>continuous backup to S3 and 35 days of point in time recovery</li>
+                <li>Replicate 6 copies across 3 AZs</li>
+            </ul>
+        </section>`,
     day22:
-        ``,
+        ` <h2>AWS VPC Recap</h2>
+        <section>
+            <ul>
+                <caption>Navigation</caption>
+                <li><a href="#1">VPC and internet connection</a></li>
+                <li><a href="#2">Security Features</a></li>
+                <li><a href="#3">Subnets</a></li>
+                <li><a href="#4">NATS</a></li>
+                <li><a href="#5">Routing Table</a></li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">AWS cloud environment</h3>
+            There are multiple edge locations, regions
+             and availability zones within that regions.<br>
+            and the number differs depending on the region.
+        </section>
+        <section id="1">
+             <h4>What is VPC?</h4>
+             <blockquote>
+                 Our own Virtual cloud space.
+             </blockquote>
+             <ul>
+                 <li>Single VPC has bt default two availability zones and more</li>
+                 <li>Each availability zones can hold multiple subnets</li>
+                 <li>each subnet can contains our EC2 or database intances.</li>
+                 <li>it can connect to internet with <emR>internet Gateway</emR>.<br>
+                     or you can connec to <emR>Virtual Private gateway</emR> for private connection
+                     backed up by physical connection in Amazon.
+                 </li>
+                 <li>support routing tables for each subnet and for VPC also.</li>
+             </ul>
+             <section>
+                 <h4>For internet connection</h4>
+                 <ul>
+                     <caption>you need</caption>
+                     <li>Internet Gateway for VPC</li>
+                     <li>public IP address in EC2</li>
+                     <li>Route defined in the route table from subnet to Internet Gateway</li>
+                 </ul>
+             </section>
+         </section>
+         <section id="2">
+             <h3 class="centerText">Security Features</h3>
+             <div class="clearB"></div>
+             <img
+                 src="image/day22/VPCsecurity.png"
+                 width="400"
+                 height="450"
+                 class="floatL"
+                 alt="security"
+             >
+             <div class="floatL">
+                 <div class="indented">
+                     <h4>VPC Security Group</h4>
+                     <blockquote>
+                         Firewall in instance level
+                     </blockquote>
+                     <ul>
+                         <li>By the default,nobody gets in.</li>
+                         <li>You can set up allowed access for inbound rule.</li>
+                         <li>outbound traffic goes out automoatically by default.</li>
+                         <li>you can include single or multiple instances witin one securiy group.</li>
+                     </ul>
+                 </div>
+                 <div class="indented">
+                     <h4>Network Access Control List(NACL)</h4>
+                     <blockquote>
+                         Firewall at the subnet level.
+                     </blockquote>
+                     <ul>
+                         <li>By default, nobody gets in or gets out.</li>
+                         <li>have to specify inbound and outbound rules.</li>
+                     </ul>
+                 </div>
+                 <div class="indented">
+                     <h4>Flow Logs</h4>
+                     <blockquote>
+                         captures log from CloudWatch
+                     </blockquote>
+                 </div>
+             </div>
+             <div class="clearB"></div>
+         </section>
+         <section id="3">
+             <h3 class="centerText">Subnets</h3>
+             <img
+                 src="image/day22/subnetedVPC.png"
+                 width="800"
+                 height="350"
+                 alt="subnetted VPC"
+             ><br>
+             Availability zone has single or multiple subnets.
+             <div class="indented">
+                 <h4>Subnet addressing</h4>
+                 There are IPv4 and IPv6 but VPC uses IPv4 more.<br>
+                 However, all IPv6 addresses are public.<br>
+                 Based on fundamentals of networking, class A,B,C types are
+                 range of private IP addresses.<br>
+                 You define subnet mask for subnets. the biggest for AWS VPC is /16.
+             </div>
+             <div class="indented">
+                 <h4>Public and Private subnets</h4>
+                 <div class="indented">
+                     <h3>Public</h3>
+                     Public Subnets with access to Internet Gateway is public.
+                 </div>
+                 <div class="indented">
+                     <h3>Private</h3>
+                     Subnet made private and only local routing and without Internet gateway.<br>
+                     It is always good to connect with NAT gateway or NAT, which connected to Internet gateway,<br>
+                     instance will connect to private subnet privately.
+                 </div>
+             </div>
+             <div class="indented">
+                 <h4>Connecting to VPC</h4>
+                 Internet gateway for public internet access or
+                 Virtual Private Network gateway for private fast access based on AWS backbone.
+             </div>
+         </section>
+         <section id="4">
+             <h3 class="centerText">NAT</h3>
+             <blockquote>
+                Network Address Translation
+             </blockquote>
+             <ul>
+                 <li>It allows internet connection for private subnets.</li>
+                 <li>instances in private subnet can communicat with public one by default.</li>
+                 <li>public one has NAT and routes to private subnets.</li>
+             </ul>
+         </section>
+         <section id="5">
+             <h3 class="centerText">Routing Tables</h3>
+             <blockquote>
+                 Table defining routes for navigating within the VPC.
+             </blockquote>
+             <div class="clearB"></div>
+             <img
+                 src="image/day22/routeTable.png"
+                 width="400"
+                 height="450"
+                 class="floatL"
+                 alt="route table"
+             >
+             <ul class="floatL">
+                 <li>It is always better to make routing table for each subnet.</li>
+                 <li>Main one is automatically created when VPC is made.</li>
+                 <li>the IP address of VPC itself is always included by default</li>
+                 <li>and it allows communication among subnets within the VPC.</li>
+             </ul>
+             <div class="clearB"></div>
+         </section>`,
     day23:
         ``,
     day24:
@@ -1819,5 +2105,11 @@ const pages={
     day27:
         ``,
     day28:
+        ``,
+    day29:
+        ``,
+    day30:
+        ``,
+    day31:
         ``,
 }
