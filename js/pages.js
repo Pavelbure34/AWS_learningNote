@@ -2183,9 +2183,206 @@ const pages={
             </div>  
         </section>`,
     day24:
-        ``,
+        `<h2>AWS Cloud Formation</h2>
+        <section>
+            <h4>What is Cloud Formation?</h4>
+            <blockquote>
+                It helps deploy your resources based on <emR>temaplates</emR>.
+            </blockquote>
+            <ul>
+                <li>useful for automation of deployment in large organisations.</li>
+                <li>templates are in text files</li>
+                <li></li>
+            </ul>
+        </section>
+        <section>
+             <h3 class="centerText">Templates</h3>
+             <div class="indented">
+                 <h4>template format</h4>
+                 <div class="clearB"></div>
+                 <img
+                     src="image/day24/JSONtemplate.png"
+                     width="300"
+                     height="300"
+                     class="floatL"
+                     alt="JSONtempalteExample"
+                 >
+                 <img
+                     src="image/day24/YAMLtemplate.png"
+                     width="250"
+                     height="250"
+                     class="floatL"
+                     alt="YAMLtempalteExample"
+                 >
+                 <div class="clearB"></div>
+                 <ul>
+                     <li>in JSON or YAML format</li>
+                     <li>Version Control Capability</li>
+                     <li>able to describe all the AWS services and its version and provisioning.</li>
+                 </ul>
+             </div>
+             <div>
+                 <h4>tempalte sections</h4>
+                 <ul><emR>Format Version</emR>:template conforms to 
+                 </ul>
+                 <ul><emR>Description</emR>:must always follow Format Version
+                 </ul>
+                 <ul><emR>Metadata</emR>:JSON objects and keys providiing additional info.
+                 </ul>
+                 <ul><emR>Parameters</emR>:
+                     values to be pased at stack creation<br>
+                     <img
+                         src="image/day24/parameter.png"
+                         width="450"
+                         height="225"
+                         alt="parameter"
+                     >
+                 </ul>
+                 <ul><emR>Mappings</emR>:
+                     match keys to corresponding name value pairs<br>
+                     <img
+                         src="image/day24/mapping.png"
+                         width="500"
+                         height="200"
+                     >
+                 </ul>
+                 <ul><emR>Transform</emR>:
+                     optional transforms such as AWS::SAM(serverless), AWS::Include(snippets)<br>
+                     <img
+                         src="image/day24/transform.png"
+                         width="500"
+                         height="250"
+                     >
+                 </ul>
+                 <ul><emR>Outputs</emR>:
+                     declares output values<br>
+                     <img
+                         src="image/day24/outputs.png"
+                         width="450"
+                         height="225"
+                     >
+                     <ul>
+                         <li>imported to other stacks</li>
+                         <li>return to describe stack calls or</li>
+                         <li>display on console.</li>
+                     </ul>
+                 </ul>
+                 <ul><emR>Resources</emR>:
+                     declares resources to be included<br>
+                     <img
+                         src="image/day24/resources.png"
+                         width="350"
+                         height="500"
+                     >
+                 </ul>
+                 <ul><emR>Conditions</emR>:
+                     defines when a resource can be created or a property defined.<br>
+                     <img
+                         src="image/day24/condition.png"
+                         width="700"
+                         height="350"
+                     >
+                 </ul>
+             </div>
+        </section>
+        <section>
+             <h3 class="centerText">StackSets</h3>
+             <blockquote>
+                 A feature allowing creating stacks across the regions and in multiple accounts.
+             </blockquote>
+             <ul>
+                 <li>good for large organisations in multiple countries.</li>
+             </ul>
+         </section>
+         <section>
+             <h3 class="centerText">CloudFormer</h3>
+             <blockquote>
+                 An application creating CloudFormation templates from existing 
+                 resources in your account.
+             </blockquote>
+             <ul>
+                 <li>You choose your resources.</li>
+                 <li>and put them in template for you.</li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">CloudFormation Designer</h3>
+             <blockquote>
+                 Visual tool prociding drag-drop interface for adding resources for templates.
+             </blockquote>
+             <ul>
+                 <li>available for JSON and YAML</li>
+             </ul>
+         </section>`,
     day25:
-        ``,
+        ` <h2>AWS CloudWatch</h2>
+        <section>
+            <blockquote>
+                Along with Elastic Load BalanceR(ELB), SNS, and AutoScaling,
+                it helps make AWS cloud infrastructure highly available and fault-proof.
+            </blockquote>
+            <ul>
+                <caption>Logs</caption>
+                <li>can access or store, monitor log fro CloudTrail, EC2 instances, etc.</li>
+                <li>Log Streams:sequence of log events.</li>
+                <li>Log groups:stream settings.</li>
+                <li>Log can be stored within the S3.</li>
+                <li>Metric Filters:defines how information is extracted to create data points.</li>
+                <li>Retention settings: how long logs stay in CloudWatch Log</li>
+                <li>it leaves Log for trailing purposes.</li>
+            </ul>
+            <ul>
+                <caption>Metrics(not available for whole regions.</caption>
+                <li>Billing</li>
+                <li>DynamoDB</li>
+                <li>EC2, EBS</li>
+                <li>Elastic Beanstalk</li>
+                <li>OpsWork</li>
+                <li>Kinesis Firehouse</li>
+                <li>etc...</li>
+            </ul>
+            <ul>
+                <caption>Statistics</caption>
+                <li>Average, Max, Min ETC</li>
+                <li>CLI- get-metric-statistics, API-GetMetricStatistics
+                    :limit exists for maximum number of data handled.
+                </li>
+                <li>viewable with Console and create-dashboard</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Events</h4>
+            <blockquote>
+                When resources changes!
+            </blockquote>
+            <ul>
+                <li>CloudTrail integratable.</li>
+                <li>Matching incoming events and triggered.</li>
+                <li>interactive with SNS,SQS, Lambda, Kinesis Stream</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Alarms</h4>
+            <div class="clearB"></div>
+            <img
+                src="image/day25/alarmGraph.png"
+                width="500"
+                height="450"
+                class="floatL"
+                alt="graph"
+            >
+            <ul class="floatL">
+                <li>integratable with Simple Notice Service(SNS)</li>
+                <li>Three states:
+                    <span style="color:green">OK</span>,
+                    <span style="color:yellow">INSUFFICIENT_DATA</span>,
+                    <span style="color:red">ALARM</span>
+                </li>
+                <li>Above threshold, it triggers alarm</li>
+                <li>the presented graphs are in test.</li>
+            </ul>
+            <div class="clearB"></div>
+        </section>`,
     day26:
         ``,
     day27:
