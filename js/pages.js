@@ -2720,13 +2720,237 @@ const pages={
     day31:
         ``,
     day32:
-        ``,
+        `<h2>Serverless Architecture</h2>
+        <section>
+            <h4>What is serverless?</h4>
+            <blockquote>
+                Without server, launching application and service.
+            </blockquote>
+            <ul>
+                <li>Users don&rsquo;t have to manage server provisioning.</li>
+                <li>Anything you require can be in the backend</li>
+                <li>and highly available and expandable.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Why serverless?</h4>
+            <ul>
+                <li>cut down labour in maintenance.</li>
+                <li>better development environment.</li>
+                <li>manageable with few people.</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Related Services</h3>
+            <div class="indented">
+                <h4>AWS Lambda</h4>
+                <blockquote>
+                    Fully Managed Computing Service
+                </blockquote>
+                <ul>
+                    <li>executes code based on Node.js, Java, Pythom C#, go, Javascript.</li>
+                    <li>can interact with other services when event is triggered.<br>
+                        such as S3 bucket or altering data in DynamoDB 
+                    </li>
+                    <li>Sources of event:S3,DynamoDB, SNS, SQS, CloudWatch Events, CodeCommit, etc...</li>
+                </ul>
+                <li>
+                    <caption>It does</caption>
+                    <li>Server</li>
+                    <li>volume Request</li>
+                    <li>Distribution</li>
+                    <li>Maintenance and fault-lessness</li>
+                    <li>Update on OS and languuage</li>
+                    <li>Status and Loggin</li>
+                </li>
+                <div class="indented">
+                    <h4>What it can do?</h4>
+                    <li>execute the code</li>
+                    <li>generate backend, evnet-handler, data-handling system</li>
+                    <li>Does not have to pay for dormant resources.</li>
+                </div>
+            </div>
+            <div class="indented">
+                <h4>AWS API Gateway</h4>
+                go for this <a href="javascript:nav.day30()">link</a>.<br>
+                <ul>
+                    <li>does not reveal end-point</li>
+                    <li>prevent DDoS attack injection</li>
+                </ul>
+                <div class="indented">
+                    <h3>Example_1L general serverless backend</h3>
+                    <img
+                        src="image/day32/generalServerless.png"
+                        width="590"
+                        height="450"
+                        alt="general"
+                    >
+                    <ul>
+                        <li>Website hosted by S3 bucket gets access to AWS services through API gateway</li>
+                        <li>and gain access to resources for the website.</li>
+                        <li>Route53 and CloudFront ensures low latency and secure routing and distribution.</li>
+                    </ul>
+                </div>
+                <div class="indented">
+                    <h3>Example_2: mobile serverless backend</h3>
+                    <img
+                        src="image/day32/mobileServerless.png"
+                        width="570"
+                        height="400"
+                        alt="mobile"
+                    >
+                    <ul>
+                        <li>Mobile Application gets access to AWS resources through API gateway.</li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <h4>AWS Step Functions</h4>
+                <img
+                    src="image/day32/awsStep.png"
+                    width="1000"
+                    height="450"
+                    alt="step"
+                >
+                <blockquote>
+                    set up each process for deployment of application
+                    using amazon state langauge.
+                </blockquote>
+                <ul>
+                    <li>it helps build a step-by-step work flow</li>
+                </ul>
+            </div>
+        </section>`,
     day33:
-        ``,
+        `<h2>Micro Architecture</h2>
+        <section>
+            <h4>Why and What is Micro Architecture?</h4>
+            <blockquote>
+                Different from traditional monolithc architecture,
+                separated and indepedennt micro services communicating to each other
+                to run the application.
+            </blockquote>
+            <ul>
+                <li>Monolithic architecture becomes hugely complicated in large organisations.</li>
+                <li>Micro Archtecture enables esay and effective managment of each small services.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Advantage of Micro Service</h4>
+            <ul>
+                <li>Independence
+                    : easy managment, update, and maintenance of each small service.
+                </li>
+                <li>Expertise of each service
+                    : developers can focus on small functions and develop high expertise
+                    and divide into more smaller units.
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Related Services</h3>
+            <div class="indented">
+                <h4>AWS Elastic Container Service(ECS)</h4>
+                Go here for related information on <a href="javascript:nav.day18()">Container Service.</a><br>
+                <ul>
+                    <caption>enables</caption>
+                    <li>Highly available application runnable in any environment.</li>
+                    <li>stable and efficient management of the infrastructure</li>
+                </ul>
+            </div>
+            <h4>AWS Fargate</h4>
+                <blockquote>
+                    Fully Managed Container Service
+                </blockquote>
+                <ul>
+                    <caption>It does all for you</caption>
+                    <li>Cluster and Provisioning Management.</li>
+                    <li>Scaling the volume</li>
+                    <li>Launching Environment Management</li>
+                </ul>
+            </div>
+        </section>`,
     day34:
         ``,
     day35:
-        ``,
+        `<h2>Automation of Infrastructure</h2>
+        <section>
+             <h4>Why do we automate the infrastructure deployment?</h4>
+             <section>
+                 <div class="clearB"></div>
+                 <div class="floatL">
+                     <div class="indented">
+                         <h4>Manual Works</h4>
+                         <ul>
+                             <caption>In large organisations with multiple users and accounts</caption>
+                             <li>takes a lot of time and resources</li>
+                             <li>lots of things to figure</li>
+                         </ul>
+                     </div>
+                     <div class="indented">
+                         <h4>Drawbacks of manual set-ups</h4>
+                         <ul>
+                             <li>inability to expand</li>
+                             <li>Version control unavailable</li>
+                             <li>Insufficent Monitoring</li>
+                             <li>Inconsistent data management.</li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="floatL">
+                     <div class="indented">
+                         <h4>CloudFormation automates the infrastructure deployment.</h4>
+                         <ul>
+                             <li>Allows Infrastrucure as code.</li>
+                             <li>Based on Template</li>
+                         </ul>
+                     </div>
+                     <div class="indented">
+                         <h4>Advantages of Infrastructure as Code.</h4>
+                         <ul>
+                             <li>Repeatability</li>
+                             <li>Reusability</li>
+                             <li>Ensured Consistency</li>
+                             <li>Convenient Version Control and Distribution.</li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="clearB"></div>
+             </section>
+             <section>
+                 <h3 class="centerText">Related Services</h3>
+                 <div class="indented">
+                     <h4>AWS QuickStart</h4>
+                     <blockquote>
+                         Taking temaplate or script, it automates the distribution for you.
+                     </blockquote>
+                 </div>
+                 <div class="indented">
+                     <h4>AWS SystemsManager</h4>
+                     <blockquote>
+                         Collection of
+                         continuous automation and management of large scale of infrastructure
+                     </blockquote>
+                     <ul>
+                         <li>systems Manager Run Command:securely manage large scale of managerial instances remotely</li>
+                         <li>Patch Manager:automates the managerial patches for instances</li>
+                         <li>Maintenance date set-up: set up cycle of patch and update.</li>
+                         <li>Systems Manager State Manager:
+                             automates the process maintaining the managerial instaces as defined state</li>
+                     </ul>
+                 </div>
+                 <div class="indented">
+                     <h4>AWS OpsWorks</h4>
+                     Go looking up the <a href="javascript:nav.day27()">AWS OpsWork section</a>.<br>
+                     Useful if you want high customisation of package installation, resources such storage, servers, etc.
+                 </div>
+                 <div class="indented">
+                     <h4>AWS ElasticBeanStalk</h4>
+                     Go looking up the <a href="javascript:nav.day12()">AWS ElasticBeanStalk</a>.<br>
+                     Useful if you want to upload the code yet don&rsquo;t want to set up the environment.
+                 </div>
+             </section>
+        </section>`,
     day36:
         ``,
     special:
