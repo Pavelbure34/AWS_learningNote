@@ -230,5 +230,23 @@ const nav={
     },
     day31:()=>{
         $("#mainArticle").html(pages.day31);
+    },
+    day32:()=>{
+        $("#mainArticle").html(pages.day32);
+    },
+    day33:()=>{
+        $("#mainArticle").html(pages.day33);
+    },
+    day34:()=>{
+        $("#mainArticle").html(pages.day34);
+    },
+    day35:()=>{
+        $("#mainArticle").html(pages.day35);
+    },
+    day36:()=>{
+        $("#mainArticle").html(pages.day36);
+    },
+    special:()=>{
+        $("#mainArticle").html(pages.special);
     }
 }

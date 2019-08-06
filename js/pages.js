@@ -2384,15 +2384,423 @@ const pages={
             <div class="clearB"></div>
         </section>`,
     day26:
-        ``,
+        `<h2>Deployment</h2>
+        <section>
+            <h3 class="centerText">Infrastructure as Code</h3>
+            <blockquote>
+                It allows infrastructure manageable the same as software.
+            </blockquote>
+            <ul>
+                <caption>Examples</caption>
+                <li>CloudFormation Templates:JSON or YAML text</li>
+                <li>CloundFormation Designer</li>
+                <li>AMI</li>
+            </ul>
+        </section>
+        <section>
+             <h3 class="centerText">Continuous Deployment Application and Infrastructures</h3>
+             <blockquote>
+                 It automates the delivery of production-ready code.
+             </blockquote>
+             <ul>
+                 <li>rapid deployment and roll back</li>
+             </ul>
+             <ul>
+                 <caption>Examples</caption>
+                 <li>CodeCommit:like Github</li>
+                 <li>CodePipeline: defines stages for releases.</li>
+                 <li>Elastic BeanStalk</li>
+                 <li>OpsWorks</li>
+                 <li>Elastic Container Service</li>
+             </ul>
+             <div class="indented">
+                 <h4>Hybrid Deployment</h4>
+                 <blockquote>
+                     Separate Deployment of Application and Database.
+                 </blockquote>
+             </div>
+             <div class="indented">
+                 <h4>How to Update Applications</h4>
+                 <ul>
+                     <li>Prebaking AMIs</li>
+                     <li>IN-place(slow-expensive): Updates on Live Amazon EC2 instances</li>
+                     <li>Disposable(Handy): rolling out new EC2 instances and terminate old ones.
+                         aloowing staged deployment
+                     </li>
+                 </ul>
+             </div>
+         </section>
+         <section>
+             <h3 class="centerText">Blue-Green Deployments</h3>\
+             <blockquote>
+                 Staged rolling out of existing one while testing new one.
+             </blockquote>
+             <img
+                 src="image/day26/greenblue.png"
+                 width="500"
+                 height="350"
+                 alt="green_blue"
+             >
+             <ul>
+                 <li>requires doubling resources.</li>
+                 <li>uses Route53 DNS service to increase traffic on green on stages.</li>
+             </ul>
+         </section>`,
     day27:
-        ``,
+        `<h2>AWs OpsWorks</h2>
+        <section>
+            <h4>What is it?</h4>
+            <blockquote>
+                 Configuration management platform
+            </blockquote>
+            <ul>
+                <li>Dealing with assets you wanna deploy.</li>
+                <li>provides better control over infrastructure design and management.</li>
+                <li>Infrastrucure as code using Chief recipes for best control.</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Configuration Management</h3>
+            <div class="indented">
+                 <h4>Stacks</h4>
+                 <ul>
+                     <li>Top-level OpsWorks entity</li>
+                     <li>a sent of instances and applications that I want to manage collectively</li>
+                     <li>Ex) Web Server containing load balancer, Server instance, db instances.</li>
+                 </ul>
+            </div>
+            <div class="indented">
+                 <h4>Layers</h4>
+                 <ul>
+                     <li>defines configuration of instances and resources within the resources</li>
+                     <li>one or more layers</li>
+                     <li>instances can be member of multiple layers</li>
+                     <li>Apps represent code to run on your server.</li>
+                 </ul>
+                 <div>
+                     <h3>Scaling</h3>
+                     <ol>
+                         <li>autoScaling: time based or load based instances</li>
+                         <li>24/7 instnaces added to layer can mangually start stop reboot.</li>
+                         <li>using all three are good</li>
+                     </ol>
+                 </div>
+            </div>
+            <div class="indented">
+                 <h4>Recipes</h4>
+                 <div>
+                     <h3>Deployment and customisation</h3>
+                     <ul>
+                         <li>Application and infrastructure would deploy automatically with OpsWork</li>
+                         <li>Chief Recipes define infrastructure as code
+                             <ul>
+                                 <li>Customisation</li>
+                                 <li>Versioning</li>
+                                 <li>ReDeploy</li>
+                                 <li>Code Reuse</li>
+                             </ul>
+                         </li>
+                     </ul>
+                 </div>
+            </div>
+        </section>`,
     day28:
-        ``,
+        `<h2>AWS Simple WorkFlow Service(SWF)</h2>
+        <img
+             src="image/day27/SWF.png"
+             width="1000"
+             height="450"
+             alt="example"
+        >
+        <section>
+             <blockquote>
+                 A service coordinating work process.
+             </blockquote>
+             <ul>
+                 <li>not suitable for batch process</li>
+                 <li>help coordinate long execution, complicated business process
+                     or application workflow
+                 </li>
+                 <li>Enables interaction between different users, different environments.</li>
+             </ul>
+             <div class="indented">
+                 <h4>features</h4>
+                 <ul>
+                     <li>no duplication in Task execution</li>
+                     <li>Routing and queueing of tasks</li>
+                     <li>timeout and execution status</li>
+                     <li>hierarchy of tasks(parent-child)</li>
+                     <li>user data input and execution result output</li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>Components</h4>
+                 <ul>
+                     <li><emR>Workflow</emR>:a control flow logic executing the tasks.</li>
+                     <li><emR>Domain</emR>:container for workflows</li>
+                     <li><emR>Tasks</emR>:A work to do and executable with code, user input, web call.</li>
+                     <li><emR>Actors</emR>:an agent who interact with SWF for execution of tasks.
+                         <ul>
+                            <li><emB>starter</emB>:actors who initiate the workflow</li>
+                            <li><emB>decider</emB>:actors who design, implment workflow logic.
+                                 <ul>
+                                     <li>Application Commnucation to SWF with SDKs,
+                                         SWF API HTTP POST calls, FLOW frameworks(Java or Ruby)</li>
+                                 </ul>
+                            </li>
+                            <li><emB>activity workers</emB>:actor who does the actual works.</li> 
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>Tasks</h4>
+                 <ul>
+                     <li>have to be registered by console or API/CLI</li>
+                     <li>deciders and starters have separate lists(queue)</li>
+                     <li>when scheduled, you can specify the list(queue)</li>
+                 </ul>
+             </div>
+        </section>`,
     day29:
-        ``,
+        `<h2>AWS Big Data Solution</h2>
+        <section>
+             <h3 class="centerText">Big Data Services</h3>
+             <div class="indented">
+                 <h4>Database/Storage</h4>
+                 <ul>
+                     <li>Redshift
+                         <ul>
+                             <li>Petabyte scale data warehouse service</li>
+                             <li>PostGre SQL</li>
+                             <li>Accessible with standard BI reporting tools</li>
+                             <li>snapshots available either automatic to S3 or user-initiated</li>
+                             <li>quick-recovery</li>
+                         </ul>
+                     </li>
+                     <li>DynamoDB</li>
+                     <li>S3</li>
+                     <li>RDS</li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>Analysis</h4>
+                 <ul>
+                     <li>Elastic Map Reduce(EMR)
+                         <ul>
+                             <li>Fully Managed Hadoop Service</li>
+                             <li>Clusters of Ec2 instances analyse data.</li>
+                             <li>Those clusters are automatically terminated when jobs are done.</li>
+                             <li>not good for small data sets or ACID transanction requirements.</li>
+                             <li>Framework:Hadoop MapReduce, Apache Sparks</li>
+                         </ul>
+                     </li>
+                     <li>ElasticSearch
+                         <ul>
+                             <li>real time distributed search and analytics engine.</li>
+                             <li>The most popular enterprise analytics engine</li>
+                             <li>use for S3, Kinesis Stream, DynamoDB streams, CloudWatch Logs, API streams</li>
+                             <li>good for quering LARGe data</li>
+                             <li>not good for Petabyte storage, Online transanction processing(rather self-managing EC2..).</li>
+                         </ul>
+                     </li>
+                     <li>QuickSight BI(Business Intelligecnce)<br>
+                         <img
+                             src="image/day29/quickSight.png"
+                             width="600"
+                             height="450"
+                             alt="quickSight diagram"
+                         >
+                         <ul>
+                             <li>relatively new services</li>
+                             <li>BI reporting Service.</li>
+                             <li>Super-fast, Parallel, in-memory, Calculation Engine(SPICE)</li>
+                             <li>1/10 cost of traditional BI software</li>
+                         </ul>
+                     </li>
+                     <li>Amazon Machine Learning
+                         <ul>
+                             <li>Predictive analytics and machine-learning
+                                 simplified with visualized tools and wizards.
+                             </li>
+                             <li>S3, REdshift, RDS</li>
+                             <li>good for<br>
+                                 flag suspicious transanctions,
+                                 forecast product demand,
+                                 personised application content,
+                                 user-activity prediction, social media analysis
+                             </li>
+                             <li>
+                                 not good for
+                                 verg large dataset, unsupported learning tasks.
+                             </li>
+                             <li>for large data set, use EMR to run Spark and MLlib</li>
+                         </ul>
+                     </li>
+                     <li>AWS Lambda
+                         <ul>
+                             <li></li>
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>Real Time Data</h4>
+                 <ul>
+                     <li>Kinesis Streams
+                         <ul>
+                             <li>can be used to process data in stream:Java, Node.js, Python .NET
+                                  with KCL(Kinesis Client Library)
+                             </li>
+                             <li>good for <br>
+                                 real-time data analytics, log-data feed intake and processing,
+                                 real-time metrics and reporting
+                             </li>
+                             <li>not good for
+                                 small scale oncsistent throughput, long0term data storage and analytics
+                             </li>
+                         </ul>
+                     </li>
+                 </ul>
+             </div>
+             and third party services...
+        </section>
+        <section>
+             <h3 class="centerText">Big Data Migration</h3>
+             <ul>
+                 <li>AWS Data Pipelin, Snowball to S3</li>
+                 <li>DB snapshot to S3</li>
+                 <li>AWS Database Migration Service.</li>
+             </ul>
+        </section>`,
     day30:
-        ``,
+        ` <h2>AWS API Gateway</h2>
+        <section>
+             <blockquote>
+                 secure gateway for business data, application, and business logic, functionality
+                 from back-end.
+             </blockquote>
+             <ul>
+                 <li>Serverless and flexible</li>
+                 <li>Fully-managed</li>
+                 <li>pay-you-go service</li>
+             </ul>
+             <div class="indented">
+                 <h4>Examples_1</h4>
+                 <img
+                     src="image/day30/example1.png"
+                     width="1000"
+                     height="450"
+                     alt="architecture example1"
+                 >
+                 <ol>
+                     <li>request comming in HTTPS format(GET or POST or DELETE)</li>
+                     <li>cloudFront distributes the request fast</li>
+                     <li>that distributed request goes to API gateway</li>
+                     <li>API gateway triggers Lambda functions and interact with Database instances</li>
+                 </ol>
+             </div>
+             <div class="indented">
+                 <h4>Examples_2</h4>
+                 <img
+                     src="image/day30/example2.png"
+                     width="1000"
+                     height="500"
+                     alt="architecture example2"
+                 >
+                 <ol>
+                     <li>Amazon S3 is et up for website hosting.</li>
+                     <li>and it is connected with Cloudfront ensuring low latency and high speed access</li>
+                     <li>then we make use of User&rsquo;s computing environment for free</li>
+                     <li>Client in user computer can issue GET or POST requests.</li>
+                     <li>then CloudFront or not can take the request to API gateway.</li>
+                 </ol>
+             </div>
+        </section>`,
     day31:
         ``,
+    day32:
+        ``,
+    day33:
+        ``,
+    day34:
+        ``,
+    day35:
+        ``,
+    day36:
+        ``,
+    special:
+        ` <h2>AWS Cognito</h2>
+        <img
+            src="image/special/diagram.png"
+            width="1000"
+            height="420"
+            alt="diagram"
+        >
+        <section>
+            <blockquote>
+                Adds user sign-up, sign-in, access control to your web and mobile apps.
+            </blockquote>
+            <ul>
+                <li>used by Google, Facebook, Amazon, Instagram, Social identity AUTH</li>
+                <li>User Pools, Federated Identity, Pools, Sync Key Store</li>
+                <li>can make it access to RDS or DynamoDB</li>
+                <li>can make it use Social Network account from Facebook or Instagram etc...</li>
+            </ul>
+        </section>
+        <section>
+            <h4>User Pools</h4>
+            <ul>
+                <li>adds sign-up sign-in for the application</li>
+                <li>flexibly scalable</li>
+                <li>Interaction with Cognito ID pool can ensire secure access to AWS resources.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Cognito Federated ID Pools</h4>
+            <ul>
+                <li>creates identities for users</li>
+                <li>interactive with Favebook or Google account!</li>
+                <li>Provides temporary credentials for federated users.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Cognito Sync Key Store Database</h4>
+            <ul>
+                <li>Cross-device syncing of application-related-user data</li>
+                <li>Synchronisation and offline storaga can be done with
+                    <ul>
+                        <li>Cognito Sync Manager Javascript SDK-synchronize()</li>
+                        <li>AWS Javascript SDK updateRecords() & browser localStorage</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h4>Trouble Shooting</h4>
+            <ul>
+                <li>CORS(Cross Origin Resource Sharing) for S3 bucket(<emR>MUST!!</emR>)</li>
+                <li>IAM Role for Cognito(<emR>MUST!!</emR>)</li>
+                <li>Defined Cognito ID trust relaitonship with User Pool or SAML or OAUTH(<emR>MUST!!</emR>)</li>
+                <li>Using correct SDK for the code.(<emR>MUST!!</emR>)-AWS Javascript SDK or Cognito Javascript SDK recommended</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Example from modern serverless Application</h3>
+            <img
+                src="image/special/serverlessApp.png"
+                width="1000"
+                height="500"
+                alt="serverless application"
+            >
+            <ol>
+                <caption>For this one, don&rsquo;t worry about compute capacity</caption>
+                <li>our application can be in React with GraphQL</li>
+                <li>we can use Cognito User pools or Facebook or SSN account.</li>
+                <li>Cognito Federated ID will create credential for our users.</li>
+                <li>AWS App Sync will synchronize among different devices.</li>
+                <li>We can put DynamoDB,which is serverless db, for our database.</li>
+                <li>We can use DynamoDB accelerator(DAX) as App Cache.</li>
+            </ol>
+        </section>`
 }
