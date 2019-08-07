@@ -2718,7 +2718,139 @@ const pages={
              </div>
         </section>`,
     day31:
-        ``,
+        `<h2>Caching</h2>
+        <section>
+            <h4>What is Caching?</h4>
+            <img
+                src="image/day31/caching_in_archtect.png"
+                width="750"
+                height="450"
+                alt="caching in web architecture"
+            >
+            <blockquote>
+                Having a separate storage for more frequent data
+                ensuring faster and efficient access to popular contents.
+            </blockquote>
+        </section>
+        <section>
+            <h4>Its Advantage</h4>
+            <ul>
+                <li>improved speed of application</li>
+                <li>efficient data-query</li>
+                <li>low latency in response</li>
+            </ul>
+        </section>
+        <section>
+            <h4>What to cache</h4>
+            <ul>
+                <li>data expensive and slow to query</li>
+                <li>data frequently accessed such as Facebook account</li>
+                <li>information unchangable for a certain period of time like stocks</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Edge Caching - Related Services</h3>
+            <div class="indented">
+                <h4>AWS CloudFront</h4>
+                <blockquote>
+                    Content Delivery Service using edge locations
+                </blockquote>
+                <ul>
+                    <li>Cach-based sevice.</li>
+                    <li>low-latency</li>
+                    <li>fast access to vidoes, photos, web applications.</li>
+                    <li>helps optimize the application.</li>
+                </ul>
+                <ul>
+                    <caption>Cach-able contents</caption>
+                    <li>vidoe streams</li>
+                    <li>static contetns such as images</li>
+                    <li>SSL(HTTPS)</li>
+                </ul>
+                <div class="indented">
+                    <h3>Example_1:Using with Route53 and AWS WAF</h3>
+                    <img
+                        src="image/day31/cloudFront.png"
+                        width="900"
+                        height="400"
+                        alt="ex1"
+                    >
+                    <ul>
+                        <li>Route53 routes traffic to Web Application Firewall(WAF)</li>
+                        <li>filters the attack and route to</li>
+                        <li>cloudFront and provides efficient and fast streaming of data</li>
+                    </ul>    
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Web Caching - Related Services</h3>
+            <div class="indented">
+                <h4>Elastic Load Balancer</h4>
+                <ul>
+                    <caption>Why Load Balancer?</caption>
+                    <li>It takes the requests</li>
+                    <li>routes the traffic efficiently</li>
+                    <li>and manages the session cookies.</li>
+                    <li>and monitors the health of the instances.</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Database Caching - Related Services</h3>
+            <div class="indented">
+                <h4>DynamoDB Accelerator</h4>
+                <ul>
+                    <li>provides fast and expendable response(in microsends) for database query.</li>
+                    <li>Fully Managed-just like DynamoDB</li>
+                    <li>higher security for DynamoDB</li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>AWS ElastiCache</h4>
+                <img
+                    src="image/day31/ElastiCache.png"
+                    width="700"
+                    height="300"
+                    alt="elasticCache"
+                >
+                <blockquote>
+                    Web service storing in-memory caches.
+                </blockquote>
+                <ul>
+                    <li>provides fast and expendable response.</li>
+                    <li>Fully Managed</li>
+                    <li>memcached vs Redis</li>
+                </ul>
+                <div class="indented">
+                    <h3>Example1_Continuous Writing</h3>
+                    <img
+                        src="image/day31/continueWrite.png"
+                        width="800"
+                        height="400"
+                        alt="continueWrite"
+                    >
+                    <ul>
+                        <li>everytime new data is written, it goes through cache</li>
+                        <li>can waste many cache resources but solvable with TTL</li>
+                    </ul>
+                </div>
+                <div class="indented">
+                    <h3>Example2_Rage Loading</h3>
+                    <img
+                        src="image/day31/rageLoading.png"
+                        width="800"
+                        height="400"
+                        alt="rageLoading"
+                    >
+                    <ul>
+                        <li>only load the data with cache when needed.</li>
+                        <li>can prevent waste of cache resources</li>
+                        <li>cache-fail can occur</li>
+                    </ul>
+                </div>
+            </div>
+        </section>`,
     day32:
         `<h2>Serverless Architecture</h2>
         <section>
@@ -2871,7 +3003,258 @@ const pages={
             </div>
         </section>`,
     day34:
-        ``,
+        `<h2>RTO/RTP and Recovery Solution</h2>
+        How do we recover from the disaster from small to large scales?
+        <section>
+            <h4 class="centerText">Components of high availability</h4>
+            <ol>
+                <li>Recovery Solution: helps recover from incidents.</li>
+                <li>back-ups: help maintain the data in tact</li>
+                <li>availablility: minimum time for application stop time</li>
+            </ol>
+        </section>
+        <section>
+            <h3 class="centerText"></h3>
+        </section>
+        <section>
+            <h3 class="centerText">RTO/RTP</h3>
+            <img
+                src="image/day34/rto_rpo.png"
+                width="800"
+                height="350"
+                alt="example"
+            >
+            <blockquote>
+                RPO = Recovery Point Objective<br>
+                RTO = Recovery Time Objective
+            </blockquote>
+            <ul>
+                <caption>RPO</caption>
+                <li>How often you back-up your data?</li>
+                <li>value for accommodatable lost-data measured with time.</li>
+                <li>ex) if RPO = 1 hour and disaster at 12pm, have to recover data at 11am</li>
+            </ul>
+            <ul>
+                <caption>RTO</caption>
+                <li>How long application is unavailable for the service?</li>
+                <li>time taken to recover halted application back to service-able state</li>
+                <li>ex) if RPO = 4 hour and disaster at 12pm, have to cover application til 4pm</li>
+            </ul>
+            <ul>
+                <caption>if region is down</caption>
+                <li>copy the same infrastructure in the different region.</li>
+                <li>or use Amazon Direct Connect(DX)</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">Essential Services and Features of AWS for Disaster Recovery(DR)</h3>
+            <div class="indented">
+                <h4>Storage</h4>
+                <ul>
+                    <li>Storage has to be backed up in the different region.</li>
+                    <li>ex)
+                        <ul>
+                            <li>S3 duplication into different region</li>
+                            <li>Amazon EBS snapshot into S3 and S3 duplication</li>
+                            <li>AWS snowball fast transmission of large volume</li>
+                            <li>Amazon EFS File Sync</li>
+                            <li>Amazon RDS snaphosts into S3 and S3 duplication and multiple AZ for read-only and master</li>
+                            <li>Amazon DynamoDB maximum back-up of tables for 35 days</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>Computing</h4>
+                <ul>
+                    <li>has to generate new instance and boot easily.</li>
+                    <li>ex)
+                        <ul>
+                            <li>EC2 instances using custom AMI made with snapshot</li>
+                            <li>ECS(Containe Service) using custom container Image</li>
+                            <li>AWS snowball fast transmission of large volume</li>
+                            <li>Amazon EFS File Sync</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>Networking</h4>
+                <ul>
+                    <li>ex)
+                        <ul>
+                            <li>Amazon Route 53 handling fault and load-balancing</li>
+                            <li>Elastic Load Balancing health check and load balancing</li>
+                            <li>VPC allows traditional premise environment into cloud</li>
+                            <li>AWS Direct Connect(DX) back-uping on-premise environment using cloud</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>Automation</h4>
+                <ul>
+                    <li>ex)
+                        <ul>
+                            <li>AWS CloudFormation recovering and distributing using templates</li>
+                            <li>AWS Elastic BeanStalk allowing redistribution of the entire stack</li>
+                            <li>AWs OpsWork allows simple management and distribution of application<br>
+                                Working with CloudFormation. Automated Host change
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Recovery Strategy and Services</h3>
+            <ol>
+                <caption>Basic Procedures</caption>
+                <li>Start back up of current system into S3 bucket.</li>
+                <li>specify back up root using S3: AMI, method to restore, turn into new system</li>
+                <li>After disaster,search for back up in S3 and prepare for the required infrastructures.</li>
+                <li>Proceed restoration process.</li>
+            </ol>
+            <div class="indented">
+                <h4>Example_1: back-up and restoration of S3</h4>
+                <img
+                    src="image/day34/strategy_1.png"
+                    width="900"
+                    height="375"
+                    alt="exampl1"
+                >
+                <ul>
+                    <li>Enable life-cylce method of the bucket</li>
+                    <li>Glacier and IA property of duplication into multiple regions help back-up</li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>AWS Storage Gateway</h4>
+                <img
+                    src="image/day34/storageGateway.png"
+                    width="800"
+                    height="400"
+                    alt="exampl2"
+                >
+                <blockquote>
+                    on-premise back-up solution into AWS cloud
+                </blockquote>
+                <ul>
+                    <li>File gateway:storing file into S3</li>
+                    <li>Volume gateway:storing volume file into S3 and EBS snapshot using iSCSI protocol.</li>
+                    <li>Tape gateway:virtual media or tape data stoed in S3 and glacier</li>
+                </ul>
+                <div class="indented">
+                    <h3>Example_1: off-site back-up</h3>
+                    <img
+                        src="image/day34/offSiteBackup.png"
+                        width="900"
+                        height="350"
+                        alt="exmaple1"
+                    >
+                    <ul>
+                        <li>Using storage gateway, on-premise data are stored into S3 buckets</li>
+                        <li>and generate the EBS snapshots</li>
+                    </ul>
+                </div>
+                <div class="indented">
+                    <h3>Example_2:Gate-way storaging</h3>
+                    <img
+                        src="image/day34/gatewayStore.png"
+                        width="900"
+                        height="350"
+                        alt="exmaple1"
+                    >
+                    <ul>
+                        <li>Using storage gateway, on-premise data are stored into S3 buckets</li>
+                    </ul>
+                </div>
+            </div>
+            <img
+                src="image/day34/comparison.png"
+                width="900"
+                height="375"
+                alt="comparison"
+            >
+            <div class="indented">
+                <h4>Pilot Light</h4>
+                <blockquote>
+                    Very cheap, available method for recovery solution.
+                </blockquote>
+                <div class="indented">
+                    <div class="clearB"></div>
+                    <img
+                        src="image/day34/pilotLight_1.png"
+                        width="500"
+                        height="300"
+                        class="floatL"
+                        alt="pilotLight"
+                    >
+                    <img
+                        src="image/day34/pilotLight_2.png"
+                        width="500"
+                        height="300"
+                        class="floatL"
+                        alt="pilotLight"
+                    >
+                    <div class="clearB"></div>
+                </div>
+                <ul>
+                    <li>master one running and recovery one dormant</li>
+                    <li>master one down and recovery one active</li>
+                    <li>set up sync between two ones and their follwing instances.</li>
+                    <li>manage the AMI for fast recovery, and update often</li>
+                    <li>Route 53 enables routing to available one</li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>Fully Working low-capacity standby</h4>
+                <blockquote>
+                    Simlar to pilot light yet more expensive for more active instances.
+                </blockquote>
+                <div class="indented">
+                    <div class="clearB"></div>
+                    <img
+                        src="image/day34/lowVstandby_1.png"
+                        width="600"
+                        height="300"
+                        class="floatL"
+                        alt="lowVstandby_1"
+                    >
+                    <img
+                        src="image/day34/lowVstandby_2.png"
+                        width="600"
+                        height="300"
+                        class="floatL"
+                        alt="lowVstandby_2"
+                    >
+                    <div class="clearB"></div>
+                </div>
+                <ul>
+                   <li>Route53 routes more to master one</li>
+                   <li>When master down,warm standby auto scales to accommodate the demand.</li>
+                   <li>again, sync two models.</li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>Multi-site active-active</h4>
+                <blockquote>
+                    Two identical model running. 
+                </blockquote>
+                <img
+                    src="image/day34/multipleAcAc.png"
+                    width="600"
+                    height="300"
+                    alt="multipleAcAc"
+                >
+                <ul>
+                    <li>always in sync</li>
+                    <li>Immediate recovery</li>
+                    <li>THe most expensive however can be cheaper with reserved instances</li>
+                </ul>
+            </div>
+        </section>`,
     day35:
         `<h2>Automation of Infrastructure</h2>
         <section>
@@ -2952,7 +3335,32 @@ const pages={
              </section>
         </section>`,
     day36:
-        ``,
+        `<h2>Optimisation</h2>
+        <ul>
+            <li>Am I using the right instances?</li>
+            <li>Is my infrastructure expandable?<br>
+                -> auto scaling in place</li>
+            <li>Can I reduce the cost lower?<br>
+                -> use of different instances for appropriate situations.</li>
+            <li>Does my infrastructure have good recovery solution?<br>
+                -> standby of db, using two availbailiy zones, copying the whole model into different region, auto-scaling</li>
+        </ul>
+        <section>
+            <h3 class="centerText">Best cases</h3>
+            <ol>
+                <caption>What makes good case</caption>
+                <li>active expandability</li>
+                <li>automation</li>
+                <li>disposable resources</li>
+                <li>loose assembly of components</li>
+                <li>architecture of service not server</li>
+                <li>Proper database solution</li>
+                <li>prevent of fault within the model</li>
+                <li>cost-optimisation</li>
+                <li>Caching</li>
+                <li>Security in every layer of infrastructure.</li>
+            </ol>
+        </section>`,
     special:
         ` <h2>AWS Cognito</h2>
         <img
