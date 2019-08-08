@@ -3754,7 +3754,65 @@ const pages={
             </ul>
         </section>`,
     day40:
-        ``,
+        `<h2>AutoScaling Recap</h2>
+        <section>
+            <blockquote>
+                 A service adjusting the number of EC2 instances
+                 to meet the changing demand
+            </blockquote>
+            <ul>
+                <li>improve elasticity</li>
+                <li>improce fault-tolerance</li>
+            </ul>
+            <div class="indented">
+                 <h4>autoscaling group</h4>
+                 <blockquote>
+                     A group of EC2 instances to be auto-scaled
+                     based on minimum, maximum, and desired volumes
+                 </blockquote>
+                 <ul>
+                     <li>Health checks ensure that head instances
+                         are replaced with good ones.</li>
+                 </ul>
+            </div>
+        </section>
+        <section>
+             <h4 class="centerText">Configuration</h4>
+             <ul>
+                 <li>you can give template of EC2 congifuration to be launched<br>
+                     :AMI, instance type, key-pair, security group
+                 </li>
+                 <li>need to set up minimum, maximum, and desired volumes</li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">Scaling Policies</h3>
+             <ul>
+                 <li>how much I want to scale</li>
+                 <li>uses CloudWatch alarms and CPU usages.</li>
+                 <li>adjustment types:ChangeInCapacity, ExactCapacity, PercentChangeInCapacity</li>
+             </ul>
+             <div class="indented">
+                 <h4>Simple Scaling</h4>
+                 <ul>
+                     <li>adjusting based on single scaling</li>
+                     <li>May react too much or too slowly to changes.</li>
+                     <li>cool down period</li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>Step Scaling</h4>
+                 <ul>
+                     <li>different conditions and following different scaling adjustment.</li>
+                     <li>proper adjustment according to the change in demand</li>
+                     <li>Ex) If CPU usage higher than 50%, add two instances.</li>
+                 </ul>
+             </div>
+        </section>
+        <section>
+             <h3 class="centerText">Monitoring</h3>
+             You can monitor it using CloudWatch checking CPU usages.
+        </section>`,
     day41:
         ``
 }
