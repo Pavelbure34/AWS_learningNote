@@ -2013,8 +2013,8 @@ const pages={
                          Firewall at the subnet level.
                      </blockquote>
                      <ul>
-                         <li>By default, nobody gets in or gets out.</li>
-                         <li>have to specify inbound and outbound rules.</li>
+                         <li>By default, everyone gets in or gets out.</li>
+                         <li>have to specify inbound and outbound rules for who gets in or who gets out.</li>
                      </ul>
                  </div>
                  <div class="indented">
@@ -3434,5 +3434,163 @@ const pages={
                 <li>We can put DynamoDB,which is serverless db, for our database.</li>
                 <li>We can use DynamoDB accelerator(DAX) as App Cache.</li>
             </ol>
+        </section>`,
+    day37:
+        `<h2>Networking in AWS Cloud</h2>
+        <section>
+            <h3 class="centerText">Virtual Private Cloud(VPC)</h3>
+            Go here for <a href="javascript:nav.day22()">link</a>
+            <ul>
+                <li>For professional development and production, better to use multiple VPC or AWS account.
+                     <div class="indented">
+                         <h4>Multiple VPC</h4>
+                         <img
+                             src="image/day37/multipleVPC.png"
+                             width="900"
+                             height="200"
+                             alt="multipleVPC"
+                         >
+                         <ul>
+                             <li>good for singular team, small organisation</li>
+                             <li>good for easy maintenance of standard status of the infrastructure.</li>
+                         </ul>
+                     </div>
+                     <div class="indented">
+                         <h4>Multiple Account</h4>
+                         <img
+                             src="image/day37/multipleAccount.png"
+                             width="800"
+                             height="300"
+                             alt="multipleAccount"
+                         >
+                         <ul>
+                             <li>good for large organisations with many departments and potentailly growing team</li>
+                         </ul>
+                     </div>
+                 </li>
+                <li>You can by default have maximum 5 VPCs per region.</li>
+                <li>You can divide each availability zone with multiple subnets(5 IP addresses registered by AWS).</li>
+                <li>Always allocate the biggest subnet you have</li>
+                <li>Always allocate more for private subnet.</li>
+            </ul>
+        </section> 
+        <section>
+             <h3 class="centerText">Elastic IP Address</h3>
+             <section>
+                 static public IPv4 address for dynamic computing.
+             </section>
+             <ul>
+                 <li>Maximum 5 per region</li>
+                 <li>attachable to Instance or Network Inteface </li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">Netwroking in AWS cloud</h3>
+             <ul>
+                 <caption>First check...</caption>
+                 <li>VPC has internet gateway</li>
+                 <li>instances has public IP or Elastic Public IP</li>
+                 <li>Security group or NACL is set</li>
+                 <li>Routing table is set</li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">Related Service</h3>
+             <div class="indented">
+                 <h4>Amazon Direct Connect(DX)</h4>
+                 <img
+                     src="image/day37/DX.png"
+                     width="900"
+                     height="400"
+                     alt="DX"
+                 >
+                 <blockquote>
+                     Provide private direct connection in Amazon backbone.
+                 </blockquote>
+                 <ul>
+                     <li>good for hybrid cloud environment, transmission of high volume data, lowering networking cost.</li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>VPC Peering</h4>
+                 <img
+                     src="image/day37/VPCpeering.png"
+                     width="800"
+                     height="400"
+                     alt="peering"
+                 >
+                 <blockquote>
+                     enables Networking among VPCs.
+                 </blockquote>
+                 <ul>
+                     <li>good for multiple VPC production environment.</li>
+                     <li>no need for intennet gateway</li>
+                     <li>High availability</li>
+                     <li>IP addresses have to be different among connected VPCs</li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>VPC endpoint</h4>
+                 <img
+                     src="image/day37/vpcEndpoint.png"
+                     width="930"
+                     height="250"
+                     alt="endpoint"
+                 >
+                 <blockquote>
+                     enables private networking between VPC to external service
+                      without leaving AWS. 
+                 </blockquote>
+                 <ul>
+                     <li>no need for internet gateway,VPN, NAT</li>
+                     <li>High availability</li>
+                     <li>has to be in the same region</li>
+                 </ul>
+             </div>
+             <div class="indented">
+                 <h4>Elastic Load Balancer</h4>
+                 <img
+                     src="image/day37/ELB_option.png"
+                     width="900"
+                     height="350"
+                     alt="ELB"
+                 >
+                 <div class="indented">
+                     <h3>Example1_using two ELBs</h3>
+                     <div class="clearB"></div>
+                     <img
+                         src="image/day37/ELB_example.png"
+                         width="400"
+                         height="300"
+                         class="floatL"
+                         alt="example1"
+                     >
+                     <ul class="floatL">
+                         <li>Customers are only seeing public web application.</li>
+                         <li>backend is not revealed at all.</li>
+                         <li>yet the traffic is well routed.</li>
+                         <li>NAT gateway allows internet connection for private subnet.</li>
+                     </ul>
+                     <div class="clearB"></div>
+                 </div>
+             </div>
+             <div class="indented">
+                 <h4>Amazon Route53</h4>
+                 <img
+                     src="image/day37/route53.png"
+                     width="750"
+                     height="325"
+                     alt="route53"
+                 >
+                 <blockquote>
+                     All-in-one service for web routing and DNS
+                 </blockquote>
+                 <ul>
+                     <li>health check</li>
+                     <li>DNS service</li>
+                     <li>highly available and secure routing</li>
+                     <li>(AWS shield embedded by default)</li>
+                 </ul>
+             </div>
         </section>`
 }
