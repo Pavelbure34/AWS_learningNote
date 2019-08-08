@@ -3695,5 +3695,66 @@ const pages={
             <div class="indented">
                 <h4>Load Balancer for efficient routing and lightenning traffic</h4>
             </div>
-        </section>`
+        </section>`,
+    day39:
+        ` <h2>AWS route53 recap</h2>
+        <section>
+            <blockquote>
+                Highly available and scalable DNS web Service
+            </blockquote>
+            <ul>
+                <caption>it does</caption>
+                <li>register Domain Name</li>
+                <li>Route internet traffic to the resources</li>
+                <li>monitor the health of resourcs</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Domain Name Registration</h4>
+            <ul>
+                <li>automatically creates hosted zones for domain names.</li>
+                <li>AWS orders the domain name for you.</li>
+            </ul>
+        </section>
+        <section>
+            <h4>Hosted Zones</h4>
+            <blockquote>
+                A collection of resources record sets for a specified domain.
+            </blockquote>
+            <ul>
+                <li>Public zone define domain and sub-domain routing for internet traffic</li>
+                <li>Private zone  define domain and sub-domain routing for Amazon VPC:<br>
+                    <emR>need to enable DNSHostNames and enableDNSSupport VPC settings</emR>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <h4>Routing Policies</h4>
+            <ol>
+                <li>Simple routing Policy(for single resources)</li>
+                <li>Weighted Routing Policy:<br>
+                    set up how much traffic goes to each among many resources</li>
+                <li>Latency Routing Policy:<br>
+                    leads the traffic to lightest resources.
+                </li>
+                <li>GeoLocation Routing Policy:<br>
+                    route traffic to the resources geologically close
+                </li>
+                <li>Failover Routing Policy:<br>
+                    route traffic to another one if the other is unhealthy
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h4>DNS failover</h4>
+            <ul>
+                <li>Health check: if unhealthy, notify to CloudWatch alarms</li>
+                <li>Active/Active: redirect traffic to healthy one</li>
+                <li>Active/Standy: redurect traffic to backup-site</li>
+            </ul>
+        </section>`,
+    day40:
+        ``,
+    day41:
+        ``
 }
