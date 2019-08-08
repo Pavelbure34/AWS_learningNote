@@ -1283,12 +1283,19 @@ const pages={
         </section>
         <section>
             <h3 class="centerText">AWS Organisations</h3>
+            <img
+                src="image/day15/AWSorganisation.png"
+                width="700"
+                height="200"
+            >
+            <img
+                src="image/day15/awsOrgTree.png"
+                width="700"
+                height="375"
+            >
             <blockquote>
-                It helps manage users, groups, policies, roles
-                among multiple accounts
-                in the large organisations.
+                A Service helps manage insfrastructure with multiple accounts centrally.
             </blockquote>
-            
         </section>
         <section>
             <h3 class="centerText">AWS CloudTrail</h3>
@@ -1301,6 +1308,28 @@ const pages={
                 <li>AWS can log calls to AWS services from APIs</li>
                 <li>Logs are stored in S3 bucket and can be used for alert security in SNS.</li>
             </ul>
+        </section>
+        <section>
+            <h3 class="centerText">IAM practice in Real work environment</h3>
+            Multiple account models can be controlled with AWS Organisation.<br>
+            <img
+                src="image/day15/multipleAccountExample.png"
+                width="700"
+                height="300"
+                alt="example1"
+            >
+            <div class="indented">
+                <h4>Central Management.(Singular account)</h4>
+            </div>
+            <div class="indented">
+                <h4>Production-Development separation(3 accounts).</h4>
+            </div>
+            <div class="indented">
+                <h4>Multiple Indepenent Departments(Multiple accounts).</h4>
+            </div>
+            <div class="indented">
+                <h4>Central Management including multiple independent projects(multiple accounts).</h4>
+            </div>
         </section>
         <section>
             <h4>Useful tips</h4>
@@ -3592,5 +3621,79 @@ const pages={
                      <li>(AWS shield embedded by default)</li>
                  </ul>
              </div>
+        </section>`,
+    day38:
+        ` <h2>Scaling Strategy in AWS Cloud</h2>
+        In order to accommodate changing demand, AWS cloud has to adjust its size
+        and optimize itself to the demand.
+        <ul>
+            <li>Time based:ex) turnnig off when instance is not needed</li>
+            <li>Volume based:ex) adjusting its size according to demand</li>
+        </ul>
+        <img
+            src="image/day38/elastic.png"
+            width="500"
+            height="375"
+            alt="example"
+        >
+        <section>
+            <h3 class="centerText">Fundamentals of Elasticity of AWS Cloud</h3>
+            <ul>
+                <caption>Essential Service</caption>
+                <li>CloudWatch, CloudTrail, autoScaling, and Elastic load Balancing</li>
+                <li>time based or volume based</li>
+            </ul>
+            <div class="indented">
+                <h4>CloudWatch, CloudTrail for Monitoring</h4>
+                <ul>
+                    <caption>Why Monitor?</caption>
+                    <li>Health check of the infrastrcuture</li>
+                    <li>the source of costs</li>
+                    <li>Security</li>
+                    <li>Application&rsquo;s SPEC</li>
+                </ul>
+                Click here for <a href="javascript:nav.day25()">CloudWatch</a>.
+            </div>
+            <div class="indented">
+                <h4>auto-scaling for adjusting volume</h4>
+                <ul>
+                    <caption>need to set up for</caption>
+                    <li>minimum volume</li>
+                    <li>maximum volume</li>
+                    <li>desired volume</li>
+                    <li><emR>set minimum and maximum well!</emR></li>
+                </ul>
+                <div class="indented">
+                    <h3>Example_1: RDS with auto-scaling</h3>
+                    <img
+                        src="image/day38/RDSscale.png"
+                        width="600"
+                        height="300"
+                    >
+                    <ul>
+                        <li>you have multiple read-only copies auto-scaled</li>
+                        <li>and few write master one with auto-scaler.</li>
+                        <li>they are all in sync.</li>
+                    </ul>
+                </div>
+                <div class="indented">
+                    <h3>Example_2: DynamoDB with auto-scaling</h3>
+                    <img
+                        src="image/day38/dynamoScale.png"
+                        width="700"
+                        height="345"
+                    >
+                    <ul>
+                        <li>When dynamoDB updates thet table, it reports its CPU usages to cloudWatch</li>
+                        <li>When CPU usage in dynamoDB exceeds the threshold, it triggers the alarm.</li>
+                        <li>using SNS, you can get notified.</li>
+                        <li>Then you call for auto-scaling based on the policy</li>
+                        <li>Then you can make auto-scaling modifies the limit of calls and its capacity dynamically.</li>
+                    </ul>
+                </div>
+            </div>  
+            <div class="indented">
+                <h4>Load Balancer for efficient routing and lightenning traffic</h4>
+            </div>
         </section>`
 }

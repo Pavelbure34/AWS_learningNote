@@ -249,6 +249,9 @@ const nav={
     day37:()=>{
         $("#mainArticle").html(pages.day37);
     },
+    day38:()=>{
+        $("#mainArticle").html(pages.day38);
+    },
     special:()=>{
         $("#mainArticle").html(pages.special);
     }
