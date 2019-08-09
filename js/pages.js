@@ -4121,7 +4121,244 @@ const pages={
             </div>
         </section>`,
     day45:
-        ``,
+        `<h2>Data Security Recap</h2>
+        <section>
+             <h4>Compliance</h4>
+             <img
+                 src="image/day45/Compliances.png"
+                 width="435"
+                 height="200"
+                 alt="AWS compliances"
+             >
+             <blockquote>
+                 A seal of official approvement
+             </blockquote>
+             <ul>
+                 <caption>for</caption>
+                 <li>solution for the application that requires certain conditions</li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">Monitoring and Protection</h3>
+             <blockquote>
+                 AWS Monitors:
+                 <ul>
+                     <li>server, netowork usage</li>
+                     <li>port-scanning activities</li>
+                     <li>application usages(CPU)</li>
+                     <li>unauthorized intrusion attempts</li>
+                 </ul>
+                 AWS provide protection against:
+                 <ul>
+                     <li>DDoS</li>
+                     <li>Man in the Middle(MITM) Attack</li>
+                     <li>IP Spoofing</li>
+                     <li>Port Scanning(Contact AWS for testing)</li>
+                     <li>Packet sniffing by tenants</li>
+                 </ul>
+             </blockquote>
+             <div class="indented">
+                 <h4>Protection at Rest</h4>
+                 <img
+                     src="image/day45/protectionAtrest.png"
+                     width="1000"
+                     height="450"
+                     alt="Protection at Rest"
+                 >
+             </div>
+             <div class="indented">
+                 <h4>Protection in Transit</h4>
+                 <img
+                     src="image/day45/protectionAttransit.png"
+                     width="1000"
+                     height="225"
+                     alt="Protection at Transit"
+                 >
+             </div>
+        </section>
+        <section>
+             <h3 class="centerText">Credentials</h3>
+             <ul>
+                 <li>Multi Facfor Authentication(MFA) for password
+                     <ul>
+                         <li>IAM policies</li>
+                         <li>supports hardware tokens and virtual MFA devices</li>
+                     </ul>
+                 </li>
+                 <li>Access Keys: digitally signed in requests to AWS APIs using AWS SDK, CLI, REST/Query</li>
+                 <li>Key Pairs: public/private key pair for access to EC2 instances via SSH
+                     <ul>
+                         <li>own</li>
+                         <li>AWS KMS</li>
+                     </ul>
+                 </li>
+                 <li>X.509 Certificates: for SOAP based requests</li>
+             </ul>
+
+        </section>
+        <section>
+             <h3 class="centerText">Storing and Managing Encryption Keys</h3>
+             <ul>
+                 <li>AWS KMS can create and secure encryption keys.</li>
+                 <li>your key should be stored safely</li>
+                 <li>you can use your own or AWS server-side encryption</li>
+             </ul>
+        </section>`,
     day46:
+        `<h2>AWS Cloud Archtecture</h2>
+        <section>
+            <h3 class="centerText">Architecture Principles and 5 Pillars</h3>
+            <blockquote>
+                <ol>
+                    <caption>Principles</caption>
+                    <li>it should <emR>scale autmatically horizontally</emR></li>
+                    <li>it should <emR>test in production scale</emR></li>
+                    <li>it should <emR>automate the creation and replication of system</emR></li>
+                    <li>it should <emR>allow for evolutionary architect</emR></li>
+                    <li>it should <emR>build data driven architecture(using data to drive improvement)</emR></li>
+                    <li>it should <emR>simulate events in production(ex. chaos monkey)</emR></li>
+                </ol>
+            </blockquote>
+            <div class="indented">
+                <h4>First Pillar:Security</h4>
+                <blockquote>
+                    protection of information, system, assets
+                    with risk assessment and mitigation strategies.
+                </blockquote>
+               <div class="clearB"></div>
+                <ul class="floatL">
+                    <caption>Design Principles</caption>
+                    <li>Least privileges in IAM users</li>
+                    <li>traceability with CloudWatch Logs and CloudTrail</li>
+                    <li>securities in all layers including subnets and instances.</li>
+                    <li>automate security best practices</li>
+                    <li>Focus!</li>
+                </ul>
+                <img
+                    src="image/day45/security.png"
+                    width="400"
+                    height="400"
+                    class="floatL"
+                    alt="security"
+                >
+                <div class="clearB"></div>
+            </div>
+            <div class="indented">
+                <h4>Second Pillar:Reliability</h4>
+                <blockquote>
+                    high availability with fault-tolerance and elasticity.
+                    Configuration Managment
+                </blockquote>
+                <div class="clearB"></div>
+                <ul class="floatL">
+                    <caption>Principles</caption>
+                    <li>test recovery procedures</li>
+                    <li>Automatically recover from failure</li>
+                    <li>Scale horizontally to increase aggregate system availability</li>
+                    <li>Never guess capacity</li>
+                    <li>use automation for changes and manage change in automation<br>
+                        (cloud formation)</li>
+                    <li><emR>nothing is bullet proof</emR></li>
+                </ul>
+                <img
+                    src="image/day46/reliability.png"
+                    width="500"
+                    height="400"
+                    class="floatL"
+                    alt="reliable"
+                >
+                <div class="clearB"></div>
+            </div>
+            <div class="indented">
+                <h4>Third Pillar:Performance Efficiency</h4>
+                <blockquote>
+                    efficieny in terms of accommodating demand changes and technology changes.
+                </blockquote>
+                <div class="clearB"></div>
+                <ul class="floatL">
+                    <caption>Principles</caption>
+                    <li>Advanced tech as service</li>
+                    <li>global in minutes</li>
+                    <li>serverless architectures</li>
+                    <li>experimentation</li>
+                    <li>mechanical sympathy and business alignment</li>
+                </ul>
+                <img
+                    src="image/day46/perEfficient.png"
+                    width="500"
+                    height="400"
+                    class="floatL"
+                    alt="perEFficient"
+                >
+                <div class="clearB"></div>
+            </div>
+            <div class="indented">
+                <h4>Fourth Pillar:Cost Optimisation</h4>
+                <blockquote>
+                    Costs and suboptimal resources.
+                </blockquote>
+                <div class="clearB"></div>
+                <img
+                    src="image/day46/costOpt.png"
+                    width="450"
+                    height="225"
+                    class="floatL"
+                    alt="cost Optimisation"
+                >
+                <img
+                    src="image/day46/graph1.png"
+                    width="335"
+                    height="225"
+                    class="floatL"
+                    alt="graph"
+                >
+                <div class="clearB"></div>
+            </div>
+            <div class="indented">
+                <h4>Fifth Pillar:Operational Excellence</h4>
+                <blockquote>
+                    Max Business Value and continuous improvement.
+                </blockquote>
+                <img
+                    src="image/day46/opExc.png"
+                    width="480"
+                    height="225"
+                    alt="operation excellence"
+                >
+            </div>
+        </section>  
+        <section>
+            <h3 class="centerText">Traditional Architecture Examples</h3>
+            <img
+                src="image/day46/serverModel.png"
+                width="960"
+                height="440"
+                alt="example"
+            >
+            <ol>
+                <li>Route 53 gives DNS domain</li>
+                <li>CloudFront delivers the content fast and to static website in S3</li>
+                <li>Web servers and App servers in the auto scaling group and security groups</li>
+                <li>Elastic Load Balancer lighten the traffic and route efficienctly</li>
+                <li>database has standby-ready one.</li>
+            </ol>
+            <img
+                src="image/day46/serverModel_2.png"
+                width="800"
+                height="350"
+                alt="example2"
+            >
+            <ol>
+                <li>Route 53 gives DNS domain</li>
+                <li>CloudFront delivers the content fast and to static website in S3</li>
+                <li>Web servers and App servers in the auto scaling group and security groups</li>
+                <li>database has standby-ready one.</li>
+                <li>Elastic Load Balancer lighten the traffic and route efficienctly</li>
+                <li>NAT instances in public subnets allow internet connection in private subnet.</li>
+                <li>meme Cach enhanves query efficiency</li>
+                <li>EFS allows multi instances access to single file.</li>
+            </ol>
+        </section>`,
+    day47:
         ``
 }
