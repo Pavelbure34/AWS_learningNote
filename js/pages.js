@@ -3814,5 +3814,314 @@ const pages={
              You can monitor it using CloudWatch checking CPU usages.
         </section>`,
     day41:
+        `<h2>Elastic Load Balancer Recap</h2>
+        <section>
+             <ul>
+                 <caption>Fault-tolerance environment</caption>
+                 <li>ELB must take HTTPS(SSL) as protocols for traffic:
+                     <ul>
+                         <li>my own or AWS Certificate Manager(or with CloudFront)</li>
+                         <li>or use AWS CLI for SSL request</li>
+                         <li>Set up listener to decrypts the SSL within the ELB</li>
+                         <li>ELB then decrypts the SSL and route the traffic.</li>
+                     </ul>
+                 </li>
+                 <li>Server Order Preference enforces the cipher listing based on preference.</li>
+                 <li>Health checks on EC2 instances also in Auto-scaling:<br>
+                     Ping, Response timeout, Health check interval, Unhealthy/healthy threshold</li>
+                 <li>ELB Security Group: Fixed SG.Classical ELB has it soo not many people use it.</li>
+                 <li>Configuration Settings: default 60s. If no data receive, terminate that instance.</li>
+                 <li>Connection Draining:enables in-flight requests.
+                     <ul>
+                         <li>keep existing connection open to de-register or unhealthy instances.</li>
+                         <li>It waits for instances to respond.</li>
+                         <li>IT can be between 1 and 3600 seconds.</li>
+                     </ul>
+                 </li>
+                 <li>Cross-zone load balancing:how load balancer selects an instance.
+                     <ul>
+                         <li>requests are distributed evenmy across the AZs</li>
+                         <li>ELB node chooses regardless of AZ, choosing the best instance.</li>
+                     </ul>
+                 </li>
+                 <li>Proxy Protocol Support:it carries connection information from the source to the destination.
+                     <ul>
+                         <li>Header contains IP address of load balancer.</li>
+                         <li>adds human readable header to request header with connection information(source IP address,etc)</li>
+                         <li>It is in single line.</li>
+                     </ul>
+                 </li>
+                 <li>ELB Sticky Sessions:enables ELB to bind a user session to a specific instance.
+                     <ul>
+                         <li>It will move to healthy one when the previous one is unhealthy.</li>
+                         <ul>
+                             <caption>->Duration Based</caption>
+                             <li>ELB generates cookie called AWSELB mapping session to the instances.</li>
+                             <li>least load used when no cookie is given</li>
+                         </ul>
+                         <ul>
+                             <caption>->Application controlled</caption>
+                             <li>Application creates a cookie with response and ELB inserts a stickiness cookie.</li>
+                             <li>session not struck eve if application does not generate cookie.</li>
+                         </ul>
+                     </ul>
+                 </li>
+                 <li>Monitoring ELB
+                     <ul>
+                         <li>CloudWatch Metrics: ELB measures and sends metrics in every 60 second.
+                             <ul>
+                                 <li>Healthy/unhealthy Host count</li>
+                                 <li>RequestCount,Latency</li>
+                                 <li>Surge Queue Length, SpillOverCount</li>
+                                 <li>HTTP code errors, backendConnectionErrors</li>
+                             </ul>
+                         </li>
+                         <li>Access Logs: log file about 5-60 minute access storable in S3.</li>
+                         <li>CloudTrail: Log API calls.</li>
+                     </ul>
+                 </li>
+                 <li>ELB Trouble Shooting:
+                     <ul>
+                         <li>API,HTTP errors</li>
+                         <li>Response Code Metrics</li>
+                         <li>Health Checks</li>
+                         <li>Instance Registration.</li>
+                     </ul>
+                 </li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">Application Load Balancer</h3>
+             <blockquote>
+                 Load Balancer operating in 7th Application layer
+             </blockquote>
+             <ul>
+                 <li>HTTP/HTTPS,HTTP/2,WebSockets based</li>
+                 <li>VPC only</li>
+             </ul>
+             <div class="indented">
+                 <h4>good for running multiple applications.</h4>
+                 <ul>
+                     <li>It allows routing with mulitple domains<br>
+                         <img
+                             src="image/day41/ALBwithMultiple.png"
+                             width="500"
+                             height="225"
+                             alt="benefit of ALB"
+                         >
+                     </li>
+                     <li>It also allows routing with multiple IP addresses(but with private ones).<br>
+                         <img
+                             src="image/day41/ALBwithMutlipleIP.png"
+                             width="500"
+                             height="225"
+                             alt="benefit of ALB"
+                         >
+                     </li>
+                     <li>It also allows routing for multiple domains within the same instance as microservice architecture.<br>
+                         <img
+                             src="image/day41/ALBwithMicro.png"
+                             width="325"
+                             height="285"
+                             alt="benefit of ALB"
+                         >
+                     </li>
+                     <li>It allows even routing among mutli-containers within the instances.<br> 
+                         <img
+                             src="image/day41/ALBwithContainer.png"
+                             width="325"
+                             height="285"
+                             alt="benefit of ALB"
+                         >
+                     </li>
+                     <img
+                         src="image/day41/listener.png"
+                         width="500"
+                         height="250"
+                         alt="benefit of ALB"
+                     >
+                     <li>Still has listeners(HTTP 80 and HTTPS443)</li>
+                     <li>It has target group. They can be domain, containers, microservices, cluster of instances.</li>
+                     <li>It has Rule of how it routes and forward the request.</li>
+                     <li>Helps reduce in cost when having multiple domain or IP addresses</li>
+                 </ul>
+             </div>
+        </section>
+        <section>
+             <h3 class="centerText">Network Load Balancer</h3>
+             <blockquote>
+                 Load Balancer operating in 4th Network layer
+             </blockquote>
+             <ul>
+                 <li>TCP,WebSockets based</li>
+                 <li>VPC only</li>
+                 <li>can handle millions and sudden surge requests.</li>
+                 <li>Can have static IP or Elastic IP address.</li>
+                 <li>NO SSL termination, Path-bsed,<br>
+                     configuration idle connection timeout, cross zone load balancing,<br>
+                     backend server encryption.
+                 </li>
+                 <li>It has Targets and target groups, support Microservices,
+                      ECS containers and IP address as targets.
+                 </li>
+             </ul>
+        </section>`,
+    day42:
+        `<h2>AWS CloudTrail Recap</h2>
+        <section>
+             <blockquote>
+                 It monitors all the actions in the cloud.
+             </blockquote>
+             <ul>
+                 <li>Record of your API calls from region, User, timestamp, resources involved</li>
+                 <li>Helps you with security, compliance, and troubleshooting</li>
+                 <li>integrable with CloudWatch Logs, alamrs, SNS</li>
+                 <li>this Logs are stored in S3 in JSON format encrypted or not</li>
+             </ul>
+        </section>
+        <section>
+            <div class="indented"></div>
+             <img
+                 src="image/day42/cloudTrail.png"
+                 width="500"
+                 height="250"
+                 class="floatL"
+                 alt="cloudTrail"
+             >
+             <ul class="floatL">
+                 <li>Accessible with Console or CLI</li>
+                 <li>Services linked with CloudTrail</li>
+                 <li>CloudTrail leaves teh logs</li>
+                 <li>Logs are stored in S3, used with SNS Topic, integrated with CloudWatch Logs</li>
+                 <li>CloudWatch Logs can lead to CloudWatch Alarm</li>
+                 <li><emR>VERY useful for monitoring!</emR></li>
+             </ul>
+             <div class="clearB"></div>
+        </section>`,
+    day43:
+        ` <h2>Encryption</h2>
+        <section>
+             <h3 class="centerText">Symmetric</h3>
+             <blockquote>
+                 Same key to encrypt and decrypt
+             </blockquote>
+             <ul>
+                 <li>requires secrecy and agreement to use the same key</li>
+                 <li>prone to interception, and compromise</li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">Asymmetric</h3>
+             <blockquote>
+                 Different keys for encryption and decryption
+             </blockquote>
+             <ul>
+                 <li>for public key encryption</li>
+                 <li>for private key decryption in receiver</li>
+                 <img
+                     src="image/day43/two-way-lock.png"
+                     width="450"
+                     height="150"
+                     alt="two-way-lock"
+                 >
+                 <li>public key private key mathematically linked</li>
+                 <li>Defense against interception and compromise</li>
+                 <li>anyone can encrypt the data with public key<br>
+                     and I can only see it with my private key.
+                 </li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">EC2 Secure Shell</h3>
+             <blockquote>
+                 <ul>
+                     <li>Host key: public</li>
+                     <li>PEM file:private</li>
+                 </ul>
+             </blockquote>
+             <ul>
+                 <li>SSH client inititates a session with EC2 server</li>
+                 <li>key-pair authentication(SSL) for server identity</li>
+                 <li>Symmetric key generated for one-time only and terminated when server is shut down.</li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">AWS Key Management Servic</h3>
+             <blockquote>
+                 Service helping manage encryption keys usd with AWS.
+             </blockquote>
+             <ul>
+                 <li>Single master key secured by AWS(Symmetric)</li>
+                 <li>Stay on AWS and non-downloadable</li>
+                 <li>IAM users must be given with permission to use keys</li>
+                 <li>Permission can be given to other account.</li>
+             </ul>
+        </section>`,
+    day44:
+        ` <h2>AWS API Gateway Recap</h2>
+        <section>
+            <blockquote>
+                Secured gateway for application or web to access for APIs.
+            </blockquote>
+            <ul>
+                <li>What if you get sooo many requests?</li>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">What is Request Throttling?</h3>
+            <img
+                src="image/day44/throttlingGraph.png"
+                width="500"
+                height="175"
+                alt="throttle"
+            >
+            <blockquote>
+                Trouble casused by too many requests
+            </blockquote>
+            <ul>
+                <li>429 error: too many requests.</li>
+                <li>Based on Token bucket algorithm
+                    <ul>
+                        <li>steady state rate of requets/second limit</li>
+                        <li>Burst total number of concurrent requets limit</li>
+                    </ul>
+                </li>
+                <li>Default throttling level is 10,000 steady and 5,000 burst but can increase.</li>
+                <img>
+            </ul>
+        </section>
+        <section>
+            <h3 class="centerText">API Caching</h3>
+            <blockquote>
+                Service Reducing number of calls to end point, latency, costs.
+            </blockquote>
+            <ul>
+                <li>Charged per hour</li>
+                <li>default TTL 300s(5 minute) max 3600s(1hr)</li>
+            </ul>
+            <div class="indented">
+                <h4>Usage Plans</h4>
+                <ul>
+                    <li>Deployed API can be used as product offering</li>
+                    <li>API key
+                        <ul>
+                            <li>identifies individual client</li>
+                            <li>makes throlling and quote limits be enforced on client</li>
+                            <li>is generated in thte console or imported</li>
+                            <li>Requests will require API key when Usage plan enacted</li>
+                        </ul>
+                    </li>
+                    <li>Issues
+                        <ul>
+                            <li>Heroku and NGINX not fully supported in SSL client authentication.</li>
+                        </ul>
+                    </li>
+                    <li>API can be sold as a service on AWS marketplace</li>
+                </ul>
+            </div>
+        </section>`,
+    day45:
+        ``,
+    day46:
         ``
 }

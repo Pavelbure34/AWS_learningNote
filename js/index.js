@@ -261,6 +261,21 @@ const nav={
     day41:()=>{
         $("#mainArticle").html(pages.day41);
     },
+    day42:()=>{
+        $("#mainArticle").html(pages.day42);
+    },
+    day43:()=>{
+        $("#mainArticle").html(pages.day43);
+    },
+    day44:()=>{
+        $("#mainArticle").html(pages.day44);
+    },
+    day45:()=>{
+        $("#mainArticle").html(pages.day45);
+    },
+    day46:()=>{
+        $("#mainArticle").html(pages.day46);
+    },
     special:()=>{
         $("#mainArticle").html(pages.special);
     }
