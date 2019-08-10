@@ -4360,5 +4360,281 @@ const pages={
             </ol>
         </section>`,
     day47:
-        ``
+        `<h2>AWS Cloud Severless Archtecture</h2>
+        <section>
+            <h4>Related Serverless Services</h4>
+            <h3 class="centerText">Serverless Compute Service</h3>
+            <div class="indented">
+                <h4>AWS Lambda</h4>
+                <blockquote>
+                    service running stateless(short lived) serverless applications
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>Amazon API Gateway</h4>
+                <blockquote>
+                    service running fully managed REST API integraing Lambda
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>AWS Step Functions</h4>
+                <blockquote>
+                    service orchestrating serverless work flows
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>AWS Lambda Edge</h4>
+                <blockquote>
+                    service runinng your code in CloudFront edge location
+                    affecting your distribution.
+                </blockquote>
+                <div class="clearB"></div>
+                <img
+                    src="image/day47/lambdaEdge.png"
+                    width="500"
+                    height="170"
+                    class="floatL"
+                    alt="LambdaEdge"
+                >
+                <ul class="floatL">
+                    <caption>if the image is quite large</caption>
+                    <li>lambda resizes the image</li>
+                    <li>or add water-mark</li>
+                    <li>and distribute.</li>
+                </ul>
+                <div class="clearB"></div>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Serverless Data and Edge Delivery Service</h3>
+            <div class="indented">
+                <h4>Amazon DynamoDB</h4>
+                <blockquote>
+                    Serverless fully managed Database service based on NoSQL
+                    <ul>
+                        <li>DynamoDB Accelerator is Cache for DyamoDB</li>
+                    </ul>
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>Amazon S3</h4>
+                <blockquote>
+                    Highly available bucket storage service based on object
+                    <ul>
+                        <li>also for hosting static websites</li>
+                    </ul>
+                </blockquote>
+                
+            </div>
+            <div class="indented">
+                <h4>Amazon CloudFront</h4>
+                <blockquote>
+                    Highly available Content delivery service in Edge location tier.
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>Amazon ElasticSearch</h4>
+                <blockquote>
+                    Fully Managed search engine and analytics tools
+                </blockquote>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Serverless Messaging and Streaming</h3>
+            <div class="indented">
+                <h4>Simple Notification Service</h4>
+                <blockquote>
+                    Serverless message service for push messages on mobile or web for pub/sub
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>Amazon Kinesis</h4>
+                <blockquote>
+                   Serverless Service collecting and processing real time data streamings.
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>Amazon Kinesis Analysis</h4>
+                <blockquote>
+                    Real time analytics using SQL
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>Amazon Kinesis Firehose</h4>
+                <blockquote>
+                   Service transforming and loading streaming data into
+                   Kinesis Analytics, S3, Redshift, and ElasticSearch
+                </blockquote>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Serverless User Management and Identity</h3>
+            <div class="indented">
+                <h4>Amazon Cognito</h4>
+                <blockquote>
+                  Serverless service adding user sign-in and sign-up, user pools and data synchronisaiton store
+                  to the mobile or web application.
+                </blockquote>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Serverless System Monitoring and Deployment</h3>
+            <div class="indented">
+                <h4>AWS Serverless Application Model(SAM)</h4>
+                <blockquote>
+                    Model for defining serverless application in CloudFormation template
+                </blockquote>
+                <ul>
+                    <li>uses SAM in <emB>Transform</emB> setion to simplify the declaration of serverless resources.</li>
+                </ul>
+            </div>
+            <div class="indented">
+                <h4>AWS CloudWatch</h4>
+                <blockquote>
+                    Metrics and logs
+                </blockquote>
+            </div>
+            <div class="indented">
+                <h4>AWS X-Ray</h4>
+                <img
+                    src="image/day47/xray.png"
+                    width="1100"
+                    height="250"
+                    alt="xray"
+                >
+                <blockquote>
+                    Serverless service analysing and debugging applications with tracing and service maps
+                </blockquote>
+            </div>
+        </section>
+        <section>
+            <h3 class="centerText">Serverless Architecture Example</h3>
+            <section class="indented">
+                <h4>RESTful MicroService</h4>
+                <img
+                    src="image/day47/restFul.png"
+                    width="800"
+                    height="300"
+                    alt="restFUL"
+                >
+                <ol>
+                    <caption>Suppose you have mobile and web application...</caption>
+                    <li>Amazon Cognito does user authentication and user pool service.</li>
+                    <li>Amazon API Gateway integrated with Cognito can controll user access to resources.</li>
+                    <li>AWS Lambda with roles given by IAM will interact with CloudWatch Logs and DynamoDB</li>
+                    <li>API Cache in front of the API gateway and DynamoDB Accelerator in front of DynamoDB would improve the efficiency.</li>
+                </ol>
+            </section>
+            <section class="indented">
+                <h4>Serverless Web hosting with S3</h4>
+                <div class="clearB"></div>
+                <img
+                    src="image/day47/s3_hosting.png"
+                    width="480"
+                    height="250"
+                    class="floatL"
+                    alt="restFUL"
+                >
+               <ul class="floatL">
+                   <li>S3 bucket hosts static website</li>
+                   <li>CloudFront and Certificate Manager adds SSL(HTTPS) to your website and quick access</li>
+                   <li>Cognito gives user pool, user-sign in, user sign out functionality.</li>
+                   <li>API gateway and Lambda gives serverless, secure, and effective access to AWS resources</li>
+               </ul>
+               <div class="clearB"></div>
+            </section>
+            <section class="indented">
+                <h4>Serverless and Server Hybrid Architecture</h4>
+                <div class="clearB"></div>
+                <img
+                    src="image/day47/serverlessHybrid.png"
+                    width="550"
+                    height="250"
+                    class="floatL"
+                    alt="hybrid"
+                >
+                <ul class="floatL">
+                    <li>by default, lambda cannot access to resources in the private subnet.</li>
+                    <li>need to define security group, private subnet, and accessible<br>
+                         resources after launching Lambda functions.</li>
+                    <li>Lambda will orchestrate Elastic Network Interface to private subnet for access</li>
+                    <li>VPC end point leads to S3 bucket.</li>
+                    <li>Lambda function will need role to access RDS<br>
+                         if RDS is launched, same for others</li>
+                    <li>this architecture is purely desgined<br>
+                         for connection to resources from serverless to server</li>
+                </ul>
+                <div class="clearB"></div>
+            </section>
+        </section>
+        <section>
+            <h3 class="centerText">AWS Serverless Mobile/Web Backends</h3>
+            <div class="clearB"></div>
+            <img
+                src="image/day47/mobileBackends.png"
+                width="500"
+                height="300"
+                class="floatL"
+                alt="mobile"
+            >
+            <ul class="floatL">
+                <li>AWS Cognito allows sign-in and sign out, user pool<br>
+                        storing profile and user information to your application.</li>
+                <li>Amazon S3 allows you to upload data and cloudFront allws you to get it fast.</li>
+                <li>AWS Lambda intermedates between application and ElasticSearch for efficient searching.</li>
+                <li>API gateway allows secure access to AWS APIs and its resources.</li>
+                <li>Cache improve efficiency of service by storing frequently sought data</li>
+                <li>SNS gives you notification.</li>
+            </ul>
+            <div class="clearB"></div>
+        </section>`,
+    day48:
+        `<h2>AWS Direct Connect(DX)</h2>
+        <div class="clearB"></div>
+        <img
+            src="image/day48/example1.png"
+            width="400"
+            height="600"
+            class="floatL"
+            alt="example1"
+        >
+        <section class="floatL">
+            <blockquote>
+                Service providing physical, fast, direct connection to
+                AWS backbone network between on-premise network to AWS.
+            </blockquote>
+            <div class="indented">
+                <h4>Requirement</h4>
+                <ul>
+                    <li>VPN Gateway in your VPC</li>
+                    <li>Customer router at your premises
+                        <ul>
+                            <li>public: using S3 Public IP address</li>
+                            <li>Private</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <ul>
+                <li>can be partitioned into multiple virtual interfaces</li>
+                <li>Redundancy with failover to VPN connection.</li>
+            </ul>
+            <section>
+                <h4>Example_1:</h4>
+                <ul>
+                    <li>It is directed to AWS DX router and Customer/Partner Router.</li>
+                    <li>Customer Router Firewall connect to Customer network and DMZ.</li>
+                </ul>
+            </section>
+        </section>
+        <div class="clearB"></div>
+        <section>
+            <h3 class="centerText">Connection Process</h3>
+            <ol>
+                <li>Request for connection in console</li>
+                <li>once request is confirmed, letter of authorisation is sent.</li>
+                <li>Provide LOA-CFA to APN partner or service provider for connection on your behalf</li>
+                <li>When connection is up, use console to configure virtual interfaces for network connectivity.</li>
+            </ol>
+        </section>`
 }
