@@ -4636,5 +4636,121 @@ const pages={
                 <li>Provide LOA-CFA to APN partner or service provider for connection on your behalf</li>
                 <li>When connection is up, use console to configure virtual interfaces for network connectivity.</li>
             </ol>
-        </section>`
+        </section>`,
+    day49:
+        ` <h2>Back-up and Recovery Solutions</h2>
+        <section>
+             <h3 class="centerText">RTO/RTP</h3>
+             <img
+                 src="image/day34/rto_rpo.png"
+                 width="800"
+                 height="350"
+                 alt="example"
+             >
+             <blockquote>
+                 RPO = Recovery Point Objective<br>
+                 RTO = Recovery Time Objective
+             </blockquote>
+             <ul>
+                 <caption>RPO</caption>
+                 <li>How often you back-up your data?</li>
+                 <li>value for accommodatable lost-data measured with time.</li>
+                 <li>High backup frequency means low RPO.</li>
+                 <li>ex) if RPO = 1 hour and disaster at 12pm, have to recover data at 11am</li>
+             </ul>
+             <ul>
+                 <caption>RTO</caption>
+                 <li>How long application is unavailable for the service?</li>
+                 <li>time taken to recover halted application back to service-able state</li>
+                 <li>ex) if RPO = 4 hour and disaster at 12pm, have to cover application til 4pm</li>
+             </ul>
+             <ul>
+                 <caption>if region is down</caption>
+                 <li>copy the same infrastructure in the different region.</li>
+                 <li>or use Amazon Direct Connect(DX)</li>
+             </ul>
+         </section>
+         <section>
+             <h3 class="centerText">Full Versus Incremental Backup</h3>
+             <div class="clearB"></div>
+             <div class="floatL">
+                 <h4>Full Backup</h4>
+                 <ul>
+                     <li>capturing the entire system</li>
+                     <li>requires large disk space</li>
+                     <li>FAST RTO</li>
+                     <li>POOR RPO</li>
+                 </ul>
+             </div>
+             <div class="floatL">
+                 <h4>Incremental Backup</h4>
+                 <ul>
+                     <li>Captures only changes made since the last backup</li>
+                     <li>requires the less disk</li>
+                     <li>good RPO, slower RTO.</li>
+                 </ul>
+             </div>
+             <div class="clearB"></div>
+         </section>
+        <section>
+             <h3 class="centerText">RAID</h3>
+             <img
+                 src="image/day34/RAID.png"
+                 width="800"
+                 height="450"
+                 alt="RAID"
+             >
+             <blockquote>
+                 Redundant Array of Inexpensive Disks(RAID)
+             </blockquote>
+             <div class="clearB"></div>
+             <div class="floatL">
+                 <h4>Striping-RAID 0</h4>
+                 <ul>
+                     <li>No Redundancy</li>
+                     <li>High storage utilisation</li>
+                     <li>Distribution into multiple areas</li>
+                 </ul>
+             </div>
+             <div class="floatL">
+                 <h4>Mirroring-RAID 1</h4>
+                 <ul>
+                     <li>High Redundancy</li>
+                     <li>Low storage utilisation</li>
+                 </ul>
+             </div>
+             <div class="clearB"></div>
+        </section> 
+        <section>
+             <h3 class="centerText">EC2 recovery solution</h3>
+             <ul>
+                 <li>Register AMI and save to S3</li>
+                 <li>EBS snapshots to S3 or copy EBS into different region.</li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">RDS recovery solution</h3>
+             <ul>
+                 <li>Save snapshots in S3 and replicate that S3 bucket.</li>
+                 <li>automated back-ups(periodic backup) or user-initiated snapshots</li>
+             </ul>
+        </section>
+        <section>
+             <h3 class="centerText">DynamoDB recovery solution</h3>
+             <ul>
+                 <li>Access through console.</li>
+                 <li>Export table data and log files to S3</li>
+                 <li>Decide how much of table is to be provisioned to allocate to export process<br>
+                     (10~100 percent increment by 5 percent)</li>
+                 <li>Can be set up to dily export</li>
+                 <li>simple import back to table</li>
+             </ul>
+         </section>
+        <section>
+             <h3 class="centerText">S3/Glacier recovery solution</h3>
+             <ul>
+                 <li>S3 can be restored from Glacier in 3-5 hours</li>
+                 <li>or duplication into different region.</li>
+             </ul>
+         </section>`
 }
