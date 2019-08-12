@@ -287,5 +287,23 @@ const nav={
     },
     special:()=>{
         $("#mainArticle").html(pages.special);
+    },
+    special_1:()=>{
+        $("#mainArticle").html(pages.special_1);
+    }
+}
+
+const LabNote = {
+    day01:()=>{
+        $("#mainArticle").html(lab.day01);
+    },
+    day02:()=>{
+        $("#mainArticle").html(lab.day02);
+    },
+    day03:()=>{
+        $("#mainArticle").html(lab.day03);
+    },
+    day04:()=>{
+        $("#mainArticle").html(lab.day04);
     }
 }

@@ -4,6 +4,7 @@
         <meta charset="utf-8"/>
         <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
         <script src="./js/pages.js"></script>
+        <script src="js/lab.js"></script>
         <script src="./js/index.js"></script>
         <link rel="stylesheet" href="./css/index.css">
         <title>AWS tutorials</title>
@@ -12,19 +13,53 @@
         <div id="header">
             <h1 class="centerText">AWS Tutorials</h1>
             <nav>
-                <ul>
-                    <li><a href="javascript:nav.orientation()">OT.Why we should study AWS!</a></li>
-                    <ul>
-                        <caption>Official Manual Lessons</caption>
-                        <li><a href="javascript:nav.day32()">day32.Serverless Architecture</a></li>
-                        <li><a href="javascript:nav.day33()">day33.Micro Architecture</a></li>
-                        <li><a href="javascript:nav.day34()">day34.RTO/RTP and Recovery Solution</a></li>
-                        <li><a href="javascript:nav.day35()">day35.Automation of Infrastructure</a></li>
-                        <li><a href="javascript:nav.day31()">day31.Caching</a></li>
-                        <li><a href="javascript:nav.day36()">day36.Optimisation</a></li>
-                        <li><a href="javascript:nav.day37()">day37.Networking in AWS Cloud</a></li>
-                        <li><a href="javascript:nav.day38()">day38.Scaling Strategy in AWS Cloud</a></li>
-                    </ul>
+                <div class="clearB"></div>
+                <ul class="floatL">
+                    <caption>Official Manual Lessons</caption>
+                    <li><a href="javascript:nav.day32()">day32.Serverless Architecture</a></li>
+                    <li><a href="javascript:nav.day33()">day33.Micro Architecture</a></li>
+                    <li><a href="javascript:nav.day34()">day34.RTO/RTP and Recovery Solution</a></li>
+                    <li><a href="javascript:nav.day35()">day35.Automation of Infrastructure</a></li>
+                    <li><a href="javascript:nav.day31()">day31.Caching</a></li>
+                    <li><a href="javascript:nav.day36()">day36.Optimisation</a></li>
+                    <li><a href="javascript:nav.day37()">day37.Networking in AWS Cloud</a></li>
+                    <li><a href="javascript:nav.day38()">day38.Scaling Strategy in AWS Cloud</a></li>
+                </ul>
+                <ul class="floatL">
+                    <caption>Fundamentals Lab Session</caption>
+                    <li><a href="javascript:labNote.day01()">day01.</a></li>
+                    <li><a href="javascript:labNote.day02()">day02.</a></li>
+                    <li><a href="javascript:labNote.day03()">day03.</a></li>
+                    <li><a href="javascript:labNote.day04()">day04.</a></li>
+                </ul>
+                <ul class="floatL">
+                    <caption>Solution Architect Associate Lab Session</caption>
+                    <li><a href="javascript:labNote.day01()">day01.3Tier HA/FT VPC architecture Lab</a></li>
+                    <li><a href="javascript:labNote.day02()">day02.</a></li>
+                    <li><a href="javascript:labNote.day03()">day03.</a></li>
+                    <li><a href="javascript:labNote.day04()">day04.</a></li>
+                </ul>
+                <div class="clearB"></div>
+                <ul class="floatL">
+                    <caption>Developer Associate Lab Session</caption>
+                    <li><a href="javascript:labNote.day01()">day01.3Tier HA/FT VPC architecture Lab</a></li>
+                    <li><a href="javascript:labNote.day02()">day02.</a></li>
+                    <li><a href="javascript:labNote.day03()">day03.</a></li>
+                    <li><a href="javascript:labNote.day04()">day04.</a></li>
+                </ul>
+                <ul class="floatL">
+                    <caption>SysOps Associate Lab Session</caption>
+                    <li><a href="javascript:labNote.day01()">day01.3Tier HA/FT VPC architecture Lab</a></li>
+                    <li><a href="javascript:labNote.day02()">day02.</a></li>
+                    <li><a href="javascript:labNote.day03()">day03.</a></li>
+                    <li><a href="javascript:labNote.day04()">day04.</a></li>
+                </ul>
+                <ul class="floatL">
+                    <caption>DevOps Associate Lab Session</caption>
+                    <li><a href="javascript:labNote.day01()">day01.</a></li>
+                    <li><a href="javascript:labNote.day02()">day02.</a></li>
+                    <li><a href="javascript:labNote.day03()">day03.</a></li>
+                    <li><a href="javascript:labNote.day04()">day04.</a></li>
                 </ul>
                 <div class="clearB"></div>
                 <ul class="floatL">
@@ -59,6 +94,7 @@
                     <li><a href="javascript:nav.day28()">day28.AWS Simple WorkFlow Service(SWS)</a></li>
                     <li><a href="javascript:nav.day29()">day29.AWS Big Data Solution</a></li>
                     <li><a href="javascript:nav.day30()">day30.AWS API Gateway</a></li>
+                    <li><a href="javascript:nav.special_1()">ETC.NACL</a></li>
                     <li><a href="javascript:nav.special()">ETC.AWS Cognito</a></li>
                 </ul>
                 <section class="floatL">
@@ -107,13 +143,147 @@
             </nav>
         </div>
         <article id="mainArticle">
-           
-          
+            <h2>3 tier HA/FT VPC Lab</h2>
+            <section>
+                <div class="clearB"></div>
+                <img
+                    src="image/lab/day01/exampleArchitecture.png"
+                    width="475"
+                    height="300"
+                    class="floatL"
+                    alt="lab architecture"
+                >
+                <blockquote class="floatL">
+                    <ol>
+                        <caption>this lab, we will</caption>
+                        <li>Create 3 tier VPC with public and private subnets, NAT instace, end point to S3</li>
+                        <li>Secure VPC resources with Security Groups</li>
+                        <li>Monitor VPC with VPC Flow Logs</li>
+                        <li>Add elastic Network interface to another instances</li>
+                        <li>Higher availability with Multi AZs</li>
+                        <li>Create Application ELB and Auto Scaling Group</li>
+                        <li>Launch Multi AZ Aurora Cluster set up</li>
+                        <li>Launch cloud9 and launch Bastion Host connnected to RDS aurora instance</li>
+                        <li>Create NACLs</li>
+                        <li></li>
+                    </ol>
+                </blockquote>
+                <div class="clearB"></div>
+            </section>
+            <section>
+                <h4>1. Create 3 tier VPC with public and private subnets, NAT instace, end point to S3</h4>
+                <ol>
+                    <li>Create VPC</li>
+                    <li>Create Subnets</li>
+                    <li>Create Route Table for subnets</li>
+                </ol>
+            </section>
+            <section>
+                <h4>2. Secure VPC resources with Security Groups</h4>
+                <ul>
+                    <caption>We have made Security group for</caption>
+                    <li>WebServer under ELB</li>
+                    <li>Database WebServer </li>
+                    <li>ELB</li>
+                    <li>NAT instance and Bastion instance</li>
+                </ul>
+            </section>
+            <section>
+                <h4>3.Monitor VPC with VPC Flow Logs</h4>
+                <ul>
+                    <caption>To do so</caption>
+                    <li>capture information of in-out IP traffic from network interface in VPC</li>
+                    <li>create IAM role for VPC flow logs to access CloudWatch</li>
+                    <li>create cloudWatch Log Group to receive Log stream</li>
+                    <li>Create VPC flow log to capture IP traffic and send a stream to log group</li>
+                </ul>
+            </section>
+            <section>
+                <h4>4.Add elastic Network interface to another instances</h4>
+                <ul>
+                    <caption>To do so</caption>
+                    <li>Change ENI not terminated on termination of EC2 which it is attached to</li>
+                    <li>Terminate NAT instace and see if ENI still there</li>
+                    <li>Create a new instancea and disable auto-assign ip<br>
+                        because we use ENI from previous instance and already has public IP.
+                    </li>
+                    <li>When new EC2 instance is created, name it NAT instance!</li>
+                </ul>
+            </section>
+            <section>
+                <h4>5.Higher availability with Multi AZs</h4>
+                <ul>
+                    <caption>To do so</caption>
+                   <li>Make the subnet just like you did before</li>
+                   <li>but name them with B at the end</li>
+                   <li>and set up the route table we made</li>
+                </ul>
+            </section>
+            <section>
+                <h4>6.Create Application ELB and Auto Scaling Group</h4>
+                <ul>
+                    <caption>To do so</caption>
+                    <li>Go to Elastic Load Balancer in EC2 service</li>
+                    <li>click to create a ELB and choose Application Load Balancer</li>
+                    <li>Usually we put HTTTPS and link it with SSL we create but not this time</li>
+                    <li>choose ELB and WEBserver SG as security group</li>
+                    <li>set up Target group</li>
+                    <li>Go to AutoScaling and click Launch Configuration for Auto scaling</li>
+                    <li>After creating launch configuartion, create auto scaling group based on it</li>
+                    <li>set up step scaling policies for increasing and decreasing policies</li>
+                </ul>
+            </section>
+            <section>
+                <h4>7.Launch Multi AZ Aurora Cluster set up</h4>
+                <ul>
+                   <caption>To do so</caption>
+                   <li>go to RDS</li>
+                   <li>click create subnet group</li>
+                   <li>add database private subnet into matching subnet</li>
+                   <li>create database</li>
+                </ul>
+            </section>
+            <section>
+                <h4>8.Launch cloud9 and launch Bastion Host connnected to RDS aurora instance</h4>
+                <ul>
+                    <caption>To do so</caption>
+                    <li>go to  Cloud9 Service</li>
+                    <li>Launch cloud9 EC2 instance in lab VPC and its public subnet</li>
+                    <li>Add DBweb SG for cloud9 instances.</li>
+                    <li>go to cloud9 and upload mySQL_shell downloaded from mySQL website.</li>
+                    <li>connect to RDS aurora instance with end point within the cloud9</li>
+                    <li>now cloud9 works like bastion host for RDS.</li>
+                </ul>
+            </section>
+            <section>
+                <h4>9.Create NACLs</h4>
+                <ul>
+                    <caption>To do so</caption>
+                    <li></li>
+                </ul>
+            </section>
+
+
+
+            <h2>Network Control Access List(NACL)</h2>
+            <blockquote>
+                <ul>
+                    <caption>Basic Properties</caption>
+                    <li>st</li>
+                </ul>
+            </blockquote>
+            <ul>
+                <li></li>
+            </ul>
+        
         </article>
         <a href="#header">click here to go top</a>
         <aside>
             <ul class="circleBulletPt">
                 <h3 class="centerText">Key terms</h3>
+                <li>
+                    <emR>Elastic Network Interfaces</emR>:Network interface card attachalbe and detachable to instances.
+                </li>
                 <li>
                     <emR>AWS AppSync</emR>:GraphQL server.
                 </li>
@@ -178,6 +348,11 @@
             </ul>
             <ul class="circleBulletPt">
                 <h3 class="centerText">Tips</h3>
+                <li>Deny Rule always override the allow rule</li>
+                <li>Cloud9 is good for many reasons. It has all the modules including SSH and AWS CLI, etc.<br>
+                    it is excellent for making bastion host!
+                </li>
+                <li>Amazon Aurora can be in serverless clusters and those clusters have only one end point!</li>
                 <li>For SysOps exam, study Trouble shooting well.</li>
                 <li>Always use latest security policy on ELB</li>
                 <li>AWS recommends multiple VPCs or multiple Accounts for your organisations depending on the size of the company.</li>
