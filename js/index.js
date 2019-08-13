@@ -291,9 +291,9 @@ const nav={
     special_1:()=>{
         $("#mainArticle").html(pages.special_1);
     }
-}
+};
 
-const LabNote = {
+const labNote = {
     day01:()=>{
         $("#mainArticle").html(lab.day01);
     },
@@ -306,4 +306,4 @@ const LabNote = {
     day04:()=>{
         $("#mainArticle").html(lab.day04);
     }
-}
+};

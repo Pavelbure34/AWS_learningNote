@@ -4754,5 +4754,31 @@ const pages={
              </ul>
          </section>`,
     special_1:
-        ``
+        ` <h2>Network Control Access List(NACL)</h2>
+        <blockquote>
+            <ul>
+                <caption>Basic Properties</caption>
+                <li>stateless return traffic must be allowed</li>
+                <li>response may be on ephemeral ports</li>
+                <li>subnet level firewall</li>
+                <li>deny override allow rule</li>
+                <li>default NACL allow all traffic</li>
+            </ul>
+        </blockquote>
+        <div class="indented">
+            <h4>Public subnet NACL</h4>
+            <ul>
+                <li>it should take traffic from wider internet:inbound port 80(HTTP) and port 443(HTTPS)</li>
+                <li>outbound return traffic from HTTP, HTTPS, SSH request on ephemeral ports 1024-65535</li>
+                <li>outbound port 80(HTTP) and port 443(HTTPS) from NAT</li>
+            </ul>
+        </div>
+        <div class="indented">
+            <h4>Private subnet NACL</h4>
+            <ul>
+                <li>It should allow traffic from NAT if internet connectivity is required</li>
+                <li>It does not have to allow traffic from internet connection</li>
+                <li>Mostly used for internal traffic</li>
+            </ul>
+        </div>`
 }
