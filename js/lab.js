@@ -138,9 +138,155 @@ const lab = {
             </ul>
         </section>`,
     day02:
-        ``,
+        `<h2>Implementing ALB</h2>
+        <section>
+            <blockquote>
+                <ol>
+                    <li>create two EC2 servers for WordPress and Magneto</li>
+                    <li>front ALB and apply path based routing.</li>
+                </ol>
+            </blockquote>
+        </section>   
+        <section>
+            <h3>1.create two EC2 servers for WordPress and Magneto</h3>
+            <ul>
+                <li>go to EC2 console in service tap.</li>
+                <li>click for create instance</li>
+                <li>for word press application:
+                    <ol>
+                        <li>go to marketplace and search for WordPress AMI when choosing AMI</li>
+                        <li>select t2 micro(free tier)</li>
+                        <li>for security group, go for the default from now on.</li>
+                        <li>choose backspace key-pair</li>
+                    </ol>
+                </li>
+                <li>for word Magneto application:
+                    <ol>
+                        <li>go to marketplace and search for Magneto AMI when choosing AMI</li>
+                        <li>select t2 micro(free tier)</li>
+                        <li>for security group, go for the default from now on.</li>
+                        <li>choose backspace key-pair</li>
+                    </ol>
+                </li>
+                <li>test your instance by accessing them with their public IP address or end point.</li>
+            </ul>
+        </section>
+        <section>
+            <h3>2.front ALB and apply path based routing.</h3>
+            <ol>
+                <li>go to Load Balancer panel</li>
+                <li>select Target group</li>
+                <li>create Target group
+                    <ol>
+                        <li>for wordPress, name it the same and leave the default setting.</li>
+                        <li>for Magnteto, name it the same and leave the default setting.</li>
+                    </ol>
+                </li>
+                <li>Add Target for the groups we created
+                    <ol>
+                        <li>for wordPress, choose WordPress instance, register and save.</li>
+                        <li>for Magneto, choose Magneto instance, register and save.</li>
+                    </ol>
+                </li>
+                <li>create Load Balancer
+                    <ol>
+                        <li>choose Application Load Balancer(duh)</li>
+                        <li>choose all of the AZs</li>
+                        <li>name it as you want</li>
+                        <li>skip the security setting for now and proceed to security group</li>
+                        <li>choose new SG and proceed.</li>
+                        <li>choose wordPress as target and proceed...until load balancer is created.</li>
+                        <li>go to listener and edit the it.</li>
+                        <li>add rules path  /store/* or /store forwarding to Magneto</li>
+                    </ol>
+                </li>
+                <li>Go to DNS name of Loadbalancer for checking
+                    <ol>
+                        <li>see WordPRess as default routing</li>
+                        <li>go to /store and see Magento site.</li>
+                    </ol>
+                </li>
+                <li>delete Load Balancer, Target Group, and Instances.</li>
+            </ol>
+        </section>
+        <section>
+            This way, you can use Application Load balancer based on route, Container, micro service, domain!
+        </section>`,
     day03:
-        ``,
+        `<h2>Implementing NLB with Autoscaling</h2>
+        <section>
+            <blockquote>
+                <ol>
+                    <caption>We will</caption>
+                    <li>Create A Target Group</li>
+                    <li>Create AutoScaling Group</li>
+                    <li>Set up Network Load Balancer for target group</li>
+                    <li>Clean up</li>
+                </ol>
+            </blockquote>
+        </section>  
+        <section>
+            <h3>1. Create A Target Group</h3>
+            <ol>
+                <li>go to Target group in ELB</li>
+                <li>create Target group
+                    <ol>
+                        <li>name it NetworkELB this time</li>
+                        <li>protocol as TCP since NLB cannot handle HTTP or HTTPS protocols.</li>
+                        <li>click create</li>
+                    </ol>
+                </li>
+            </ol>
+        </section>
+        <section>
+            <h3>2. Create AutoScaling Group</h3>
+            <ol>
+                <li>configure launch congifuration in autoscaling
+                    <ol>
+                        <li>choose Amazon Linux AMI for this case</li>
+                        <li>add TCP and port 80 for security group rule.</li>
+                        <li>click create Autoscalig group based on the configuration</li>
+                    </ol>
+                </li>
+                <li>create auto scaling group
+                    <ol>
+                        <li>name it groupELB for now</li>
+                        <li>add all of the subnet for now</li>
+                        <li>in advanced details, click on receive traffic from load balancer</li>
+                        <li>choose Load balancer Target group and check ELB in health check.</li>
+                        <li>for scaling policy,
+                            <ol>
+                                <caption>for now,</caption>
+                                <li>if CPU utilisaiton above 50percent, increase the instance up to 6.</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li>check if instance has been created by autoscaling group</li>
+            </ol>
+        </section>
+        <section>
+            <h3>3. Set up Network Load Balancer for target group</h3>
+            <ol>
+                <li>go to Load Balancer</li>
+                <li>create Load Balancer
+                    <ol>
+                        <li>choose Network Load Balancer</li>
+                        <li>choose internet facing and choose all AZs</li>
+                        <li>choose target group we created</li>
+                        <li>proceed to create</li>
+                    </ol>
+                </li>
+            </ol>
+        </section> 
+        <section>
+            <h3>4. Clean up</h3>
+            <ol>
+                <li>Delete Load Balancer</li>
+                <li>Delete scaling group</li>
+                <li>Delte Target group</li>
+            </ol>
+        </section>`,
     day04:
         ``
 }
